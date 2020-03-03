@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 3 3
+Sheet 3 5
 Title ""
 Date ""
 Rev ""
@@ -445,17 +445,6 @@ Connection ~ 1650 2500
 Wire Wire Line
 	1650 2500 1650 2450
 $Comp
-L Device:Q_NMOS_DGS Q?
-U 1 1 5E66CACB
-P 2250 3250
-F 0 "Q?" H 2454 3296 50  0000 L CNN
-F 1 "Q_NMOS_DGS" H 2454 3205 50  0000 L CNN
-F 2 "" H 2450 3350 50  0001 C CNN
-F 3 "~" H 2250 3250 50  0001 C CNN
-	1    2250 3250
-	1    0    0    -1  
-$EndComp
-$Comp
 L Device:R R?
 U 1 1 5E66D42D
 P 1650 3800
@@ -602,6 +591,15 @@ Wire Wire Line
 	3500 2500 3150 2500
 Text Notes 7050 6900 0    100  ~ 0
 Connector and support circuit for E-Paper
-Text Notes 3050 3350 0    50   ~ 0
-30V-1A NMOS sufficient, E-Lab has plenty on stock
+$Comp
+L Device:Q_NMOS_GSD Q?
+U 1 1 5E8AA986
+P 2250 3250
+F 0 "Q?" H 2455 3296 50  0000 L CNN
+F 1 "BSS806NL6327" H 2455 3205 50  0000 L CNN
+F 2 "" H 2450 3350 50  0001 C CNN
+F 3 "~" H 2250 3250 50  0001 C CNN
+	1    2250 3250
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC

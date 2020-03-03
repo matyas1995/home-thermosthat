@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 3
+Sheet 1 5
 Title ""
 Date ""
 Rev ""
@@ -353,8 +353,36 @@ Text Label 4700 6400 0    50   ~ 0
 eink-RST
 Text Label 2700 1400 0    50   ~ 0
 eink-RST
-Text Notes 5350 5900 0    50   ~ 0
-The thermostat should never go to deep sleep (does not need it anyways as it is not powered by battery)\nthis also allows some buttons to be attached for off-wifi basic inputs and control
-Text Notes 5550 4400 0    50   ~ 0
-Attach one button for OK/CANCEL to uart pins (use uart only for flashing and initial debug, deactivate later)\nAttach additional control buttons to I²C I/O expander\nMaybe attach a reset button (but be very careful with that)
+$Sheet
+S 5250 1250 1350 1100
+U 5E6A63AE
+F0 "regulator_out" 50
+F1 "regulator_out.sch" 50
+$EndSheet
+$Sheet
+S 6900 2950 2300 150 
+U 5E8AC4D3
+F0 "Power Supply" 50
+F1 "power_supply.sch" 50
+$EndSheet
+Text Notes 6950 3050 0    50   ~ 0
+No extra pins needed since power pins are always global
+Wire Notes Line
+	700  5300 2200 5300
+Wire Notes Line
+	2200 5300 2200 7550
+Wire Notes Line
+	2200 7550 700  7550
+Wire Notes Line
+	700  5300 700  7550
+NoConn ~ 3300 6000
+NoConn ~ 3300 6100
+NoConn ~ 3300 6200
+NoConn ~ 3300 6300
+NoConn ~ 3300 6400
+NoConn ~ 3300 6500
+Text Label 3050 5800 0    50   ~ 0
+ADC
+Wire Wire Line
+	3050 5800 3300 5800
 $EndSCHEMATC
