@@ -19,8 +19,8 @@ $Comp
 L RF_Module:ESP-12F U?
 U 1 1 5E5A73F8
 P 3900 6000
-F 0 "U?" H 3900 6981 50  0000 C CNN
-F 1 "ESP-12F" H 3900 6890 50  0000 C CNN
+F 0 "U?" H 3450 6800 50  0000 C CNN
+F 1 "ESP-12F" H 4250 6800 50  0000 C CNN
 F 2 "RF_Module:ESP-12E" H 3900 6000 50  0001 C CNN
 F 3 "http://wiki.ai-thinker.com/_media/esp8266/esp8266_series_modules_user_manual_v1.1.pdf" H 3550 6100 50  0001 C CNN
 	1    3900 6000
@@ -42,18 +42,14 @@ Wire Wire Line
 $Comp
 L power:+3V3 #PWR?
 U 1 1 5E5A88D5
-P 4100 4950
-F 0 "#PWR?" H 4100 4800 50  0001 C CNN
-F 1 "+3V3" H 4115 5123 50  0000 C CNN
-F 2 "" H 4100 4950 50  0001 C CNN
-F 3 "" H 4100 4950 50  0001 C CNN
-	1    4100 4950
+P 3900 5150
+F 0 "#PWR?" H 3900 5000 50  0001 C CNN
+F 1 "+3V3" H 3915 5323 50  0000 C CNN
+F 2 "" H 3900 5150 50  0001 C CNN
+F 3 "" H 3900 5150 50  0001 C CNN
+	1    3900 5150
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	3900 5200 4100 5200
-Wire Wire Line
-	4100 5200 4100 4950
 Wire Wire Line
 	3300 5400 3050 5400
 Text Label 3050 5400 0    50   ~ 0
@@ -381,8 +377,205 @@ NoConn ~ 3300 6200
 NoConn ~ 3300 6300
 NoConn ~ 3300 6400
 NoConn ~ 3300 6500
-Text Label 3050 5800 0    50   ~ 0
-ADC
+NoConn ~ 3300 5800
+$Comp
+L Timer:MCP7940N-xSN U?
+U 1 1 5E93A4D3
+P 8000 5050
+AR Path="/5E9313E4/5E93A4D3" Ref="U?"  Part="1" 
+AR Path="/5E93A4D3" Ref="U?"  Part="1" 
+F 0 "U?" H 7750 4650 50  0000 C CNN
+F 1 "MCP7940N-xSN" H 8400 4650 50  0000 C CNN
+F 2 "" H 8000 5050 50  0001 C CNN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/20005010F.pdf" H 8000 5050 50  0001 C CNN
+	1    8000 5050
+	1    0    0    -1  
+$EndComp
 Wire Wire Line
-	3050 5800 3300 5800
+	7250 4850 7600 4850
+$Comp
+L Device:Crystal Y?
+U 1 1 5E93A4DD
+P 8600 5050
+AR Path="/5E9313E4/5E93A4DD" Ref="Y?"  Part="1" 
+AR Path="/5E93A4DD" Ref="Y?"  Part="1" 
+F 0 "Y?" V 8554 5181 50  0000 L CNN
+F 1 "32,768KHz" V 8645 5181 50  0000 L CNN
+F 2 "" H 8600 5050 50  0001 C CNN
+F 3 "~" H 8600 5050 50  0001 C CNN
+	1    8600 5050
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	8400 4950 8450 4950
+Wire Wire Line
+	8450 4950 8450 4900
+Wire Wire Line
+	8450 4900 8600 4900
+Connection ~ 8600 4900
+Wire Wire Line
+	8600 4900 9000 4900
+Wire Wire Line
+	8400 5150 8450 5150
+Wire Wire Line
+	8450 5150 8450 5200
+Wire Wire Line
+	8450 5200 8600 5200
+Connection ~ 8600 5200
+Wire Wire Line
+	8600 5200 9000 5200
+$Comp
+L Device:C C?
+U 1 1 5E93A4ED
+P 9200 5300
+AR Path="/5E9313E4/5E93A4ED" Ref="C?"  Part="1" 
+AR Path="/5E93A4ED" Ref="C?"  Part="1" 
+F 0 "C?" V 8948 5300 50  0000 C CNN
+F 1 "C" V 9039 5300 50  0000 C CNN
+F 2 "" H 9238 5150 50  0001 C CNN
+F 3 "~" H 9200 5300 50  0001 C CNN
+	1    9200 5300
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5E93A4F3
+P 9200 4800
+AR Path="/5E9313E4/5E93A4F3" Ref="C?"  Part="1" 
+AR Path="/5E93A4F3" Ref="C?"  Part="1" 
+F 0 "C?" V 8948 4800 50  0000 C CNN
+F 1 "C" V 9039 4800 50  0000 C CNN
+F 2 "" H 9238 4650 50  0001 C CNN
+F 3 "~" H 9200 4800 50  0001 C CNN
+	1    9200 4800
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	9000 4900 9000 4800
+Wire Wire Line
+	9000 4800 9050 4800
+Wire Wire Line
+	9000 5200 9000 5300
+Wire Wire Line
+	9000 5300 9050 5300
+$Comp
+L power:GND #PWR?
+U 1 1 5E93A4FD
+P 9400 4800
+AR Path="/5E9313E4/5E93A4FD" Ref="#PWR?"  Part="1" 
+AR Path="/5E93A4FD" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 9400 4550 50  0001 C CNN
+F 1 "GND" V 9405 4672 50  0000 R CNN
+F 2 "" H 9400 4800 50  0001 C CNN
+F 3 "" H 9400 4800 50  0001 C CNN
+	1    9400 4800
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	9400 4800 9350 4800
+$Comp
+L power:GND #PWR?
+U 1 1 5E93A504
+P 9400 5300
+AR Path="/5E9313E4/5E93A504" Ref="#PWR?"  Part="1" 
+AR Path="/5E93A504" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 9400 5050 50  0001 C CNN
+F 1 "GND" V 9405 5172 50  0000 R CNN
+F 2 "" H 9400 5300 50  0001 C CNN
+F 3 "" H 9400 5300 50  0001 C CNN
+	1    9400 5300
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	9400 5300 9350 5300
+$Comp
+L power:GND #PWR?
+U 1 1 5E93A50B
+P 8000 5500
+AR Path="/5E9313E4/5E93A50B" Ref="#PWR?"  Part="1" 
+AR Path="/5E93A50B" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 8000 5250 50  0001 C CNN
+F 1 "GND" H 8005 5327 50  0000 C CNN
+F 2 "" H 8000 5500 50  0001 C CNN
+F 3 "" H 8000 5500 50  0001 C CNN
+	1    8000 5500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8000 5500 8000 5450
+$Comp
+L power:+3V3 #PWR?
+U 1 1 5E93A512
+P 8000 4600
+AR Path="/5E9313E4/5E93A512" Ref="#PWR?"  Part="1" 
+AR Path="/5E93A512" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 8000 4450 50  0001 C CNN
+F 1 "+3V3" H 8015 4773 50  0000 C CNN
+F 2 "" H 8000 4600 50  0001 C CNN
+F 3 "" H 8000 4600 50  0001 C CNN
+	1    8000 4600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8000 4600 8000 4650
+$Comp
+L Device:Battery_Cell BT?
+U 1 1 5E93A51B
+P 8450 4550
+AR Path="/5E9313E4/5E93A51B" Ref="BT?"  Part="1" 
+AR Path="/5E93A51B" Ref="BT?"  Part="1" 
+F 0 "BT?" H 8568 4646 50  0000 L CNN
+F 1 "Battery_Cell" H 8568 4555 50  0000 L CNN
+F 2 "" V 8450 4610 50  0001 C CNN
+F 3 "~" V 8450 4610 50  0001 C CNN
+	1    8450 4550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8100 4650 8100 4550
+Wire Wire Line
+	8100 4550 8250 4550
+Wire Wire Line
+	8250 4550 8250 4300
+Wire Wire Line
+	8250 4300 8450 4300
+Wire Wire Line
+	8450 4300 8450 4350
+$Comp
+L power:GND #PWR?
+U 1 1 5E93A526
+P 8450 4650
+AR Path="/5E9313E4/5E93A526" Ref="#PWR?"  Part="1" 
+AR Path="/5E93A526" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 8450 4400 50  0001 C CNN
+F 1 "GND" H 8455 4477 50  0000 C CNN
+F 2 "" H 8450 4650 50  0001 C CNN
+F 3 "" H 8450 4650 50  0001 C CNN
+	1    8450 4650
+	1    0    0    -1  
+$EndComp
+Text Label 7250 4850 0    50   ~ 0
+SCL
+Text Label 7250 4950 0    50   ~ 0
+SDA
+Text Label 7250 5150 0    50   ~ 0
+RTC_INT
+Wire Wire Line
+	7250 5150 7600 5150
+Wire Wire Line
+	7250 4950 7600 4950
+Text Notes 7250 4250 0    50   ~ 0
+RTC for timekeeping with battery backup
+Wire Notes Line
+	7200 4150 9750 4150
+Wire Notes Line
+	9750 4150 9750 5750
+Wire Notes Line
+	9750 5750 7200 5750
+Wire Notes Line
+	7200 4150 7200 5750
+Wire Wire Line
+	3900 5150 3900 5200
+Text Notes 8800 4400 0    50   ~ 0
+Maybe use goldcap?
 $EndSCHEMATC

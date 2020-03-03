@@ -506,16 +506,16 @@ pwm_sig
 Wire Wire Line
 	5350 5750 5750 5750
 Wire Wire Line
-	6400 4650 6400 5150
+	6400 5100 6400 5150
 $Comp
 L power:+5V #PWR?
 U 1 1 5E6D86F0
-P 6400 4650
-F 0 "#PWR?" H 6400 4500 50  0001 C CNN
-F 1 "+5V" H 6415 4823 50  0000 C CNN
-F 2 "" H 6400 4650 50  0001 C CNN
-F 3 "" H 6400 4650 50  0001 C CNN
-	1    6400 4650
+P 6400 5100
+F 0 "#PWR?" H 6400 4950 50  0001 C CNN
+F 1 "+5V" H 6415 5273 50  0000 C CNN
+F 2 "" H 6400 5100 50  0001 C CNN
+F 3 "" H 6400 5100 50  0001 C CNN
+	1    6400 5100
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -606,16 +606,16 @@ Wire Wire Line
 $Comp
 L power:+36V #PWR?
 U 1 1 5E7E489A
-P 7450 4650
-F 0 "#PWR?" H 7450 4500 50  0001 C CNN
-F 1 "+36V" H 7465 4823 50  0000 C CNN
-F 2 "" H 7450 4650 50  0001 C CNN
-F 3 "" H 7450 4650 50  0001 C CNN
-	1    7450 4650
+P 7450 5100
+F 0 "#PWR?" H 7450 4950 50  0001 C CNN
+F 1 "+36V" H 7465 5273 50  0000 C CNN
+F 2 "" H 7450 5100 50  0001 C CNN
+F 3 "" H 7450 5100 50  0001 C CNN
+	1    7450 5100
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	7450 4650 7450 5150
+	7450 5100 7450 5150
 Wire Notes Line
 	5300 6450 5300 4400
 Wire Notes Line
@@ -945,7 +945,7 @@ L Device:R R?
 U 1 1 5E8C352B
 P 10500 1100
 F 0 "R?" V 10293 1100 50  0000 C CNN
-F 1 "R" V 10384 1100 50  0000 C CNN
+F 1 "1K6" V 10384 1100 50  0000 C CNN
 F 2 "" V 10430 1100 50  0001 C CNN
 F 3 "~" H 10500 1100 50  0001 C CNN
 	1    10500 1100
@@ -1008,6 +1008,8 @@ $Comp
 L Diode:ZMMxx D?
 U 1 1 5E8EF643
 P 8100 3900
+AR Path="/5E8EF643" Ref="D?"  Part="1" 
+AR Path="/5E6A63AE/5E8EF643" Ref="D?"  Part="1" 
 F 0 "D?" V 8054 3980 50  0000 L CNN
 F 1 "ZMM3V3" V 8145 3980 50  0000 L CNN
 F 2 "Diode_SMD:D_MiniMELF" H 8100 3725 50  0001 C CNN
@@ -1019,6 +1021,8 @@ $Comp
 L Device:R R?
 U 1 1 5E8EF649
 P 7650 3900
+AR Path="/5E8EF649" Ref="R?"  Part="1" 
+AR Path="/5E6A63AE/5E8EF649" Ref="R?"  Part="1" 
 F 0 "R?" H 7720 3946 50  0000 L CNN
 F 1 "1K" H 7720 3855 50  0000 L CNN
 F 2 "" V 7580 3900 50  0001 C CNN
@@ -1030,6 +1034,8 @@ $Comp
 L Device:R R?
 U 1 1 5E8EF64F
 P 7650 3500
+AR Path="/5E8EF64F" Ref="R?"  Part="1" 
+AR Path="/5E6A63AE/5E8EF64F" Ref="R?"  Part="1" 
 F 0 "R?" H 7720 3546 50  0000 L CNN
 F 1 "10K" H 7720 3455 50  0000 L CNN
 F 2 "" V 7580 3500 50  0001 C CNN
@@ -1041,6 +1047,8 @@ $Comp
 L power:GNDA #PWR?
 U 1 1 5E8EF655
 P 7650 4100
+AR Path="/5E8EF655" Ref="#PWR?"  Part="1" 
+AR Path="/5E6A63AE/5E8EF655" Ref="#PWR?"  Part="1" 
 F 0 "#PWR?" H 7650 3850 50  0001 C CNN
 F 1 "GNDA" H 7655 3927 50  0000 C CNN
 F 2 "" H 7650 4100 50  0001 C CNN
@@ -1052,6 +1060,8 @@ $Comp
 L power:GND #PWR?
 U 1 1 5E8EF65B
 P 8100 4100
+AR Path="/5E8EF65B" Ref="#PWR?"  Part="1" 
+AR Path="/5E6A63AE/5E8EF65B" Ref="#PWR?"  Part="1" 
 F 0 "#PWR?" H 8100 3850 50  0001 C CNN
 F 1 "GND" H 8105 3927 50  0000 C CNN
 F 2 "" H 8100 4100 50  0001 C CNN
@@ -1063,6 +1073,8 @@ $Comp
 L power:+36V #PWR?
 U 1 1 5E8EF661
 P 7650 3300
+AR Path="/5E8EF661" Ref="#PWR?"  Part="1" 
+AR Path="/5E6A63AE/5E8EF661" Ref="#PWR?"  Part="1" 
 F 0 "#PWR?" H 7650 3150 50  0001 C CNN
 F 1 "+36V" H 7665 3473 50  0000 C CNN
 F 2 "" H 7650 3300 50  0001 C CNN
@@ -1089,7 +1101,7 @@ Connection ~ 8100 3700
 Text Notes 8200 4100 0    50   ~ 0
 From E-Lab
 Text Notes 7900 3400 0    50   ~ 0
-Heater signals water temp via supply voltage, \nso we feed that through a voltage divider to ESP \nADC input. Zener diode protects against \nunhealthy voltages.
+Heater signals water temp via supply voltage, \nso we feed that through a voltage divider to AVR \nADC input. Zener diode protects against \nunhealthy voltages.
 Wire Wire Line
 	8100 3700 8800 3700
 Wire Wire Line
@@ -1102,8 +1114,6 @@ Wire Wire Line
 	9450 4050 9450 3800
 Wire Wire Line
 	9450 3800 9400 3800
-Text HLabel 9450 3800 2    50   Input ~ 0
-ADC_OUT
 Wire Notes Line
 	7500 3050 9900 3050
 Wire Notes Line
@@ -1114,4 +1124,13 @@ Wire Notes Line
 	7500 3050 7500 4350
 Text Notes 10500 1300 0    50   ~ 0
 1,8V, 2mA
+Text Label 9600 3800 2    50   ~ 0
+ADC
+Wire Wire Line
+	9600 3800 9450 3800
+Connection ~ 9450 3800
+Text Label 2850 2550 2    50   ~ 0
+ADC
+Wire Wire Line
+	2850 2550 2550 2550
 $EndSCHEMATC
