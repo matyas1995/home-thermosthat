@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 5
+Sheet 1 4
 Title ""
 Date ""
 Rev ""
@@ -266,16 +266,6 @@ RXD
 Wire Wire Line
 	4700 5700 4500 5700
 $Sheet
-S 1250 1000 550  500 
-U 5E62DF31
-F0 "USB_UART" 50
-F1 "USB_UART.sch" 50
-F2 "nRST" I L 1250 1100 50 
-F3 "GPIO0" I L 1250 1200 50 
-F4 "RXD" I L 1250 1300 50 
-F5 "TXD" I L 1250 1400 50 
-$EndSheet
-$Sheet
 S 3050 900  550  700 
 U 5E63CFCA
 F0 "Display Connector" 50
@@ -287,22 +277,6 @@ F5 "DC" I L 3050 1300 50
 F6 "RST" I L 3050 1400 50 
 F7 "BUSY" I L 3050 1500 50 
 $EndSheet
-Text Label 900  1100 0    50   ~ 0
-nRST
-Text Label 900  1200 0    50   ~ 0
-GPIO0
-Text Label 900  1300 0    50   ~ 0
-RXD
-Text Label 900  1400 0    50   ~ 0
-TXD
-Wire Wire Line
-	900  1100 1250 1100
-Wire Wire Line
-	900  1200 1250 1200
-Wire Wire Line
-	900  1300 1250 1300
-Wire Wire Line
-	900  1400 1250 1400
 Text Label 2700 1200 0    50   ~ 0
 GPIO15
 Text Label 4700 6100 0    50   ~ 0
@@ -578,4 +552,159 @@ Wire Wire Line
 	3900 5150 3900 5200
 Text Notes 8800 4400 0    50   ~ 0
 Maybe use goldcap?
+$Comp
+L Device:Q_NPN_BCE Q?
+U 1 1 5E94DFC6
+P 2100 2900
+AR Path="/5E94DFC6" Ref="Q?"  Part="1" 
+AR Path="/5E62DF31/5E94DFC6" Ref="Q?"  Part="1" 
+F 0 "Q?" H 2291 2946 50  0000 L CNN
+F 1 "Q_NPN_BCE" H 2291 2855 50  0000 L CNN
+F 2 "" H 2300 3000 50  0001 C CNN
+F 3 "~" H 2100 2900 50  0001 C CNN
+	1    2100 2900
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Device:Q_NPN_BCE Q?
+U 1 1 5E94DFCC
+P 2100 3600
+AR Path="/5E94DFCC" Ref="Q?"  Part="1" 
+AR Path="/5E62DF31/5E94DFCC" Ref="Q?"  Part="1" 
+F 0 "Q?" H 2291 3646 50  0000 L CNN
+F 1 "Q_NPN_BCE" H 2291 3555 50  0000 L CNN
+F 2 "" H 2300 3700 50  0001 C CNN
+F 3 "~" H 2100 3600 50  0001 C CNN
+	1    2100 3600
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5E94DFD2
+P 2500 2900
+AR Path="/5E94DFD2" Ref="R?"  Part="1" 
+AR Path="/5E62DF31/5E94DFD2" Ref="R?"  Part="1" 
+F 0 "R?" V 2293 2900 50  0000 C CNN
+F 1 "10K" V 2384 2900 50  0000 C CNN
+F 2 "" V 2430 2900 50  0001 C CNN
+F 3 "~" H 2500 2900 50  0001 C CNN
+	1    2500 2900
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5E94DFD8
+P 2500 3600
+AR Path="/5E94DFD8" Ref="R?"  Part="1" 
+AR Path="/5E62DF31/5E94DFD8" Ref="R?"  Part="1" 
+F 0 "R?" V 2293 3600 50  0000 C CNN
+F 1 "10K" V 2384 3600 50  0000 C CNN
+F 2 "" V 2430 3600 50  0001 C CNN
+F 3 "~" H 2500 3600 50  0001 C CNN
+	1    2500 3600
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	2350 2900 2300 2900
+Wire Wire Line
+	2000 3100 2000 3150
+Wire Wire Line
+	2000 3350 2000 3400
+Wire Wire Line
+	2650 2900 2700 2900
+Wire Wire Line
+	2700 3350 2700 2900
+Wire Wire Line
+	2000 3350 2700 3350
+Connection ~ 2700 2900
+Wire Wire Line
+	2650 3600 2900 3600
+Wire Wire Line
+	2900 3150 2900 3600
+Wire Wire Line
+	2000 3150 2900 3150
+Connection ~ 2900 3600
+Wire Wire Line
+	2000 2700 2000 2650
+Wire Wire Line
+	2000 2650 1700 2650
+Wire Wire Line
+	2000 3800 2000 3850
+Wire Wire Line
+	2000 3850 1700 3850
+Text Label 3150 2900 2    50   ~ 0
+DTR
+Text Label 3150 3600 2    50   ~ 0
+RTS
+Text Label 1700 2650 0    50   ~ 0
+nRST
+Text Label 1700 3850 0    50   ~ 0
+GPIO0
+$Comp
+L Connector_Generic:Conn_01x06 J?
+U 1 1 5E95132C
+P 3750 3000
+F 0 "J?" H 3830 2992 50  0000 L CNN
+F 1 "Conn_01x06" H 3830 2901 50  0000 L CNN
+F 2 "" H 3750 3000 50  0001 C CNN
+F 3 "~" H 3750 3000 50  0001 C CNN
+	1    3750 3000
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5E951C47
+P 3500 3350
+F 0 "#PWR?" H 3500 3100 50  0001 C CNN
+F 1 "GND" H 3505 3177 50  0000 C CNN
+F 2 "" H 3500 3350 50  0001 C CNN
+F 3 "" H 3500 3350 50  0001 C CNN
+	1    3500 3350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3500 3350 3500 3300
+Wire Wire Line
+	3500 3300 3550 3300
+$Comp
+L power:+3V3 #PWR?
+U 1 1 5E954243
+P 3500 2750
+F 0 "#PWR?" H 3500 2600 50  0001 C CNN
+F 1 "+3V3" H 3515 2923 50  0000 C CNN
+F 2 "" H 3500 2750 50  0001 C CNN
+F 3 "" H 3500 2750 50  0001 C CNN
+	1    3500 2750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3500 2750 3500 2800
+Wire Wire Line
+	3500 2800 3550 2800
+Text Label 3350 3200 0    50   ~ 0
+RXD
+Wire Wire Line
+	3350 3200 3550 3200
+Text Label 3350 3100 0    50   ~ 0
+TXD
+Wire Wire Line
+	3350 3100 3550 3100
+Wire Wire Line
+	2700 2900 3550 2900
+Wire Wire Line
+	3200 3600 3200 3000
+Wire Wire Line
+	3200 3000 3550 3000
+Wire Wire Line
+	2900 3600 3200 3600
+Text Notes 2100 2550 0    50   ~ 0
+ISP programming circuit for ESP\nexternal programmer shall be used,\nMUSBUART from Waveshare
+Wire Notes Line
+	1400 2300 4300 2300
+Wire Notes Line
+	4300 2300 4300 3900
+Wire Notes Line
+	4300 3900 1400 3900
+Wire Notes Line
+	1400 2300 1400 3900
 $EndSCHEMATC
