@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 3 4
+Sheet 2 4
 Title ""
 Date ""
 Rev ""
@@ -602,4 +602,24 @@ F 3 "~" H 2250 3250 50  0001 C CNN
 	1    2250 3250
 	1    0    0    -1  
 $EndComp
+Text Notes 6950 2850 0    50   ~ 0
+FPC24/0,5 connector to display ribbon cable
+Wire Notes Line
+	10650 2550 10650 5700
+Wire Notes Line
+	10650 5700 6550 5700
+Wire Notes Line
+	6550 5700 6550 2550
+Wire Notes Line
+	6550 2550 10650 2550
+Text Notes 1600 1500 0    50   ~ 0
+Bootstrapping display voltage generators
+Wire Notes Line
+	1500 1400 3600 1400
+Wire Notes Line
+	3600 1400 3600 4250
+Wire Notes Line
+	3600 4250 1500 4250
+Wire Notes Line
+	1500 1400 1500 4250
 $EndSCHEMATC
