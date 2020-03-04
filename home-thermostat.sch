@@ -1073,19 +1073,6 @@ F 3 "" H 7700 3500 50  0001 C CNN
 $EndComp
 Connection ~ 7700 3500
 $Comp
-L Regulator_Linear:TPS73133DBV U?
-U 1 1 5EABE9E0
-P 9050 5250
-AR Path="/5E8AC4D3/5EABE9E0" Ref="U?"  Part="1" 
-AR Path="/5EABE9E0" Ref="U?"  Part="1" 
-F 0 "U?" H 9050 5592 50  0000 C CNN
-F 1 "TPS73133DBV / TPS73033" H 9050 5501 50  0000 C CNN
-F 2 "Package_TO_SOT_SMD:SOT-23-5" H 9050 5575 50  0001 C CIN
-F 3 "http://www.ti.com/lit/ds/symlink/tps731.pdf" H 9050 5200 50  0001 C CNN
-	1    9050 5250
-	1    0    0    -1  
-$EndComp
-$Comp
 L Device:C C?
 U 1 1 5EABE9E6
 P 8150 5450
@@ -1100,28 +1087,6 @@ F 3 "~" H 8150 5450 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	8150 5300 8150 5150
-Wire Wire Line
-	8150 5150 8550 5150
-Wire Wire Line
-	8650 5250 8550 5250
-Wire Wire Line
-	8550 5250 8550 5150
-Connection ~ 8550 5150
-Wire Wire Line
-	8550 5150 8650 5150
-$Comp
-L Device:C C?
-U 1 1 5EABE9F2
-P 9550 5450
-AR Path="/5E8AC4D3/5EABE9F2" Ref="C?"  Part="1" 
-AR Path="/5EABE9F2" Ref="C?"  Part="1" 
-F 0 "C?" H 9665 5496 50  0000 L CNN
-F 1 "10n" H 9665 5405 50  0000 L CNN
-F 2 "" H 9588 5300 50  0001 C CNN
-F 3 "~" H 9550 5450 50  0001 C CNN
-	1    9550 5450
-	1    0    0    -1  
-$EndComp
 $Comp
 L Device:C C?
 U 1 1 5EABE9F8
@@ -1137,12 +1102,6 @@ F 3 "~" H 9950 5450 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	9950 5300 9950 5150
-Wire Wire Line
-	9950 5150 9450 5150
-Wire Wire Line
-	9450 5250 9550 5250
-Wire Wire Line
-	9550 5250 9550 5300
 $Comp
 L power:+5V #PWR?
 U 1 1 5EABEA02
@@ -1188,21 +1147,6 @@ Wire Wire Line
 	9950 5650 9950 5600
 $Comp
 L power:GND #PWR?
-U 1 1 5EABEA17
-P 9550 5650
-AR Path="/5E8AC4D3/5EABEA17" Ref="#PWR?"  Part="1" 
-AR Path="/5EABEA17" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 9550 5400 50  0001 C CNN
-F 1 "GND" H 9555 5477 50  0000 C CNN
-F 2 "" H 9550 5650 50  0001 C CNN
-F 3 "" H 9550 5650 50  0001 C CNN
-	1    9550 5650
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	9550 5650 9550 5600
-$Comp
-L power:GND #PWR?
 U 1 1 5EABEA1E
 P 9050 5650
 AR Path="/5E8AC4D3/5EABEA1E" Ref="#PWR?"  Part="1" 
@@ -1214,8 +1158,6 @@ F 3 "" H 9050 5650 50  0001 C CNN
 	1    9050 5650
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	9050 5650 9050 5550
 $Comp
 L power:GND #PWR?
 U 1 1 5EABEA25
@@ -1937,4 +1879,21 @@ Wire Wire Line
 Connection ~ 10500 1100
 Wire Wire Line
 	10500 1100 10500 1200
+$Comp
+L Regulator_Linear:LD1117S33TR_SOT223 U?
+U 1 1 5F0DC12F
+P 9050 5150
+F 0 "U?" H 9050 5392 50  0000 C CNN
+F 1 "LD1117S33TR_SOT223" H 9050 5301 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-223-3_TabPin2" H 9050 5350 50  0001 C CNN
+F 3 "http://www.st.com/st-web-ui/static/active/en/resource/technical/document/datasheet/CD00000544.pdf" H 9150 4900 50  0001 C CNN
+	1    9050 5150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9050 5450 9050 5650
+Wire Wire Line
+	8150 5150 8750 5150
+Wire Wire Line
+	9350 5150 9950 5150
 $EndSCHEMATC
