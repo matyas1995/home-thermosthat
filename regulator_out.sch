@@ -653,17 +653,6 @@ Wire Notes Line
 Wire Notes Line
 	3300 6650 5150 6650
 $Comp
-L Device:Crystal Y?
-U 1 1 5E816AB9
-P 3250 2300
-F 0 "Y?" V 3204 2431 50  0000 L CNN
-F 1 "Crystal" V 3295 2431 50  0000 L CNN
-F 2 "" H 3250 2300 50  0001 C CNN
-F 3 "~" H 3250 2300 50  0001 C CNN
-	1    3250 2300
-	0    1    1    0   
-$EndComp
-$Comp
 L Device:C C?
 U 1 1 5E8178D4
 P 3750 2500
@@ -690,17 +679,9 @@ Wire Wire Line
 Wire Wire Line
 	3050 2250 3050 2100
 Wire Wire Line
-	3050 2100 3250 2100
-Wire Wire Line
-	3250 2150 3250 2100
-Wire Wire Line
 	2550 2350 3050 2350
 Wire Wire Line
 	3050 2350 3050 2500
-Wire Wire Line
-	3050 2500 3250 2500
-Wire Wire Line
-	3250 2450 3250 2500
 Wire Wire Line
 	3900 2100 3950 2100
 Wire Wire Line
@@ -723,12 +704,6 @@ Wire Wire Line
 Connection ~ 3950 2300
 Wire Wire Line
 	3950 2300 3950 2500
-Wire Wire Line
-	3600 2100 3250 2100
-Connection ~ 3250 2100
-Wire Wire Line
-	3600 2500 3250 2500
-Connection ~ 3250 2500
 $Comp
 L Switch:SW_Push SW?
 U 1 1 5E83A3D0
@@ -1141,4 +1116,49 @@ Wire Notes Line
 	4350 600  4350 4650
 Wire Notes Line
 	600  4650 4350 4650
+$Comp
+L Device:Crystal_GND24 Y?
+U 1 1 5F10F6C0
+P 3350 2300
+F 0 "Y?" V 2950 2250 50  0000 L CNN
+F 1 "20MHz" V 3050 2200 50  0000 L CNN
+F 2 "" H 3350 2300 50  0001 C CNN
+F 3 "~" H 3350 2300 50  0001 C CNN
+	1    3350 2300
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	3050 2100 3350 2100
+Wire Wire Line
+	3050 2500 3350 2500
+Wire Wire Line
+	3350 2450 3350 2500
+Connection ~ 3350 2500
+Wire Wire Line
+	3350 2500 3600 2500
+Wire Wire Line
+	3350 2150 3350 2100
+Connection ~ 3350 2100
+Wire Wire Line
+	3350 2100 3600 2100
+Wire Wire Line
+	3150 2300 3150 1800
+Wire Wire Line
+	3150 1800 3350 1800
+Wire Wire Line
+	3550 1800 3550 2300
+$Comp
+L power:GND #PWR?
+U 1 1 5F13907B
+P 3350 1800
+F 0 "#PWR?" H 3350 1550 50  0001 C CNN
+F 1 "GND" H 3355 1627 50  0000 C CNN
+F 2 "" H 3350 1800 50  0001 C CNN
+F 3 "" H 3350 1800 50  0001 C CNN
+	1    3350 1800
+	-1   0    0    1   
+$EndComp
+Connection ~ 3350 1800
+Wire Wire Line
+	3350 1800 3550 1800
 $EndSCHEMATC
