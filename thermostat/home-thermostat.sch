@@ -1898,4 +1898,113 @@ F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/20005192B.pdf" H 10250 2150
 	1    10500 1700
 	1    0    0    -1  
 $EndComp
+$Comp
+L Memory_EEPROM:CAT24C256 U?
+U 1 1 5E6D82CA
+P 4700 6900
+F 0 "U?" H 4450 7150 50  0000 C CNN
+F 1 "AT24C512" H 4950 7150 50  0000 C CNN
+F 2 "" H 4700 6900 50  0001 C CNN
+F 3 "https://www.onsemi.cn/PowerSolutions/document/CAT24C256-D.PDF" H 4700 6900 50  0001 C CNN
+	1    4700 6900
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5E6D923D
+P 4450 6500
+F 0 "C?" V 4198 6500 50  0000 C CNN
+F 1 "C" V 4289 6500 50  0000 C CNN
+F 2 "" H 4488 6350 50  0001 C CNN
+F 3 "~" H 4450 6500 50  0001 C CNN
+	1    4450 6500
+	0    1    1    0   
+$EndComp
+$Comp
+L power:+3V3 #PWR?
+U 1 1 5E6D9ED7
+P 4700 6400
+F 0 "#PWR?" H 4700 6250 50  0001 C CNN
+F 1 "+3V3" H 4715 6573 50  0000 C CNN
+F 2 "" H 4700 6400 50  0001 C CNN
+F 3 "" H 4700 6400 50  0001 C CNN
+	1    4700 6400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4700 6400 4700 6500
+Wire Wire Line
+	4600 6500 4700 6500
+Connection ~ 4700 6500
+Wire Wire Line
+	4700 6500 4700 6600
+$Comp
+L power:GND #PWR?
+U 1 1 5E6F7B23
+P 4250 6500
+F 0 "#PWR?" H 4250 6250 50  0001 C CNN
+F 1 "GND" V 4255 6372 50  0000 R CNN
+F 2 "" H 4250 6500 50  0001 C CNN
+F 3 "" H 4250 6500 50  0001 C CNN
+	1    4250 6500
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	4250 6500 4300 6500
+Wire Wire Line
+	4250 6800 4250 6900
+Wire Wire Line
+	4250 7250 4700 7250
+Wire Wire Line
+	5150 7250 5150 7000
+Wire Wire Line
+	5150 7000 5100 7000
+Wire Wire Line
+	4700 7200 4700 7250
+Connection ~ 4700 7250
+Wire Wire Line
+	4700 7250 5150 7250
+Wire Wire Line
+	4250 6800 4300 6800
+Wire Wire Line
+	4300 6900 4250 6900
+Connection ~ 4250 6900
+Wire Wire Line
+	4250 6900 4250 7000
+Wire Wire Line
+	4300 7000 4250 7000
+Connection ~ 4250 7000
+Wire Wire Line
+	4250 7000 4250 7250
+$Comp
+L power:GND #PWR?
+U 1 1 5E7560C3
+P 4700 7300
+F 0 "#PWR?" H 4700 7050 50  0001 C CNN
+F 1 "GND" H 4705 7127 50  0000 C CNN
+F 2 "" H 4700 7300 50  0001 C CNN
+F 3 "" H 4700 7300 50  0001 C CNN
+	1    4700 7300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4700 7300 4700 7250
+Text Notes 4150 6150 0    50   ~ 0
+EEPROM for off-ESP config
+Wire Notes Line
+	5300 6000 5300 7550
+Wire Notes Line
+	5300 7550 3900 7550
+Wire Notes Line
+	3900 7550 3900 6000
+Wire Notes Line
+	3900 6000 5300 6000
+Text Label 5250 6800 2    50   ~ 0
+SDA
+Wire Wire Line
+	5250 6800 5100 6800
+Text Label 5250 6900 2    50   ~ 0
+SCL
+Wire Wire Line
+	5250 6900 5100 6900
 $EndSCHEMATC
