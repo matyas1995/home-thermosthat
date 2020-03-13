@@ -288,17 +288,6 @@ Wire Notes Line
 Wire Notes Line
 	2050 500  2050 2750
 $Comp
-L Sensor_Temperature:MCP9844 U5
-U 1 1 5E9E58BE
-P 10500 1700
-F 0 "U5" H 10200 2150 50  0000 L CNN
-F 1 "MCP9844" H 10550 2150 50  0000 L CNN
-F 2 "Package_DFN_QFN:DFN-8-1EP_3x2mm_P0.5mm_EP1.36x1.46mm" H 9400 1200 50  0001 C CNN
-F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/20005192B.pdf" H 10250 2150 50  0001 C CNN
-	1    10500 1700
-	1    0    0    -1  
-$EndComp
-$Comp
 L power:+3V3 #PWR0101
 U 1 1 5E954243
 P 6250 1250
@@ -1898,4 +1887,15 @@ F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/20005010F.pdf" H 8000 1750 
 $EndComp
 Wire Wire Line
 	5100 2100 5050 2100
+$Comp
+L Sensor_Temperature:MCP9844x-xMN U?
+U 1 1 5E6CBDB6
+P 10500 1700
+F 0 "U?" H 10200 2150 50  0000 L CNN
+F 1 "MCP9844" H 10550 2150 50  0000 L CNN
+F 2 "Package_DFN_QFN:DFN-8-1EP_3x2mm_P0.5mm_EP1.36x1.46mm" H 9400 1200 50  0001 C CNN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/20005192B.pdf" H 10250 2150 50  0001 C CNN
+	1    10500 1700
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
