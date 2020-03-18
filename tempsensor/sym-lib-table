@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name tempsensor-rescue)(type Legacy)(uri ${KIPRJMOD}/tempsensor-rescue.lib)(options "")(descr ""))
+)
