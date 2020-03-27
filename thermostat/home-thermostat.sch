@@ -219,7 +219,6 @@ Wire Wire Line
 	5450 1850 5450 1400
 Wire Wire Line
 	4750 1850 5450 1850
-Connection ~ 5450 1400
 Wire Wire Line
 	5400 2100 5650 2100
 Wire Wire Line
@@ -235,8 +234,6 @@ Wire Wire Line
 	4750 2300 4750 2350
 Wire Wire Line
 	4750 2350 4450 2350
-Text Label 5900 1400 2    50   ~ 0
-DTR
 Text Label 5900 2100 2    50   ~ 0
 RTS
 Text Label 4450 1150 0    50   ~ 0
@@ -244,23 +241,11 @@ nRST
 Text Label 4450 2350 0    50   ~ 0
 GPIO0
 Wire Wire Line
-	6250 1850 6250 1800
-Wire Wire Line
-	6250 1800 6300 1800
-Wire Wire Line
 	6250 1250 6250 1300
 Wire Wire Line
 	6250 1300 6300 1300
-Text Label 6100 1700 0    50   ~ 0
-RXD
-Wire Wire Line
-	6100 1700 6300 1700
-Text Label 6100 1600 0    50   ~ 0
-TXD
 Wire Wire Line
 	6100 1600 6300 1600
-Wire Wire Line
-	5450 1400 6300 1400
 Wire Wire Line
 	5950 2100 5950 1500
 Wire Wire Line
@@ -296,17 +281,6 @@ F 1 "+3V3" H 6265 1423 50  0000 C CNN
 F 2 "" H 6250 1250 50  0001 C CNN
 F 3 "" H 6250 1250 50  0001 C CNN
 	1    6250 1250
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR0102
-U 1 1 5E951C47
-P 6250 1850
-F 0 "#PWR0102" H 6250 1600 50  0001 C CNN
-F 1 "GND" H 6255 1677 50  0000 C CNN
-F 2 "" H 6250 1850 50  0001 C CNN
-F 3 "" H 6250 1850 50  0001 C CNN
-	1    6250 1850
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -2039,4 +2013,32 @@ F 3 "~" H 10100 3900 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 NoConn ~ 3600 1600
+Text Label 5750 1400 2    50   ~ 0
+DTR
+$Comp
+L power:GND #PWR0102
+U 1 1 5E951C47
+P 6250 1400
+F 0 "#PWR0102" H 6250 1150 50  0001 C CNN
+F 1 "GND" H 6255 1227 50  0000 C CNN
+F 2 "" H 6250 1400 50  0001 C CNN
+F 3 "" H 6250 1400 50  0001 C CNN
+	1    6250 1400
+	0    1    1    0   
+$EndComp
+Text Label 6100 1800 0    50   ~ 0
+TXD
+Text Label 6100 1600 0    50   ~ 0
+RXD
+Wire Wire Line
+	6100 1800 6300 1800
+Wire Wire Line
+	6250 1400 6300 1400
+Wire Wire Line
+	5450 1400 5850 1400
+Wire Wire Line
+	5850 1400 5850 1700
+Wire Wire Line
+	5850 1700 6300 1700
+Connection ~ 5450 1400
 $EndSCHEMATC
