@@ -15,107 +15,6 @@ Comment4 ""
 $EndDescr
 Text Notes 7000 6900 0    100  ~ 0
 Thermostat control board
-Wire Wire Line
-	3000 2350 3000 2300
-Wire Wire Line
-	2400 1000 2150 1000
-Text Label 2150 1000 0    50   ~ 0
-nRST
-Text Label 4000 1900 2    50   ~ 0
-GPIO15
-Wire Wire Line
-	3600 1900 4000 1900
-Text Label 4000 1000 2    50   ~ 0
-GPIO0
-Wire Wire Line
-	4000 1200 3600 1200
-Text Label 4000 1200 2    50   ~ 0
-GPIO2
-Wire Wire Line
-	2150 1200 2400 1200
-Text Label 2150 1200 0    50   ~ 0
-EN
-Wire Wire Line
-	3600 1000 4000 1000
-Wire Wire Line
-	1650 2500 1650 2450
-Wire Wire Line
-	650  900  650  1050
-Wire Wire Line
-	650  2100 700  2100
-Wire Wire Line
-	700  1750 650  1750
-Connection ~ 650  1750
-Wire Wire Line
-	650  1750 650  2100
-Wire Wire Line
-	650  1400 700  1400
-Connection ~ 650  1400
-Wire Wire Line
-	650  1400 650  1750
-Wire Wire Line
-	700  1050 650  1050
-Connection ~ 650  1050
-Wire Wire Line
-	650  1050 650  1400
-Text Label 1350 1050 2    50   ~ 0
-GPIO0
-Text Label 1350 1400 2    50   ~ 0
-GPIO2
-Text Label 1350 1750 2    50   ~ 0
-EN
-Text Label 1050 2100 0    50   ~ 0
-nRST
-Text Label 1050 2450 0    50   ~ 0
-GPIO15
-Wire Wire Line
-	1000 2450 1350 2450
-Wire Wire Line
-	1350 1750 1000 1750
-Wire Wire Line
-	1350 1400 1000 1400
-Wire Wire Line
-	1350 1050 1000 1050
-Wire Wire Line
-	1650 2100 1650 2150
-Wire Wire Line
-	1000 2100 1650 2100
-Wire Wire Line
-	700  2450 650  2450
-Wire Wire Line
-	650  2450 650  2500
-Wire Wire Line
-	1650 1300 1650 1350
-Wire Wire Line
-	1650 1700 1650 1650
-Text Notes 600  600  0    50   ~ 0
-ESP Bootstrapping circuit
-Text Label 4000 1100 2    50   ~ 0
-TXD
-Text Label 4000 1300 2    50   ~ 0
-RXD
-Text Label 4000 1700 2    50   ~ 0
-MOSI
-Wire Wire Line
-	4000 1800 3600 1800
-Wire Wire Line
-	4000 1700 3600 1700
-Text Label 4000 1800 2    50   ~ 0
-SCK
-Text Label 4000 1600 2    50   ~ 0
-MISO
-Wire Wire Line
-	4000 1600 3600 1600
-Text Label 4000 1500 2    50   ~ 0
-SCL
-Text Label 4000 1400 2    50   ~ 0
-SDA
-Wire Wire Line
-	4000 1400 3600 1400
-Wire Wire Line
-	4000 1500 3600 1500
-Text Label 4000 2000 2    50   ~ 0
-eink-RST
 $Sheet
 S 1150 6100 800  500 
 U 5E6A63AE
@@ -126,21 +25,6 @@ F3 "SDA" I L 1150 6300 50
 F4 "pwm_out" I L 1150 6400 50 
 F5 "INT_OUT" I L 1150 6500 50 
 $EndSheet
-Wire Notes Line
-	500  500  2000 500 
-Wire Notes Line
-	2000 500  2000 2750
-Wire Notes Line
-	2000 2750 500  2750
-Wire Notes Line
-	500  500  500  2750
-NoConn ~ 2400 1600
-NoConn ~ 2400 1700
-NoConn ~ 2400 1800
-NoConn ~ 2400 1900
-NoConn ~ 2400 2000
-NoConn ~ 2400 2100
-NoConn ~ 2400 1400
 Wire Wire Line
 	7250 1550 7600 1550
 Wire Wire Line
@@ -203,123 +87,10 @@ Wire Notes Line
 	7200 500  9750 500 
 Wire Notes Line
 	9750 500  9750 2750
-Wire Wire Line
-	3000 750  3000 800 
 Text Notes 8800 1100 0    50   ~ 0
 Maybe use goldcap?
-Wire Wire Line
-	5100 1400 5050 1400
-Wire Wire Line
-	4750 1600 4750 1650
-Wire Wire Line
-	4750 1850 4750 1900
-Wire Wire Line
-	5400 1400 5450 1400
-Wire Wire Line
-	5450 1850 5450 1400
-Wire Wire Line
-	4750 1850 5450 1850
-Wire Wire Line
-	5400 2100 5650 2100
-Wire Wire Line
-	5650 1650 5650 2100
-Wire Wire Line
-	4750 1650 5650 1650
-Connection ~ 5650 2100
-Wire Wire Line
-	4750 1200 4750 1150
-Wire Wire Line
-	4750 1150 4450 1150
-Wire Wire Line
-	4750 2300 4750 2350
-Wire Wire Line
-	4750 2350 4450 2350
-Text Label 5900 2100 2    50   ~ 0
-RTS
-Text Label 4450 1150 0    50   ~ 0
-nRST
-Text Label 4450 2350 0    50   ~ 0
-GPIO0
-Wire Wire Line
-	6250 1250 6250 1300
-Wire Wire Line
-	6250 1300 6300 1300
-Wire Wire Line
-	6100 1600 6300 1600
-Wire Wire Line
-	5950 2100 5950 1500
-Wire Wire Line
-	5950 1500 6300 1500
-Wire Wire Line
-	5650 2100 5950 2100
-Text Notes 4850 900  0    50   ~ 0
-ISP programming circuit for ESP\nexternal programmer shall be used,\nMUSBUART from Waveshare
-Wire Notes Line
-	4250 500  7150 500 
-Wire Notes Line
-	7150 500  7150 2750
-Wire Notes Line
-	7150 2750 4250 2750
-Wire Notes Line
-	4250 500  4250 2750
 Text Notes 10000 750  0    50   ~ 0
 MCP9844 tempsensor
-Wire Notes Line
-	2050 500  4200 500 
-Wire Notes Line
-	4200 500  4200 2750
-Wire Notes Line
-	4200 2750 2050 2750
-Wire Notes Line
-	2050 500  2050 2750
-$Comp
-L power:+3V3 #PWR0101
-U 1 1 5E954243
-P 6250 1250
-F 0 "#PWR0101" H 6250 1100 50  0001 C CNN
-F 1 "+3V3" H 6265 1423 50  0000 C CNN
-F 2 "" H 6250 1250 50  0001 C CNN
-F 3 "" H 6250 1250 50  0001 C CNN
-	1    6250 1250
-	1    0    0    -1  
-$EndComp
-$Comp
-L Connector_Generic:Conn_01x06 J3
-U 1 1 5E95132C
-P 6500 1500
-F 0 "J3" H 6580 1492 50  0000 L CNN
-F 1 "Conn_01x06" H 6580 1401 50  0000 L CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_2x03_P2.54mm_Vertical_SMD" H 6500 1500 50  0001 C CNN
-F 3 "~" H 6500 1500 50  0001 C CNN
-	1    6500 1500
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R R8
-U 1 1 5E94DFD8
-P 5250 2100
-AR Path="/5E94DFD8" Ref="R8"  Part="1" 
-AR Path="/5E62DF31/5E94DFD8" Ref="R?"  Part="1" 
-F 0 "R8" V 5043 2100 50  0000 C CNN
-F 1 "10K" V 5134 2100 50  0000 C CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 5180 2100 50  0001 C CNN
-F 3 "~" H 5250 2100 50  0001 C CNN
-	1    5250 2100
-	0    1    1    0   
-$EndComp
-$Comp
-L Device:R R7
-U 1 1 5E94DFD2
-P 5250 1400
-AR Path="/5E94DFD2" Ref="R7"  Part="1" 
-AR Path="/5E62DF31/5E94DFD2" Ref="R?"  Part="1" 
-F 0 "R7" V 5043 1400 50  0000 C CNN
-F 1 "10K" V 5134 1400 50  0000 C CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 5180 1400 50  0001 C CNN
-F 3 "~" H 5250 1400 50  0001 C CNN
-	1    5250 1400
-	0    1    1    0   
-$EndComp
 $Comp
 L power:GND #PWR?
 U 1 1 5E93A526
@@ -438,171 +209,6 @@ F 3 "~" H 8600 1750 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L power:GND #PWR0108
-U 1 1 5E5B5397
-P 1650 1700
-F 0 "#PWR0108" H 1650 1450 50  0001 C CNN
-F 1 "GND" H 1655 1527 50  0000 C CNN
-F 2 "" H 1650 1700 50  0001 C CNN
-F 3 "" H 1650 1700 50  0001 C CNN
-	1    1650 1700
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+3V3 #PWR0109
-U 1 1 5E5B4C23
-P 1650 1300
-F 0 "#PWR0109" H 1650 1150 50  0001 C CNN
-F 1 "+3V3" H 1665 1473 50  0000 C CNN
-F 2 "" H 1650 1300 50  0001 C CNN
-F 3 "" H 1650 1300 50  0001 C CNN
-	1    1650 1300
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C C4
-U 1 1 5E5B49D3
-P 1650 1500
-F 0 "C4" H 1765 1546 50  0000 L CNN
-F 1 "100u" H 1765 1455 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric" H 1688 1350 50  0001 C CNN
-F 3 "~" H 1650 1500 50  0001 C CNN
-	1    1650 1500
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR0110
-U 1 1 5E5AEE6D
-P 650 2500
-F 0 "#PWR0110" H 650 2250 50  0001 C CNN
-F 1 "GND" H 655 2327 50  0000 C CNN
-F 2 "" H 650 2500 50  0001 C CNN
-F 3 "" H 650 2500 50  0001 C CNN
-	1    650  2500
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R R5
-U 1 1 5E5AE4C2
-P 850 2450
-F 0 "R5" V 643 2450 50  0000 C CNN
-F 1 "10K" V 734 2450 50  0000 C CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 780 2450 50  0001 C CNN
-F 3 "~" H 850 2450 50  0001 C CNN
-	1    850  2450
-	0    1    1    0   
-$EndComp
-$Comp
-L power:GND #PWR0111
-U 1 1 5E5AE018
-P 1650 2500
-F 0 "#PWR0111" H 1650 2250 50  0001 C CNN
-F 1 "GND" H 1655 2327 50  0000 C CNN
-F 2 "" H 1650 2500 50  0001 C CNN
-F 3 "" H 1650 2500 50  0001 C CNN
-	1    1650 2500
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C C5
-U 1 1 5E5ADDD4
-P 1650 2300
-F 0 "C5" H 1765 2346 50  0000 L CNN
-F 1 "100n" H 1765 2255 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 1688 2150 50  0001 C CNN
-F 3 "~" H 1650 2300 50  0001 C CNN
-	1    1650 2300
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R R4
-U 1 1 5E5AB408
-P 850 2100
-F 0 "R4" V 643 2100 50  0000 C CNN
-F 1 "10K" V 734 2100 50  0000 C CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 780 2100 50  0001 C CNN
-F 3 "~" H 850 2100 50  0001 C CNN
-	1    850  2100
-	0    1    1    0   
-$EndComp
-$Comp
-L Device:R R3
-U 1 1 5E5AAE76
-P 850 1750
-F 0 "R3" V 643 1750 50  0000 C CNN
-F 1 "10K" V 734 1750 50  0000 C CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 780 1750 50  0001 C CNN
-F 3 "~" H 850 1750 50  0001 C CNN
-	1    850  1750
-	0    1    1    0   
-$EndComp
-$Comp
-L Device:R R2
-U 1 1 5E5AAAA4
-P 850 1400
-F 0 "R2" V 643 1400 50  0000 C CNN
-F 1 "10K" V 734 1400 50  0000 C CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 780 1400 50  0001 C CNN
-F 3 "~" H 850 1400 50  0001 C CNN
-	1    850  1400
-	0    1    1    0   
-$EndComp
-$Comp
-L Device:R R1
-U 1 1 5E5AA621
-P 850 1050
-F 0 "R1" V 1057 1050 50  0000 C CNN
-F 1 "10K" V 966 1050 50  0000 C CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 780 1050 50  0001 C CNN
-F 3 "~" H 850 1050 50  0001 C CNN
-	1    850  1050
-	0    -1   -1   0   
-$EndComp
-$Comp
-L power:+3V3 #PWR0112
-U 1 1 5E5A9ED3
-P 650 900
-F 0 "#PWR0112" H 650 750 50  0001 C CNN
-F 1 "+3V3" H 665 1073 50  0000 C CNN
-F 2 "" H 650 900 50  0001 C CNN
-F 3 "" H 650 900 50  0001 C CNN
-	1    650  900 
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+3V3 #PWR0113
-U 1 1 5E5A88D5
-P 3000 750
-F 0 "#PWR0113" H 3000 600 50  0001 C CNN
-F 1 "+3V3" H 3015 923 50  0000 C CNN
-F 2 "" H 3000 750 50  0001 C CNN
-F 3 "" H 3000 750 50  0001 C CNN
-	1    3000 750 
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR0114
-U 1 1 5E5A84E0
-P 3000 2350
-F 0 "#PWR0114" H 3000 2100 50  0001 C CNN
-F 1 "GND" H 3005 2177 50  0000 C CNN
-F 2 "" H 3000 2350 50  0001 C CNN
-F 3 "" H 3000 2350 50  0001 C CNN
-	1    3000 2350
-	1    0    0    -1  
-$EndComp
-$Comp
-L RF_Module:ESP-12F U1
-U 1 1 5E5A73F8
-P 3000 1600
-F 0 "U1" H 2550 2400 50  0000 C CNN
-F 1 "ESP-12F" H 3350 2400 50  0000 C CNN
-F 2 "RF_Module:ESP-12E" H 3000 1600 50  0001 C CNN
-F 3 "http://wiki.ai-thinker.com/_media/esp8266/esp8266_series_modules_user_manual_v1.1.pdf" H 2650 1700 50  0001 C CNN
-	1    3000 1600
-	1    0    0    -1  
-$EndComp
-$Comp
 L power:+3V3 #PWR0115
 U 1 1 5E9E7396
 P 10500 1000
@@ -668,28 +274,6 @@ Text Label 9900 1500 0    50   ~ 0
 SCL
 Wire Wire Line
 	9900 1500 10100 1500
-$Comp
-L Device:Q_NPN_BEC Q1
-U 1 1 5E9FAE8A
-P 4850 1400
-F 0 "Q1" H 5041 1446 50  0000 L CNN
-F 1 "BC817" H 5041 1355 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-23" H 5050 1500 50  0001 C CNN
-F 3 "https://www.mouser.de/datasheet/2/916/BC817_SER-1598763.pdf" H 4850 1400 50  0001 C CNN
-	1    4850 1400
-	-1   0    0    -1  
-$EndComp
-$Comp
-L Device:Q_NPN_BEC Q2
-U 1 1 5E9FB588
-P 4850 2100
-F 0 "Q2" H 5041 2146 50  0000 L CNN
-F 1 "BC817" H 5041 2055 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-23" H 5050 2200 50  0001 C CNN
-F 3 "https://www.mouser.de/datasheet/2/916/BC817_SER-1598763.pdf" H 4850 2100 50  0001 C CNN
-	1    4850 2100
-	-1   0    0    -1  
-$EndComp
 Wire Notes Line
 	9800 500  11000 500 
 Wire Notes Line
@@ -773,25 +357,6 @@ Text Label 600  6500 0    50   ~ 0
 AVR_INT
 Wire Wire Line
 	600  6500 1150 6500
-Wire Wire Line
-	3600 2000 4000 2000
-Wire Wire Line
-	3600 1300 4000 1300
-Wire Wire Line
-	3600 1100 4000 1100
-Text Label 3700 2550 0    50   ~ 0
-AVR_INT
-Text Label 3700 2650 0    50   ~ 0
-RTC_INT
-NoConn ~ 10900 1700
-Text Label 3600 2550 2    50   ~ 0
-RXD
-Text Label 3600 2650 2    50   ~ 0
-TXD
-Wire Wire Line
-	3600 2550 3700 2550
-Wire Wire Line
-	3700 2650 3600 2650
 $Comp
 L Regulator_Switching:LM2574M-5 U?
 U 1 1 5EABE96F
@@ -1807,8 +1372,6 @@ F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/20005010F.pdf" H 8000 1750 
 	1    8000 1750
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	5100 2100 5050 2100
 $Comp
 L Sensor_Temperature:MCP9844x-xMN U8
 U 1 1 5E6CBDB6
@@ -2012,33 +1575,8 @@ F 3 "~" H 10100 3900 50  0001 C CNN
 	1    10100 3900
 	1    0    0    -1  
 $EndComp
-NoConn ~ 3600 1600
-Text Label 5750 1400 2    50   ~ 0
-DTR
-$Comp
-L power:GND #PWR0102
-U 1 1 5E951C47
-P 6250 1400
-F 0 "#PWR0102" H 6250 1150 50  0001 C CNN
-F 1 "GND" H 6255 1227 50  0000 C CNN
-F 2 "" H 6250 1400 50  0001 C CNN
-F 3 "" H 6250 1400 50  0001 C CNN
-	1    6250 1400
-	0    1    1    0   
-$EndComp
-Text Label 6100 1800 0    50   ~ 0
-TXD
-Text Label 6100 1600 0    50   ~ 0
-RXD
-Wire Wire Line
-	6100 1800 6300 1800
-Wire Wire Line
-	6250 1400 6300 1400
-Wire Wire Line
-	5450 1400 5850 1400
-Wire Wire Line
-	5850 1400 5850 1700
-Wire Wire Line
-	5850 1700 6300 1700
-Connection ~ 5450 1400
+Text Notes 750  7000 0    50   ~ 0
+Will we do peripherals with AVR or does MKW41Z has enough free pins?\nDo we want to try touch interface with MKW41 or AVR?
+Text Notes 7650 900  0    50   ~ 0
+Do we need this, the MKW41Z also has RTC?\n
 $EndSCHEMATC
