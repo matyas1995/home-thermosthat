@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 3
+Sheet 1 4
 Title ""
 Date ""
 Rev ""
@@ -25,263 +25,6 @@ F3 "SDA" I L 1150 6300 50
 F4 "pwm_out" I L 1150 6400 50 
 F5 "INT_OUT" I L 1150 6500 50 
 $EndSheet
-Wire Wire Line
-	7250 1550 7600 1550
-Wire Wire Line
-	8400 1650 8450 1650
-Wire Wire Line
-	8450 1650 8450 1600
-Wire Wire Line
-	8450 1600 8600 1600
-Connection ~ 8600 1600
-Wire Wire Line
-	8600 1600 9000 1600
-Wire Wire Line
-	8400 1850 8450 1850
-Wire Wire Line
-	8450 1850 8450 1900
-Wire Wire Line
-	8450 1900 8600 1900
-Connection ~ 8600 1900
-Wire Wire Line
-	8600 1900 9000 1900
-Wire Wire Line
-	9000 1600 9000 1500
-Wire Wire Line
-	9000 1500 9050 1500
-Wire Wire Line
-	9000 1900 9000 2000
-Wire Wire Line
-	9000 2000 9050 2000
-Wire Wire Line
-	9400 1500 9350 1500
-Wire Wire Line
-	9400 2000 9350 2000
-Wire Wire Line
-	8000 2200 8000 2150
-Wire Wire Line
-	8000 1250 8000 1300
-Wire Wire Line
-	8100 1350 8100 1250
-Wire Wire Line
-	8100 1250 8250 1250
-Wire Wire Line
-	8250 1250 8250 1000
-Wire Wire Line
-	8250 1000 8450 1000
-Wire Wire Line
-	8450 1000 8450 1050
-Text Label 7250 1550 0    50   ~ 0
-SCL
-Text Label 7250 1650 0    50   ~ 0
-SDA
-Text Label 7250 1850 0    50   ~ 0
-RTC_INT
-Wire Wire Line
-	7250 1850 7600 1850
-Wire Wire Line
-	7250 1650 7600 1650
-Text Notes 7700 750  0    50   ~ 0
-RTC for timekeeping with battery backup
-Wire Notes Line
-	7200 500  9750 500 
-Wire Notes Line
-	9750 500  9750 2750
-Text Notes 8800 1100 0    50   ~ 0
-Maybe use goldcap?
-Text Notes 10000 750  0    50   ~ 0
-MCP9844 tempsensor
-$Comp
-L power:GND #PWR?
-U 1 1 5E93A526
-P 8450 1350
-AR Path="/5E9313E4/5E93A526" Ref="#PWR?"  Part="1" 
-AR Path="/5E93A526" Ref="#PWR0103"  Part="1" 
-F 0 "#PWR0103" H 8450 1100 50  0001 C CNN
-F 1 "GND" H 8455 1177 50  0000 C CNN
-F 2 "" H 8450 1350 50  0001 C CNN
-F 3 "" H 8450 1350 50  0001 C CNN
-	1    8450 1350
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:Battery_Cell BT?
-U 1 1 5E93A51B
-P 8450 1250
-AR Path="/5E9313E4/5E93A51B" Ref="BT?"  Part="1" 
-AR Path="/5E93A51B" Ref="BT1"  Part="1" 
-F 0 "BT1" H 8568 1346 50  0000 L CNN
-F 1 "Battery_Cell" H 8568 1255 50  0000 L CNN
-F 2 "Battery:BatteryHolder_Keystone_3002_1x2032" V 8450 1310 50  0001 C CNN
-F 3 "~" V 8450 1310 50  0001 C CNN
-	1    8450 1250
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+3V3 #PWR?
-U 1 1 5E93A512
-P 8000 1250
-AR Path="/5E9313E4/5E93A512" Ref="#PWR?"  Part="1" 
-AR Path="/5E93A512" Ref="#PWR0104"  Part="1" 
-F 0 "#PWR0104" H 8000 1100 50  0001 C CNN
-F 1 "+3V3" H 8015 1423 50  0000 C CNN
-F 2 "" H 8000 1250 50  0001 C CNN
-F 3 "" H 8000 1250 50  0001 C CNN
-	1    8000 1250
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 5E93A50B
-P 8000 2200
-AR Path="/5E9313E4/5E93A50B" Ref="#PWR?"  Part="1" 
-AR Path="/5E93A50B" Ref="#PWR0105"  Part="1" 
-F 0 "#PWR0105" H 8000 1950 50  0001 C CNN
-F 1 "GND" H 8005 2027 50  0000 C CNN
-F 2 "" H 8000 2200 50  0001 C CNN
-F 3 "" H 8000 2200 50  0001 C CNN
-	1    8000 2200
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 5E93A504
-P 9400 2000
-AR Path="/5E9313E4/5E93A504" Ref="#PWR?"  Part="1" 
-AR Path="/5E93A504" Ref="#PWR0106"  Part="1" 
-F 0 "#PWR0106" H 9400 1750 50  0001 C CNN
-F 1 "GND" V 9405 1872 50  0000 R CNN
-F 2 "" H 9400 2000 50  0001 C CNN
-F 3 "" H 9400 2000 50  0001 C CNN
-	1    9400 2000
-	0    -1   -1   0   
-$EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 5E93A4FD
-P 9400 1500
-AR Path="/5E9313E4/5E93A4FD" Ref="#PWR?"  Part="1" 
-AR Path="/5E93A4FD" Ref="#PWR0107"  Part="1" 
-F 0 "#PWR0107" H 9400 1250 50  0001 C CNN
-F 1 "GND" V 9405 1372 50  0000 R CNN
-F 2 "" H 9400 1500 50  0001 C CNN
-F 3 "" H 9400 1500 50  0001 C CNN
-	1    9400 1500
-	0    -1   -1   0   
-$EndComp
-$Comp
-L Device:C C?
-U 1 1 5E93A4F3
-P 9200 1500
-AR Path="/5E9313E4/5E93A4F3" Ref="C?"  Part="1" 
-AR Path="/5E93A4F3" Ref="C17"  Part="1" 
-F 0 "C17" V 8948 1500 50  0000 C CNN
-F 1 "10p" V 9039 1500 50  0000 C CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 9238 1350 50  0001 C CNN
-F 3 "~" H 9200 1500 50  0001 C CNN
-	1    9200 1500
-	0    1    1    0   
-$EndComp
-$Comp
-L Device:C C?
-U 1 1 5E93A4ED
-P 9200 2000
-AR Path="/5E9313E4/5E93A4ED" Ref="C?"  Part="1" 
-AR Path="/5E93A4ED" Ref="C18"  Part="1" 
-F 0 "C18" V 9350 2000 50  0000 C CNN
-F 1 "10p" V 9450 2000 50  0000 C CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 9238 1850 50  0001 C CNN
-F 3 "~" H 9200 2000 50  0001 C CNN
-	1    9200 2000
-	0    1    1    0   
-$EndComp
-$Comp
-L Device:Crystal Y?
-U 1 1 5E93A4DD
-P 8600 1750
-AR Path="/5E9313E4/5E93A4DD" Ref="Y?"  Part="1" 
-AR Path="/5E93A4DD" Ref="Y1"  Part="1" 
-F 0 "Y1" V 8554 1881 50  0000 L CNN
-F 1 "GEY KX-327NHT 12" V 8645 1881 50  0000 L CNN
-F 2 "Crystal:Crystal_SMD_3215-2Pin_3.2x1.5mm" H 8600 1750 50  0001 C CNN
-F 3 "~" H 8600 1750 50  0001 C CNN
-	1    8600 1750
-	0    1    1    0   
-$EndComp
-$Comp
-L power:+3V3 #PWR0115
-U 1 1 5E9E7396
-P 10500 1000
-F 0 "#PWR0115" H 10500 850 50  0001 C CNN
-F 1 "+3V3" H 10515 1173 50  0000 C CNN
-F 2 "" H 10500 1000 50  0001 C CNN
-F 3 "" H 10500 1000 50  0001 C CNN
-	1    10500 1000
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	10500 1000 10500 1100
-$Comp
-L power:GND #PWR0116
-U 1 1 5E9E97BA
-P 10550 2250
-F 0 "#PWR0116" H 10550 2000 50  0001 C CNN
-F 1 "GND" H 10555 2077 50  0000 C CNN
-F 2 "" H 10550 2250 50  0001 C CNN
-F 3 "" H 10550 2250 50  0001 C CNN
-	1    10550 2250
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	10500 2200 10500 2250
-Wire Wire Line
-	10500 2250 10550 2250
-Wire Wire Line
-	10550 2250 10600 2250
-Wire Wire Line
-	10600 2250 10600 2200
-Connection ~ 10550 2250
-$Comp
-L power:GND #PWR0117
-U 1 1 5E9EE088
-P 10050 2050
-F 0 "#PWR0117" H 10050 1800 50  0001 C CNN
-F 1 "GND" H 10055 1877 50  0000 C CNN
-F 2 "" H 10050 2050 50  0001 C CNN
-F 3 "" H 10050 2050 50  0001 C CNN
-	1    10050 2050
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	10050 2050 10050 2000
-Wire Wire Line
-	10050 1800 10100 1800
-Wire Wire Line
-	10100 1900 10050 1900
-Connection ~ 10050 1900
-Wire Wire Line
-	10050 1900 10050 1800
-Wire Wire Line
-	10050 2000 10100 2000
-Connection ~ 10050 2000
-Wire Wire Line
-	10050 2000 10050 1900
-Text Label 9900 1400 0    50   ~ 0
-SDA
-Wire Wire Line
-	9900 1400 10100 1400
-Text Label 9900 1500 0    50   ~ 0
-SCL
-Wire Wire Line
-	9900 1500 10100 1500
-Wire Notes Line
-	9800 500  11000 500 
-Wire Notes Line
-	11000 500  11000 2750
-Wire Notes Line
-	11000 2750 9800 2750
-Wire Notes Line
-	9800 500  9800 2750
 Text Label 600  6200 0    50   ~ 0
 SCL
 Text Label 600  6300 0    50   ~ 0
@@ -650,39 +393,6 @@ Wire Notes Line
 	2050 6000 2050 6750
 Wire Notes Line
 	3850 6750 2100 6750
-Wire Notes Line
-	7200 500  7200 2750
-Wire Notes Line
-	9750 2750 7200 2750
-$Comp
-L Device:C C21
-U 1 1 5F0B8BB5
-P 10300 1100
-F 0 "C21" V 10048 1100 50  0000 C CNN
-F 1 "10n" V 10139 1100 50  0000 C CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 10338 950 50  0001 C CNN
-F 3 "~" H 10300 1100 50  0001 C CNN
-	1    10300 1100
-	0    1    1    0   
-$EndComp
-$Comp
-L power:GND #PWR0144
-U 1 1 5F0B9498
-P 10100 1100
-F 0 "#PWR0144" H 10100 850 50  0001 C CNN
-F 1 "GND" V 10105 972 50  0000 R CNN
-F 2 "" H 10100 1100 50  0001 C CNN
-F 3 "" H 10100 1100 50  0001 C CNN
-	1    10100 1100
-	0    1    1    0   
-$EndComp
-Wire Wire Line
-	10100 1100 10150 1100
-Wire Wire Line
-	10450 1100 10500 1100
-Connection ~ 10500 1100
-Wire Wire Line
-	10500 1100 10500 1200
 $Comp
 L Regulator_Linear:LD1117S33TR_SOT223 U4
 U 1 1 5F0DC12F
@@ -700,28 +410,6 @@ Wire Wire Line
 	8150 5150 8750 5150
 Wire Wire Line
 	9350 5150 9950 5150
-$Comp
-L Timer:MCP7940N-xMS U2
-U 1 1 5F13EEA2
-P 8000 1750
-F 0 "U2" H 7700 1400 50  0000 C CNN
-F 1 "MCP7940N-xMS" H 8350 1400 50  0000 C CNN
-F 2 "Package_SO:MSOP-8_3x3mm_P0.65mm" H 8000 1750 50  0001 C CNN
-F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/20005010F.pdf" H 8000 1750 50  0001 C CNN
-	1    8000 1750
-	1    0    0    -1  
-$EndComp
-$Comp
-L Sensor_Temperature:MCP9844x-xMN U8
-U 1 1 5E6CBDB6
-P 10500 1700
-F 0 "U8" H 10200 2150 50  0000 L CNN
-F 1 "MCP9844" H 10550 2150 50  0000 L CNN
-F 2 "Package_DFN_QFN:DFN-8-1EP_3x2mm_P0.5mm_EP1.36x1.46mm" H 9400 1200 50  0001 C CNN
-F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/20005192B.pdf" H 10250 2150 50  0001 C CNN
-	1    10500 1700
-	1    0    0    -1  
-$EndComp
 $Comp
 L Memory_EEPROM:CAT24C256 U5
 U 1 1 5E6D82CA
@@ -831,37 +519,6 @@ Text Label 5250 6900 2    50   ~ 0
 SCL
 Wire Wire Line
 	5250 6900 5100 6900
-$Comp
-L Device:C C31
-U 1 1 5E7676ED
-P 7800 1300
-F 0 "C31" V 7548 1300 50  0000 C CNN
-F 1 "10n" V 7639 1300 50  0000 C CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 7838 1150 50  0001 C CNN
-F 3 "~" H 7800 1300 50  0001 C CNN
-	1    7800 1300
-	0    1    1    0   
-$EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 5E767F4A
-P 7600 1300
-AR Path="/5E9313E4/5E767F4A" Ref="#PWR?"  Part="1" 
-AR Path="/5E767F4A" Ref="#PWR03"  Part="1" 
-F 0 "#PWR03" H 7600 1050 50  0001 C CNN
-F 1 "GND" H 7605 1127 50  0000 C CNN
-F 2 "" H 7600 1300 50  0001 C CNN
-F 3 "" H 7600 1300 50  0001 C CNN
-	1    7600 1300
-	0    1    1    0   
-$EndComp
-Wire Wire Line
-	7600 1300 7650 1300
-Wire Wire Line
-	7950 1300 8000 1300
-Connection ~ 8000 1300
-Wire Wire Line
-	8000 1300 8000 1350
 Wire Wire Line
 	10100 3700 9900 3700
 Wire Wire Line
@@ -916,12 +573,24 @@ F 3 "~" H 10100 3900 50  0001 C CNN
 $EndComp
 Text Notes 750  7000 0    50   ~ 0
 Will we do peripherals with AVR or does MKW41Z has enough free pins?\nDo we want to try touch interface with MKW41 or AVR?
-Text Notes 7650 900  0    50   ~ 0
-Do we need this, the MKW41Z also has RTC?\n
 $Sheet
-S 3250 1450 1400 400 
+S 5750 6100 1150 700 
 U 5F306ECC
 F0 "display" 50
 F1 "display.sch" 50
+F2 "MOSI" I L 5750 6200 50 
+F3 "SCK" I L 5750 6300 50 
+F4 "BUSY" I L 5750 6400 50 
+F5 "~RESET" I L 5750 6500 50 
+F6 "DATA-COMMAND" I L 5750 6600 50 
+F7 "CS" I L 5750 6700 50 
+$EndSheet
+$Sheet
+S 5800 7150 650  300 
+U 5F32546C
+F0 "sensors" 50
+F1 "sensors.sch" 50
+F2 "SCL" I L 5800 7250 50 
+F3 "SDA" I L 5800 7350 50 
 $EndSheet
 $EndSCHEMATC
