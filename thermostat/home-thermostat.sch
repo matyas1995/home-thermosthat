@@ -1042,35 +1042,18 @@ F 3 "~" H 7650 4850 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Device:Antenna_Shield AE?
-U 1 1 5F3CD4FE
-P 8000 4600
-F 0 "AE?" H 8144 4639 50  0000 L CNN
-F 1 "Antenna_Shield" H 8144 4548 50  0000 L CNN
-F 2 "" H 8000 4700 50  0001 C CNN
-F 3 "~" H 8000 4700 50  0001 C CNN
-	1    8000 4600
-	1    0    0    -1  
-$EndComp
-$Comp
 L power:GND #PWR?
 U 1 1 5F3CDD8C
-P 8100 4850
+P 8600 5050
 AR Path="/5E8AC4D3/5F3CDD8C" Ref="#PWR?"  Part="1" 
 AR Path="/5F3CDD8C" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 8100 4600 50  0001 C CNN
-F 1 "GND" H 8105 4677 50  0000 C CNN
-F 2 "" H 8100 4850 50  0001 C CNN
-F 3 "" H 8100 4850 50  0001 C CNN
-	1    8100 4850
+F 0 "#PWR?" H 8600 4800 50  0001 C CNN
+F 1 "GND" H 8605 4877 50  0000 C CNN
+F 2 "" H 8600 5050 50  0001 C CNN
+F 3 "" H 8600 5050 50  0001 C CNN
+	1    8600 5050
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	8100 4800 8100 4850
-Wire Wire Line
-	7800 4850 8000 4850
-Wire Wire Line
-	8000 4850 8000 4800
 Wire Wire Line
 	7500 4850 7250 4850
 Wire Wire Line
@@ -1243,48 +1226,18 @@ F 3 "~" H 8150 3600 50  0001 C CNN
 	1    8150 3600
 	0    1    1    0   
 $EndComp
-$Comp
-L Device:R R?
-U 1 1 5F446CC8
-P 7900 3400
-F 0 "R?" V 7693 3400 50  0000 C CNN
-F 1 "0" V 7784 3400 50  0000 C CNN
-F 2 "" V 7830 3400 50  0001 C CNN
-F 3 "~" H 7900 3400 50  0001 C CNN
-	1    7900 3400
-	0    1    1    0   
-$EndComp
-$Comp
-L Device:R R?
-U 1 1 5F447413
-P 7900 3800
-F 0 "R?" V 7693 3800 50  0000 C CNN
-F 1 "0" V 7784 3800 50  0000 C CNN
-F 2 "" V 7830 3800 50  0001 C CNN
-F 3 "~" H 7900 3800 50  0001 C CNN
-	1    7900 3800
-	0    1    1    0   
-$EndComp
 Wire Wire Line
 	6300 3550 7700 3550
 Wire Wire Line
 	6300 3650 7700 3650
 Wire Wire Line
-	7700 3400 7750 3400
-Wire Wire Line
 	7700 3400 7700 3550
 Wire Wire Line
 	7700 3650 7700 3800
 Wire Wire Line
-	7700 3800 7750 3800
-Wire Wire Line
-	8050 3800 8150 3800
-Wire Wire Line
 	8150 3800 8150 3750
 Wire Wire Line
 	8150 3450 8150 3400
-Wire Wire Line
-	8150 3400 8050 3400
 Text Notes 7300 4350 0    50   ~ 0
 50Ohm controlled impedance line\nhttps://www.youtube.com/watch?v=0fteCxn5XXA
 Wire Notes Line
@@ -1442,4 +1395,21 @@ Wire Notes Line
 	14300 -1650 14300 550 
 Wire Notes Line
 	12650 550  14300 550 
+$Comp
+L Connector:Conn_Coaxial J?
+U 1 1 5F529E82
+P 8600 4850
+F 0 "J?" H 8700 4825 50  0000 L CNN
+F 1 "SMA" H 8700 4734 50  0000 L CNN
+F 2 "" H 8600 4850 50  0001 C CNN
+F 3 " ~" H 8600 4850 50  0001 C CNN
+	1    8600 4850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7800 4850 8400 4850
+Wire Wire Line
+	7700 3400 8150 3400
+Wire Wire Line
+	7700 3800 8150 3800
 $EndSCHEMATC
