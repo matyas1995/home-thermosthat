@@ -1412,4 +1412,16 @@ Wire Wire Line
 	7700 3400 8150 3400
 Wire Wire Line
 	7700 3800 8150 3800
+Text Notes 7350 4450 0    50   ~ 0
+Implement as CPW with ground plane using kicad calculator
+Wire Notes Line
+	6500 4600 7100 4600
+Wire Notes Line
+	7100 4600 7100 5500
+Wire Notes Line
+	7100 5500 6500 5500
+Wire Notes Line
+	6500 4600 6500 5500
+Text Notes 6500 5700 0    50   ~ 0
+This matching network transform device impedance to 50Ohms\nPlace as close to device as possible
 $EndSCHEMATC
