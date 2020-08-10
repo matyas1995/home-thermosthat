@@ -1289,4 +1289,157 @@ Text Notes 7300 4350 0    50   ~ 0
 50Ohm controlled impedance line\nhttps://www.youtube.com/watch?v=0fteCxn5XXA
 Wire Notes Line
 	7300 4400 7300 4800
+$Comp
+L Connector:TestPoint TP?
+U 1 1 5F494ECC
+P 12900 -500
+F 0 "TP?" H 12958 -376 50  0000 L CNN
+F 1 "~RST" H 12958 -474 50  0000 L CNN
+F 2 "" H 13100 -500 50  0001 C CNN
+F 3 "~" H 13100 -500 50  0001 C CNN
+	1    12900 -500
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Connector:TestPoint TP?
+U 1 1 5F4957B3
+P 12900 -50
+F 0 "TP?" H 12958 68  50  0000 L CNN
+F 1 "SWD_DIO" H 12958 -23 50  0000 L CNN
+F 2 "" H 13100 -50 50  0001 C CNN
+F 3 "~" H 13100 -50 50  0001 C CNN
+	1    12900 -50 
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Connector:TestPoint TP?
+U 1 1 5F495C1A
+P 12900 400
+F 0 "TP?" H 12958 518 50  0000 L CNN
+F 1 "SWD_CLK" H 12958 427 50  0000 L CNN
+F 2 "" H 13100 400 50  0001 C CNN
+F 3 "~" H 13100 400 50  0001 C CNN
+	1    12900 400 
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:+3V3 #PWR?
+U 1 1 5F49EC2C
+P 13500 -1350
+AR Path="/5E8AC4D3/5F49EC2C" Ref="#PWR?"  Part="1" 
+AR Path="/5F49EC2C" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 13500 -1500 50  0001 C CNN
+F 1 "+3V3" H 13515 -1177 50  0000 C CNN
+F 2 "" H 13500 -1350 50  0001 C CNN
+F 3 "" H 13500 -1350 50  0001 C CNN
+	1    13500 -1350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:LED D?
+U 1 1 5F4A1DA7
+P 13500 -800
+F 0 "D?" V 13539 -918 50  0000 R CNN
+F 1 "LED" V 13448 -918 50  0000 R CNN
+F 2 "" H 13500 -800 50  0001 C CNN
+F 3 "~" H 13500 -800 50  0001 C CNN
+	1    13500 -800
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5F4A3B33
+P 14000 -300
+F 0 "C?" H 14115 -254 50  0000 L CNN
+F 1 "1n" H 14115 -345 50  0000 L CNN
+F 2 "" H 14038 -450 50  0001 C CNN
+F 3 "~" H 14000 -300 50  0001 C CNN
+	1    14000 -300
+	1    0    0    -1  
+$EndComp
+$Comp
+L Switch:SW_Push SW?
+U 1 1 5F4A5C6E
+P 13500 -250
+F 0 "SW?" V 13546 -298 50  0000 R CNN
+F 1 "SW_Push" V 13455 -298 50  0000 R CNN
+F 2 "" H 13500 -50 50  0001 C CNN
+F 3 "~" H 13500 -50 50  0001 C CNN
+	1    13500 -250
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5F4A6AAA
+P 13500 0
+AR Path="/5E8AC4D3/5F4A6AAA" Ref="#PWR?"  Part="1" 
+AR Path="/5F4A6AAA" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 13500 -250 50  0001 C CNN
+F 1 "GND" H 13505 -173 50  0000 C CNN
+F 2 "" H 13500 0   50  0001 C CNN
+F 3 "" H 13500 0   50  0001 C CNN
+	1    13500 0   
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5F4A6F95
+P 14000 0
+AR Path="/5E8AC4D3/5F4A6F95" Ref="#PWR?"  Part="1" 
+AR Path="/5F4A6F95" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 14000 -250 50  0001 C CNN
+F 1 "GND" H 14005 -173 50  0000 C CNN
+F 2 "" H 14000 0   50  0001 C CNN
+F 3 "" H 14000 0   50  0001 C CNN
+	1    14000 0   
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	13500 -1000 13500 -950
+Wire Wire Line
+	13500 -650 13500 -500
+Wire Wire Line
+	14000 -450 14000 -500
+Wire Wire Line
+	14000 -500 13500 -500
+Connection ~ 13500 -500
+Wire Wire Line
+	13500 -500 13500 -450
+Wire Wire Line
+	13500 -50  13500 0   
+Wire Wire Line
+	14000 -150 14000 0   
+Text Label 13250 -50  2    50   ~ 0
+SWD_DIO
+Text Label 13250 400  2    50   ~ 0
+SWD_CLK
+Text Label 13250 -500 2    50   ~ 0
+RESET_b
+Wire Wire Line
+	12900 -500 13500 -500
+Wire Wire Line
+	13250 -50  12900 -50 
+Wire Wire Line
+	13250 400  12900 400 
+$Comp
+L Device:R R?
+U 1 1 5F504E9C
+P 13500 -1150
+F 0 "R?" H 13430 -1196 50  0000 R CNN
+F 1 "0" H 13430 -1105 50  0000 R CNN
+F 2 "" V 13430 -1150 50  0001 C CNN
+F 3 "~" H 13500 -1150 50  0001 C CNN
+	1    13500 -1150
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	13500 -1350 13500 -1300
+Wire Notes Line
+	12650 550  12650 -1650
+Wire Notes Line
+	12650 -1650 14300 -1650
+Wire Notes Line
+	14300 -1650 14300 550 
+Wire Notes Line
+	12650 550  14300 550 
 $EndSCHEMATC
