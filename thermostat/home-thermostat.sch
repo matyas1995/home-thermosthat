@@ -999,7 +999,7 @@ L Device:L L?
 U 1 1 5F3CACFE
 P 6200 1100
 F 0 "L?" V 6390 1100 50  0000 C CNN
-F 1 "L" V 6299 1100 50  0000 C CNN
+F 1 "0,1u" V 6299 1100 50  0000 C CNN
 F 2 "" H 6200 1100 50  0001 C CNN
 F 3 "~" H 6200 1100 50  0001 C CNN
 	1    6200 1100
@@ -1543,4 +1543,62 @@ Wire Wire Line
 	6850 2850 6300 2850
 Wire Wire Line
 	6850 2950 6300 2950
+Text Label 6850 3150 2    50   ~ 0
+TPM0_CH1
+Wire Wire Line
+	6850 3150 6300 3150
+Text Label 6850 3250 2    50   ~ 0
+TPM0_CH2
+Wire Wire Line
+	6850 3250 6300 3250
+Text Label 6850 3350 2    50   ~ 0
+TPM1_CH0
+Wire Wire Line
+	6850 3350 6300 3350
+Text Label 6850 3450 2    50   ~ 0
+TPM1_CH1
+Wire Wire Line
+	6850 3450 6300 3450
+Text Label 6850 3750 2    50   ~ 0
+TPM0_CH0
+Text Label 7300 3750 2    50   ~ 0
+DAC0_OUT
+Wire Wire Line
+	6300 3750 7300 3750
+Text Notes 6950 3300 0    50   ~ 0
+Also possible to route TPM signals to other pins
+Text Label 4150 2950 0    50   ~ 0
+ADC_IN
+Wire Wire Line
+	4150 2950 4500 2950
+NoConn ~ 4500 2850
+$Comp
+L Device:R R?
+U 1 1 5F3B355B
+P 3700 3050
+F 0 "R?" H 3630 3004 50  0000 R CNN
+F 1 "0" H 3630 3095 50  0000 R CNN
+F 2 "" V 3630 3050 50  0001 C CNN
+F 3 "~" H 3700 3050 50  0001 C CNN
+	1    3700 3050
+	0    1    1    0   
+$EndComp
+Connection ~ 3850 3050
+$Comp
+L power:+3V3 #PWR?
+U 1 1 5F3B429E
+P 3500 3050
+AR Path="/5E8AC4D3/5F3B429E" Ref="#PWR?"  Part="1" 
+AR Path="/5F3B429E" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 3500 2900 50  0001 C CNN
+F 1 "+3V3" H 3515 3223 50  0000 C CNN
+F 2 "" H 3500 3050 50  0001 C CNN
+F 3 "" H 3500 3050 50  0001 C CNN
+	1    3500 3050
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	3500 3050 3550 3050
+Text Notes 1500 2950 0    50   ~ 0
+VREF_OUT is internal voltage reference that can be disabled\nto use VREFH to input own reference voltage
 $EndSCHEMATC
