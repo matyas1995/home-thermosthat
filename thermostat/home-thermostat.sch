@@ -1515,4 +1515,32 @@ Wire Wire Line
 	6850 2550 6300 2550
 Text Notes 6950 2500 0    50   ~ 0
 Also possible to route LPUART0 to other pins
+Text Label 12200 4200 0    50   ~ 0
+SPI1_MOSI
+Text Label 12200 4300 0    50   ~ 0
+SPI1_SCK
+Text Label 12200 4600 0    50   ~ 0
+SPI1_PCS0
+Wire Wire Line
+	12200 4200 12650 4200
+Wire Wire Line
+	12200 4300 12650 4300
+Wire Wire Line
+	12200 4600 12650 4600
+Text Label 12200 4400 0    50   ~ 0
+DP_BUSY
+Wire Wire Line
+	12200 4400 12650 4400
+Wire Wire Line
+	12200 4500 12650 4500
+Text Label 12200 4500 0    50   ~ 0
+~DP_RST
+Text Label 6850 2950 2    50   ~ 0
+DP_BUSY
+Text Label 6850 2850 2    50   ~ 0
+~DP_RST
+Wire Wire Line
+	6850 2850 6300 2850
+Wire Wire Line
+	6850 2950 6300 2950
 $EndSCHEMATC
