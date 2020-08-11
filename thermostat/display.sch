@@ -286,20 +286,6 @@ Wire Wire Line
 	5500 3250 5800 3250
 Wire Wire Line
 	5500 3150 5800 3150
-$Comp
-L power:GND #PWR?
-U 1 1 5F315333
-P 5450 3050
-AR Path="/5E63CFCA/5F315333" Ref="#PWR?"  Part="1" 
-AR Path="/5F315333" Ref="#PWR?"  Part="1" 
-AR Path="/5F306ECC/5F315333" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 5450 2800 50  0001 C CNN
-F 1 "GND" V 5455 2922 50  0000 R CNN
-F 2 "" H 5450 3050 50  0001 C CNN
-F 3 "" H 5450 3050 50  0001 C CNN
-	1    5450 3050
-	0    1    1    0   
-$EndComp
 Wire Wire Line
 	5450 3050 5800 3050
 NoConn ~ 5500 2950
@@ -714,8 +700,34 @@ Text HLabel 5500 3150 0    50   Input ~ 0
 BUSY
 Text HLabel 5500 3250 0    50   Input ~ 0
 ~RESET
-Text HLabel 5500 3350 0    50   Input ~ 0
-DATA-COMMAND
 Text HLabel 5500 3450 0    50   Input ~ 0
 CS
+$Comp
+L power:+3V3 #PWR?
+U 1 1 5F5C2508
+P 5450 3050
+AR Path="/5E63CFCA/5F5C2508" Ref="#PWR?"  Part="1" 
+AR Path="/5F5C2508" Ref="#PWR?"  Part="1" 
+AR Path="/5F306ECC/5F5C2508" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 5450 2900 50  0001 C CNN
+F 1 "+3V3" V 5450 3300 50  0000 C CNN
+F 2 "" H 5450 3050 50  0001 C CNN
+F 3 "" H 5450 3050 50  0001 C CNN
+	1    5450 3050
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5F5C31E6
+P 5500 3350
+AR Path="/5E63CFCA/5F5C31E6" Ref="#PWR?"  Part="1" 
+AR Path="/5F5C31E6" Ref="#PWR?"  Part="1" 
+AR Path="/5F306ECC/5F5C31E6" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 5500 3100 50  0001 C CNN
+F 1 "GND" V 5505 3222 50  0000 R CNN
+F 2 "" H 5500 3350 50  0001 C CNN
+F 3 "" H 5500 3350 50  0001 C CNN
+	1    5500 3350
+	0    1    1    0   
+$EndComp
 $EndSCHEMATC

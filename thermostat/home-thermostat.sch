@@ -574,7 +574,7 @@ $EndComp
 Text Notes 12900 6650 0    50   ~ 0
 Will we do peripherals with AVR or does MKW41Z has enough free pins?\nDo we want to try touch interface with MKW41 or AVR?
 $Sheet
-S 12650 4100 1150 700 
+S 12650 4100 650  600 
 U 5F306ECC
 F0 "display" 50
 F1 "display.sch" 50
@@ -582,8 +582,7 @@ F2 "MOSI" I L 12650 4200 50
 F3 "SCK" I L 12650 4300 50 
 F4 "BUSY" I L 12650 4400 50 
 F5 "~RESET" I L 12650 4500 50 
-F6 "DATA-COMMAND" I L 12650 4600 50 
-F7 "CS" I L 12650 4700 50 
+F6 "CS" I L 12650 4600 50 
 $EndSheet
 $Sheet
 S 12650 5100 650  300 
@@ -1424,4 +1423,96 @@ Wire Notes Line
 	6500 4600 6500 5500
 Text Notes 6500 5700 0    50   ~ 0
 This matching network transform device impedance to 50Ohms\nPlace as close to device as possible
+$Comp
+L Connector:TestPoint TP?
+U 1 1 5F554204
+P 12900 -800
+F 0 "TP?" V 13095 -728 50  0000 C CNN
+F 1 "GND" V 13004 -728 50  0000 C CNN
+F 2 "" H 13100 -800 50  0001 C CNN
+F 3 "~" H 13100 -800 50  0001 C CNN
+	1    12900 -800
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5F5544E3
+P 12950 -800
+AR Path="/5E8AC4D3/5F5544E3" Ref="#PWR?"  Part="1" 
+AR Path="/5F5544E3" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 12950 -1050 50  0001 C CNN
+F 1 "GND" H 12955 -973 50  0000 C CNN
+F 2 "" H 12950 -800 50  0001 C CNN
+F 3 "" H 12950 -800 50  0001 C CNN
+	1    12950 -800
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	12950 -800 12900 -800
+$Comp
+L power:+3V3 #PWR?
+U 1 1 5F55E07F
+P 12950 -1100
+AR Path="/5E8AC4D3/5F55E07F" Ref="#PWR?"  Part="1" 
+AR Path="/5F55E07F" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 12950 -1250 50  0001 C CNN
+F 1 "+3V3" H 12965 -927 50  0000 C CNN
+F 2 "" H 12950 -1100 50  0001 C CNN
+F 3 "" H 12950 -1100 50  0001 C CNN
+	1    12950 -1100
+	0    1    1    0   
+$EndComp
+$Comp
+L Connector:TestPoint TP?
+U 1 1 5F55EE65
+P 12900 -1100
+F 0 "TP?" V 13095 -1028 50  0000 C CNN
+F 1 "3V3" V 13004 -1028 50  0000 C CNN
+F 2 "" H 13100 -1100 50  0001 C CNN
+F 3 "~" H 13100 -1100 50  0001 C CNN
+	1    12900 -1100
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	12900 -1100 12950 -1100
+Text Label 6850 4250 2    50   ~ 0
+SPI1_MOSI
+Text Label 6850 4350 2    50   ~ 0
+SPI1_MISO
+Text Label 6850 4450 2    50   ~ 0
+SPI1_SCK
+Text Label 6850 4550 2    50   ~ 0
+SPI1_PCS0
+Wire Wire Line
+	6850 4250 6300 4250
+Wire Wire Line
+	6850 4350 6300 4350
+Wire Wire Line
+	6850 4450 6300 4450
+Wire Wire Line
+	6850 4550 6300 4550
+Text Notes 7300 4150 0    50   ~ 0
+SPI pins also multiplexed to other pins if necessary\nthere is also a second spi interface SPI0
+Text Notes 13400 5200 0    50   ~ 0
+MKW41Z internal pullups can be activated for I2C\nHowever, the pull resistors are disabled whenever the output buffer is enabled?
+Text Label 6850 2050 2    50   ~ 0
+I2C1_SCL
+Text Label 6850 2150 2    50   ~ 0
+I2C1_SDA
+Wire Wire Line
+	6850 2050 6300 2050
+Wire Wire Line
+	6850 2150 6300 2150
+Text Notes 6950 2100 0    50   ~ 0
+Also possible to route I2C1 to other pins
+Text Label 6850 2450 2    50   ~ 0
+LPUART0_RX
+Wire Wire Line
+	6850 2450 6300 2450
+Text Label 6850 2550 2    50   ~ 0
+LPUART0_TX
+Wire Wire Line
+	6850 2550 6300 2550
+Text Notes 6950 2500 0    50   ~ 0
+Also possible to route LPUART0 to other pins
 $EndSCHEMATC
