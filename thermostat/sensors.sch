@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 4 4
+Sheet 3 4
 Title ""
 Date ""
 Rev ""
@@ -381,16 +381,192 @@ Wire Wire Line
 Text Notes 3450 2800 0    50   ~ 0
 MKW41Z also has RTC but no battery backup for power loss.\nWe do not need interrupt out since MKW41Z has that in its own RTC\n
 NoConn ~ 4050 3700
-Text HLabel 4150 5150 0    50   Input ~ 0
+Text HLabel 4100 5700 0    50   Input ~ 0
 SCL
-Text HLabel 4150 5250 0    50   Input ~ 0
+Text HLabel 4100 5800 0    50   Input ~ 0
+SDA
+Text Label 5250 5700 2    50   ~ 0
+SCL
+Text Label 5250 5800 2    50   ~ 0
+SDA
+$Comp
+L Memory_EEPROM:CAT24C256 U?
+U 1 1 5F42FF23
+P 10000 4200
+AR Path="/5F42FF23" Ref="U?"  Part="1" 
+AR Path="/5F32546C/5F42FF23" Ref="U?"  Part="1" 
+F 0 "U?" H 9750 4450 50  0000 C CNN
+F 1 "AT24C512" H 10250 4450 50  0000 C CNN
+F 2 "Package_DIP:DIP-8_W7.62mm_SMDSocket_SmallPads" H 10000 4200 50  0001 C CNN
+F 3 "https://www.onsemi.cn/PowerSolutions/document/CAT24C256-D.PDF" H 10000 4200 50  0001 C CNN
+	1    10000 4200
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5F42FF29
+P 9750 3800
+AR Path="/5F42FF29" Ref="C?"  Part="1" 
+AR Path="/5F32546C/5F42FF29" Ref="C?"  Part="1" 
+F 0 "C?" V 9498 3800 50  0000 C CNN
+F 1 "10n" V 9589 3800 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 9788 3650 50  0001 C CNN
+F 3 "~" H 9750 3800 50  0001 C CNN
+	1    9750 3800
+	0    1    1    0   
+$EndComp
+$Comp
+L power:+3V3 #PWR?
+U 1 1 5F42FF2F
+P 10000 3700
+AR Path="/5F42FF2F" Ref="#PWR?"  Part="1" 
+AR Path="/5F32546C/5F42FF2F" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 10000 3550 50  0001 C CNN
+F 1 "+3V3" H 10015 3873 50  0000 C CNN
+F 2 "" H 10000 3700 50  0001 C CNN
+F 3 "" H 10000 3700 50  0001 C CNN
+	1    10000 3700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10000 3700 10000 3800
+Wire Wire Line
+	9900 3800 10000 3800
+Connection ~ 10000 3800
+Wire Wire Line
+	10000 3800 10000 3900
+$Comp
+L power:GND #PWR?
+U 1 1 5F42FF39
+P 9550 3800
+AR Path="/5F42FF39" Ref="#PWR?"  Part="1" 
+AR Path="/5F32546C/5F42FF39" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 9550 3550 50  0001 C CNN
+F 1 "GND" V 9555 3672 50  0000 R CNN
+F 2 "" H 9550 3800 50  0001 C CNN
+F 3 "" H 9550 3800 50  0001 C CNN
+	1    9550 3800
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	9550 3800 9600 3800
+Wire Wire Line
+	9550 4100 9550 4200
+Wire Wire Line
+	9550 4550 10000 4550
+Wire Wire Line
+	10450 4550 10450 4300
+Wire Wire Line
+	10450 4300 10400 4300
+Wire Wire Line
+	10000 4500 10000 4550
+Connection ~ 10000 4550
+Wire Wire Line
+	10000 4550 10450 4550
+Wire Wire Line
+	9550 4100 9600 4100
+Wire Wire Line
+	9600 4200 9550 4200
+Connection ~ 9550 4200
+Wire Wire Line
+	9550 4200 9550 4300
+Wire Wire Line
+	9600 4300 9550 4300
+Connection ~ 9550 4300
+Wire Wire Line
+	9550 4300 9550 4550
+$Comp
+L power:GND #PWR?
+U 1 1 5F42FF4E
+P 10000 4600
+AR Path="/5F42FF4E" Ref="#PWR?"  Part="1" 
+AR Path="/5F32546C/5F42FF4E" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 10000 4350 50  0001 C CNN
+F 1 "GND" H 10005 4427 50  0000 C CNN
+F 2 "" H 10000 4600 50  0001 C CNN
+F 3 "" H 10000 4600 50  0001 C CNN
+	1    10000 4600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10000 4600 10000 4550
+Text Notes 9450 3450 0    50   ~ 0
+EEPROM for off-ESP config
+Wire Notes Line
+	10600 3300 10600 4850
+Wire Notes Line
+	10600 4850 9200 4850
+Wire Notes Line
+	9200 4850 9200 3300
+Wire Notes Line
+	9200 3300 10600 3300
+Text Label 10550 4100 2    50   ~ 0
 SDA
 Wire Wire Line
-	4150 5150 4350 5150
-Wire Wire Line
-	4350 5250 4150 5250
-Text Label 4350 5150 2    50   ~ 0
+	10550 4100 10400 4100
+Text Label 10550 4200 2    50   ~ 0
 SCL
-Text Label 4350 5250 2    50   ~ 0
-SDA
+Wire Wire Line
+	10550 4200 10400 4200
+$Comp
+L Device:R R?
+U 1 1 5F430FFF
+P 4500 5500
+F 0 "R?" H 4570 5546 50  0000 L CNN
+F 1 "4k7" H 4570 5455 50  0000 L CNN
+F 2 "" V 4430 5500 50  0001 C CNN
+F 3 "~" H 4500 5500 50  0001 C CNN
+	1    4500 5500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5F431377
+P 4850 5500
+F 0 "R?" H 4920 5546 50  0000 L CNN
+F 1 "4k7" H 4920 5455 50  0000 L CNN
+F 2 "" V 4780 5500 50  0001 C CNN
+F 3 "~" H 4850 5500 50  0001 C CNN
+	1    4850 5500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4100 5700 4500 5700
+Wire Wire Line
+	4100 5800 4850 5800
+Wire Wire Line
+	4500 5650 4500 5700
+Connection ~ 4500 5700
+Wire Wire Line
+	4500 5700 5250 5700
+Wire Wire Line
+	4850 5650 4850 5800
+Connection ~ 4850 5800
+Wire Wire Line
+	4850 5800 5250 5800
+$Comp
+L power:+3V3 #PWR?
+U 1 1 5F436E27
+P 4700 5250
+AR Path="/5E9313E4/5F436E27" Ref="#PWR?"  Part="1" 
+AR Path="/5F436E27" Ref="#PWR?"  Part="1" 
+AR Path="/5F32546C/5F436E27" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 4700 5100 50  0001 C CNN
+F 1 "+3V3" H 4715 5423 50  0000 C CNN
+F 2 "" H 4700 5250 50  0001 C CNN
+F 3 "" H 4700 5250 50  0001 C CNN
+	1    4700 5250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4500 5350 4500 5300
+Wire Wire Line
+	4500 5300 4700 5300
+Wire Wire Line
+	4850 5300 4850 5350
+Wire Wire Line
+	4700 5250 4700 5300
+Connection ~ 4700 5300
+Wire Wire Line
+	4700 5300 4850 5300
 $EndSCHEMATC
