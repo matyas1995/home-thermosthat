@@ -338,19 +338,6 @@ F 3 "~" H 8050 1500 50  0001 C CNN
 	1    8050 1500
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	7300 2150 7300 2400
-$Comp
-L Device:R R15
-U 1 1 5E6AA7AC
-P 6800 1950
-F 0 "R15" V 6593 1950 50  0000 C CNN
-F 1 "4K7" V 6684 1950 50  0000 C CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 6730 1950 50  0001 C CNN
-F 3 "~" H 6800 1950 50  0001 C CNN
-	1    6800 1950
-	0    1    1    0   
-$EndComp
 $Comp
 L Device:R R17
 U 1 1 5E6AEB7F
@@ -373,8 +360,6 @@ F 3 "" H 7300 2400 50  0001 C CNN
 	1    7300 2400
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	6950 1950 7000 1950
 $Comp
 L power:+5V #PWR0157
 U 1 1 5E6D86F0
@@ -388,8 +373,6 @@ F 3 "" H 7300 1300 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	7300 1300 7300 1350
-Wire Wire Line
-	6600 1950 6650 1950
 $Comp
 L Amplifier_Operational:LM358 U7
 U 1 1 5E6B942A
@@ -560,7 +543,7 @@ F 3 "~" H -1950 1350 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Device:L_Core_Iron L?
+L Device:L_Iron L?
 U 1 1 5F453D97
 P -1600 1150
 AR Path="/5E8AC4D3/5F453D97" Ref="L?"  Part="1" 
@@ -903,6 +886,23 @@ SUPPLY_V
 Wire Wire Line
 	2950 6050 2900 6050
 Connection ~ 2900 6050
+Wire Wire Line
+	7300 2150 7300 2400
+Wire Wire Line
+	6950 1950 7000 1950
+$Comp
+L Device:R R15
+U 1 1 5E6AA7AC
+P 6800 1950
+F 0 "R15" V 6593 1950 50  0000 C CNN
+F 1 "4K7" V 6684 1950 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 6730 1950 50  0001 C CNN
+F 3 "~" H 6800 1950 50  0001 C CNN
+	1    6800 1950
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	6600 1950 6650 1950
 Text HLabel 6600 1950 0    50   Input ~ 0
 REGULATOR_OUT
 $EndSCHEMATC

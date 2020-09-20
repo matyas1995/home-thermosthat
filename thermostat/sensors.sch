@@ -319,19 +319,6 @@ Connection ~ 6950 2950
 Wire Wire Line
 	6950 2950 6950 3050
 $Comp
-L Timer:MCP7940N-xMS U?
-U 1 1 5F32A0E7
-P 4450 3600
-AR Path="/5F32A0E7" Ref="U?"  Part="1" 
-AR Path="/5F32546C/5F32A0E7" Ref="U?"  Part="1" 
-F 0 "U?" H 4150 3250 50  0000 C CNN
-F 1 "MCP7940N-xMS" H 4800 3250 50  0000 C CNN
-F 2 "Package_SO:MSOP-8_3x3mm_P0.65mm" H 4450 3600 50  0001 C CNN
-F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/20005010F.pdf" H 4450 3600 50  0001 C CNN
-	1    4450 3600
-	1    0    0    -1  
-$EndComp
-$Comp
 L Sensor_Temperature:MCP9844x-xMN U?
 U 1 1 5F32A0ED
 P 6950 3550
@@ -569,4 +556,15 @@ Wire Wire Line
 Connection ~ 4700 5300
 Wire Wire Line
 	4700 5300 4850 5300
+$Comp
+L Timer_RTC:MCP7940N-xMS U?
+U 1 1 5F69CF88
+P 4450 3600
+F 0 "U?" H 4200 3250 50  0000 C CNN
+F 1 "MCP7940N-xMS" H 4800 3250 50  0000 C CNN
+F 2 "" H 4450 3600 50  0001 C CNN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/20005010F.pdf" H 4450 3600 50  0001 C CNN
+	1    4450 3600
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
