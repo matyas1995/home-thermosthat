@@ -713,20 +713,6 @@ F 3 "~" H 9900 3600 50  0001 C CNN
 	1    9900 3600
 	-1   0    0    1   
 $EndComp
-$Comp
-L Device:R R?
-U 1 1 5F469953
-P 10250 3600
-AR Path="/5E6A63AE/5F469953" Ref="R?"  Part="1" 
-AR Path="/5F469953" Ref="R?"  Part="1" 
-AR Path="/5F39C8C1/5F469953" Ref="R20"  Part="1" 
-F 0 "R20" V 10043 3600 50  0000 C CNN
-F 1 "100k" V 10134 3600 50  0000 C CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 10180 3600 50  0001 C CNN
-F 3 "~" H 10250 3600 50  0001 C CNN
-	1    10250 3600
-	-1   0    0    1   
-$EndComp
 Wire Wire Line
 	7900 3800 8850 3800
 Wire Wire Line
@@ -871,4 +857,8 @@ Wire Wire Line
 Connection ~ 7400 2900
 Wire Wire Line
 	7400 2900 7400 3500
+NoConn ~ 7900 4200
+NoConn ~ 7900 4300
+NoConn ~ 7900 4400
+NoConn ~ 7900 4500
 $EndSCHEMATC

@@ -58,7 +58,7 @@ Wire Wire Line
 Text Notes 4150 2600 0    50   ~ 0
 RTC for timekeeping with battery backup
 Wire Notes Line
-	3650 2350 6200 2350
+	3350 2350 6200 2350
 Wire Notes Line
 	6200 2350 6200 4600
 Text Notes 5250 2950 0    50   ~ 0
@@ -230,9 +230,9 @@ Wire Notes Line
 Wire Notes Line
 	6250 2350 6250 4600
 Wire Notes Line
-	3650 2350 3650 4600
+	3350 2350 3350 4600
 Wire Notes Line
-	6200 4600 3650 4600
+	6200 4600 3350 4600
 $Comp
 L Device:C C?
 U 1 1 5F32A0D7
@@ -344,7 +344,7 @@ P 9750 3800
 AR Path="/5F42FF29" Ref="C?"  Part="1" 
 AR Path="/5F32546C/5F42FF29" Ref="C31"  Part="1" 
 F 0 "C31" V 9498 3800 50  0000 C CNN
-F 1 "10n" V 9589 3800 50  0000 C CNN
+F 1 "1u" V 9589 3800 50  0000 C CNN
 F 2 "Capacitor_SMD:C_0603_1608Metric" H 9788 3650 50  0001 C CNN
 F 3 "~" H 9750 3800 50  0001 C CNN
 	1    9750 3800
@@ -526,10 +526,10 @@ L Device:Crystal Y?
 U 1 1 5F6FEFA4
 P 5450 3600
 AR Path="/5F6FEFA4" Ref="Y?"  Part="1" 
-AR Path="/5F32546C/5F6FEFA4" Ref="Y?"  Part="1" 
-F 0 "Y?" V 5404 3731 50  0000 L CNN
-F 1 "32,768KHz" V 5495 3731 50  0000 L CNN
-F 2 "" H 5450 3600 50  0001 C CNN
+AR Path="/5F32546C/5F6FEFA4" Ref="Y3"  Part="1" 
+F 0 "Y3" V 5404 3731 50  0000 L CNN
+F 1 "32.768KHz 20PPM 3.2x1.5mm 7PF" V 5950 2900 50  0000 L CNN
+F 2 "Crystal:Crystal_SMD_3215-2Pin_3.2x1.5mm" H 5450 3600 50  0001 C CNN
 F 3 "~" H 5450 3600 50  0001 C CNN
 	1    5450 3600
 	0    -1   1    0   
@@ -541,8 +541,8 @@ L Device:C C?
 U 1 1 5F70128F
 P 5650 3350
 AR Path="/5F70128F" Ref="C?"  Part="1" 
-AR Path="/5F32546C/5F70128F" Ref="C?"  Part="1" 
-F 0 "C?" V 5398 3350 50  0000 C CNN
+AR Path="/5F32546C/5F70128F" Ref="C12"  Part="1" 
+F 0 "C12" V 5398 3350 50  0000 C CNN
 F 1 "0" V 5489 3350 50  0000 C CNN
 F 2 "Capacitor_SMD:C_0603_1608Metric" H 5688 3200 50  0001 C CNN
 F 3 "~" H 5650 3350 50  0001 C CNN
@@ -554,12 +554,15 @@ L Device:C C?
 U 1 1 5F701687
 P 5650 3850
 AR Path="/5F701687" Ref="C?"  Part="1" 
-AR Path="/5F32546C/5F701687" Ref="C?"  Part="1" 
-F 0 "C?" V 5398 3850 50  0000 C CNN
+AR Path="/5F32546C/5F701687" Ref="C28"  Part="1" 
+F 0 "C28" V 5398 3850 50  0000 C CNN
 F 1 "0" V 5489 3850 50  0000 C CNN
 F 2 "Capacitor_SMD:C_0603_1608Metric" H 5688 3700 50  0001 C CNN
 F 3 "~" H 5650 3850 50  0001 C CNN
 	1    5650 3850
 	0    1    1    0   
 $EndComp
+Text Notes 3850 4500 0    50   ~ 0
+External capacitors required, no internal load capacitors!
+NoConn ~ 7350 3550
 $EndSCHEMATC
