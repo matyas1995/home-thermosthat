@@ -1397,4 +1397,28 @@ F 3 "~" H 5650 3350 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	5450 3350 5850 3350
+$Comp
+L Connector:TestPoint TP?
+U 1 1 5F6F1851
+P 950 2400
+F 0 "TP?" V 1145 2472 50  0000 C CNN
+F 1 "5V" V 1054 2472 50  0000 C CNN
+F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 1150 2400 50  0001 C CNN
+F 3 "~" H 1150 2400 50  0001 C CNN
+	1    950  2400
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 5F6F2232
+P 1000 2400
+F 0 "#PWR?" H 1000 2250 50  0001 C CNN
+F 1 "+5V" V 1015 2528 50  0000 L CNN
+F 2 "" H 1000 2400 50  0001 C CNN
+F 3 "" H 1000 2400 50  0001 C CNN
+	1    1000 2400
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	1000 2400 950  2400
 $EndSCHEMATC
