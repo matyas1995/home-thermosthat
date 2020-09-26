@@ -927,4 +927,6 @@ Wire Wire Line
 Wire Wire Line
 	9550 4100 9900 4100
 Connection ~ 9900 4100
+Text Notes 8700 4350 0    50   ~ 0
+Place close to MCU pin
 $EndSCHEMATC
