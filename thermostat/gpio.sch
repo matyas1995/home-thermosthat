@@ -77,8 +77,6 @@ F 3 "https://www.mouser.de/datasheet/2/916/BC817_SER-1598763.pdf" H 5500 1850 50
 $EndComp
 Wire Wire Line
 	5600 1600 5600 1650
-Wire Wire Line
-	4950 1850 5300 1850
 $Comp
 L Device:R R?
 U 1 1 5F3B8E07
@@ -129,8 +127,6 @@ F 3 "https://www.mouser.de/datasheet/2/916/BC817_SER-1598763.pdf" H 3450 1850 50
 $EndComp
 Wire Wire Line
 	3550 1600 3550 1650
-Wire Wire Line
-	2900 1850 3250 1850
 $Comp
 L Device:R R?
 U 1 1 5F3B8E26
@@ -181,15 +177,13 @@ F 3 "https://www.mouser.de/datasheet/2/916/BC817_SER-1598763.pdf" H 3450 3700 50
 $EndComp
 Wire Wire Line
 	3550 3450 3550 3500
-Wire Wire Line
-	2900 3700 3250 3700
 $Comp
 L Device:C C44
 U 1 1 5F3B8E45
 P 1300 4850
 F 0 "C44" H 1415 4896 50  0000 L CNN
 F 1 "1n" H 1415 4805 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 1338 4700 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 1338 4700 50  0001 C CNN
 F 3 "~" H 1300 4850 50  0001 C CNN
 	1    1300 4850
 	1    0    0    -1  
@@ -214,7 +208,7 @@ U 1 1 5F3B8E53
 P 1300 4150
 F 0 "C43" H 1415 4196 50  0000 L CNN
 F 1 "1n" H 1415 4105 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 1338 4000 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 1338 4000 50  0001 C CNN
 F 3 "~" H 1300 4150 50  0001 C CNN
 	1    1300 4150
 	1    0    0    -1  
@@ -239,7 +233,7 @@ U 1 1 5F3B8E63
 P 1300 3500
 F 0 "C42" H 1415 3546 50  0000 L CNN
 F 1 "1n" H 1415 3455 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 1338 3350 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 1338 3350 50  0001 C CNN
 F 3 "~" H 1300 3500 50  0001 C CNN
 	1    1300 3500
 	1    0    0    -1  
@@ -264,7 +258,7 @@ U 1 1 5F3B8E73
 P 1300 2800
 F 0 "C41" H 1415 2846 50  0000 L CNN
 F 1 "1n" H 1415 2755 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 1338 2650 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 1338 2650 50  0001 C CNN
 F 3 "~" H 1300 2800 50  0001 C CNN
 	1    1300 2800
 	1    0    0    -1  
@@ -289,7 +283,7 @@ U 1 1 5F3B8E83
 P 1300 2100
 F 0 "C40" H 1415 2146 50  0000 L CNN
 F 1 "1n" H 1415 2055 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 1338 1950 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 1338 1950 50  0001 C CNN
 F 3 "~" H 1300 2100 50  0001 C CNN
 	1    1300 2100
 	1    0    0    -1  
@@ -316,7 +310,7 @@ U 1 1 5F3B8E94
 P 1300 1350
 F 0 "C39" H 1415 1396 50  0000 L CNN
 F 1 "1n" H 1415 1305 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric" H 1338 1200 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 1338 1200 50  0001 C CNN
 F 3 "~" H 1300 1350 50  0001 C CNN
 	1    1300 1350
 	1    0    0    -1  
@@ -367,15 +361,11 @@ Wire Notes Line
 	4350 2400 2350 2400
 Wire Notes Line
 	2350 600  2350 2400
-Text HLabel 1100 4000 0    50   Input ~ 0
-BTN_OK
-Text HLabel 1250 4700 0    50   Input ~ 0
-BTN_CANCEL
-Text HLabel 2900 1850 0    50   Input ~ 0
+Text HLabel 2950 1850 0    50   Input ~ 0
 LED_OUT
-Text HLabel 4950 1850 0    50   Input ~ 0
+Text HLabel 5000 1850 0    50   Input ~ 0
 LED_RED
-Text HLabel 2900 3700 0    50   Input ~ 0
+Text HLabel 2950 3700 0    50   Input ~ 0
 LED_GREEN
 Text Label 1100 1200 2    50   ~ 0
 BTN_UP
@@ -425,7 +415,7 @@ AR Path="/5F468D75" Ref="R?"  Part="1"
 AR Path="/5F39C8C1/5F468D75" Ref="R16"  Part="1" 
 F 0 "R16" V 9193 1750 50  0000 C CNN
 F 1 "100k" V 9284 1750 50  0000 C CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 9330 1750 50  0001 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 9330 1750 50  0001 C CNN
 F 3 "~" H 9400 1750 50  0001 C CNN
 	1    9400 1750
 	-1   0    0    1   
@@ -439,7 +429,7 @@ AR Path="/5F4692DF" Ref="R?"  Part="1"
 AR Path="/5F39C8C1/5F4692DF" Ref="R17"  Part="1" 
 F 0 "R17" V 9543 1750 50  0000 C CNN
 F 1 "100k" V 9634 1750 50  0000 C CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 9680 1750 50  0001 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 9680 1750 50  0001 C CNN
 F 3 "~" H 9750 1750 50  0001 C CNN
 	1    9750 1750
 	-1   0    0    1   
@@ -453,7 +443,7 @@ AR Path="/5F46944E" Ref="R?"  Part="1"
 AR Path="/5F39C8C1/5F46944E" Ref="R18"  Part="1" 
 F 0 "R18" V 9893 1750 50  0000 C CNN
 F 1 "100k" V 9984 1750 50  0000 C CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 10030 1750 50  0001 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 10030 1750 50  0001 C CNN
 F 3 "~" H 10100 1750 50  0001 C CNN
 	1    10100 1750
 	-1   0    0    1   
@@ -467,7 +457,7 @@ AR Path="/5F469564" Ref="R?"  Part="1"
 AR Path="/5F39C8C1/5F469564" Ref="R19"  Part="1" 
 F 0 "R19" V 10243 1750 50  0000 C CNN
 F 1 "100k" V 10334 1750 50  0000 C CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 10380 1750 50  0001 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 10380 1750 50  0001 C CNN
 F 3 "~" H 10450 1750 50  0001 C CNN
 	1    10450 1750
 	-1   0    0    1   
@@ -616,7 +606,6 @@ Wire Wire Line
 Connection ~ 7950 1050
 Wire Wire Line
 	7950 1050 7950 1650
-NoConn ~ 8450 2350
 NoConn ~ 8450 2450
 NoConn ~ 8450 2550
 NoConn ~ 8450 2650
@@ -700,10 +689,6 @@ Wire Wire Line
 	5500 6950 6200 6950
 Wire Wire Line
 	5500 7150 6200 7150
-Text HLabel 5500 6950 0    50   Input ~ 0
-BTN_CANCEL
-Text HLabel 5500 6750 0    50   Input ~ 0
-BTN_OK
 Text Label 5500 6550 2    50   ~ 0
 BTN_RIGHT
 Text Label 5500 6350 2    50   ~ 0
@@ -765,4 +750,114 @@ Text Label 4000 1250 2    50   ~ 0
 YELLOW
 Text Label 4000 3100 2    50   ~ 0
 GREEN
+$Comp
+L power:+3V3 #PWR?
+U 1 1 5FA8BBB8
+P 2000 3950
+AR Path="/5E8AC4D3/5FA8BBB8" Ref="#PWR?"  Part="1" 
+AR Path="/5FA8BBB8" Ref="#PWR?"  Part="1" 
+AR Path="/5F39C8C1/5FA8BBB8" Ref="#PWR0115"  Part="1" 
+F 0 "#PWR0115" H 2000 3800 50  0001 C CNN
+F 1 "+3V3" H 2015 4123 50  0000 C CNN
+F 2 "" H 2000 3950 50  0001 C CNN
+F 3 "" H 2000 3950 50  0001 C CNN
+	1    2000 3950
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5FA8C1EC
+P 1700 4000
+AR Path="/5E6A63AE/5FA8C1EC" Ref="R?"  Part="1" 
+AR Path="/5FA8C1EC" Ref="R?"  Part="1" 
+AR Path="/5F39C8C1/5FA8C1EC" Ref="R21"  Part="1" 
+F 0 "R21" V 1493 4000 50  0000 C CNN
+F 1 "100k" V 1584 4000 50  0000 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 1630 4000 50  0001 C CNN
+F 3 "~" H 1700 4000 50  0001 C CNN
+	1    1700 4000
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	1300 4000 1550 4000
+Connection ~ 1300 4000
+Wire Wire Line
+	1850 4000 2000 4000
+Wire Wire Line
+	2000 4000 2000 3950
+Text HLabel 1100 4000 0    50   Input ~ 0
+BTN_OK
+Text HLabel 5500 6750 0    50   Input ~ 0
+BTN_OK
+Text Label 5500 6950 2    50   ~ 0
+BTN_CANCEL
+Text Label 1250 4700 2    50   ~ 0
+BTN_CANCEL
+$Comp
+L Device:R R?
+U 1 1 5FA930FA
+P 10800 1750
+AR Path="/5E6A63AE/5FA930FA" Ref="R?"  Part="1" 
+AR Path="/5FA930FA" Ref="R?"  Part="1" 
+AR Path="/5F39C8C1/5FA930FA" Ref="R22"  Part="1" 
+F 0 "R22" V 10593 1750 50  0000 C CNN
+F 1 "100k" V 10684 1750 50  0000 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 10730 1750 50  0001 C CNN
+F 3 "~" H 10800 1750 50  0001 C CNN
+	1    10800 1750
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	10800 1600 10800 1500
+Wire Wire Line
+	10800 1500 10450 1500
+Connection ~ 10450 1500
+Wire Wire Line
+	8450 2350 10800 2350
+Wire Wire Line
+	10800 2350 10800 1900
+Text Label 8950 2350 2    50   ~ 0
+BTN_CANCEL
+$Comp
+L Device:R R?
+U 1 1 5FAA9C4A
+P 3100 1850
+AR Path="/5E6A63AE/5FAA9C4A" Ref="R?"  Part="1" 
+AR Path="/5FAA9C4A" Ref="R?"  Part="1" 
+AR Path="/5F39C8C1/5FAA9C4A" Ref="R23"  Part="1" 
+F 0 "R23" V 2893 1850 50  0000 C CNN
+F 1 "0?" V 2984 1850 50  0000 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 3030 1850 50  0001 C CNN
+F 3 "~" H 3100 1850 50  0001 C CNN
+	1    3100 1850
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5FAAA4F5
+P 5150 1850
+AR Path="/5E6A63AE/5FAAA4F5" Ref="R?"  Part="1" 
+AR Path="/5FAAA4F5" Ref="R?"  Part="1" 
+AR Path="/5F39C8C1/5FAAA4F5" Ref="R25"  Part="1" 
+F 0 "R25" V 4943 1850 50  0000 C CNN
+F 1 "0?" V 5034 1850 50  0000 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 5080 1850 50  0001 C CNN
+F 3 "~" H 5150 1850 50  0001 C CNN
+	1    5150 1850
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5FAAA7FD
+P 3100 3700
+AR Path="/5E6A63AE/5FAAA7FD" Ref="R?"  Part="1" 
+AR Path="/5FAAA7FD" Ref="R?"  Part="1" 
+AR Path="/5F39C8C1/5FAAA7FD" Ref="R24"  Part="1" 
+F 0 "R24" V 2893 3700 50  0000 C CNN
+F 1 "0?" V 2984 3700 50  0000 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 3030 3700 50  0001 C CNN
+F 3 "~" H 3100 3700 50  0001 C CNN
+	1    3100 3700
+	0    1    1    0   
+$EndComp
 $EndSCHEMATC
