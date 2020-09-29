@@ -61,20 +61,6 @@ Text Notes 4450 1650 0    50   ~ 0
 Signal LED with PWM option
 Text Notes 5950 1500 0    50   ~ 0
 1,8V, 2mA
-$Comp
-L Device:Q_NPN_BEC Q?
-U 1 1 5F3B8DF8
-P 5500 1850
-AR Path="/5E6A63AE/5F3B8DF8" Ref="Q?"  Part="1" 
-AR Path="/5F3B8DF8" Ref="Q?"  Part="1" 
-AR Path="/5F39C8C1/5F3B8DF8" Ref="Q6"  Part="1" 
-F 0 "Q6" H 5691 1896 50  0000 L CNN
-F 1 "BC817" H 5691 1805 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-23" H 5700 1950 50  0001 C CNN
-F 3 "https://www.mouser.de/datasheet/2/916/BC817_SER-1598763.pdf" H 5500 1850 50  0001 C CNN
-	1    5500 1850
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	5600 1600 5600 1650
 $Comp
@@ -111,20 +97,6 @@ Text Notes 2400 1650 0    50   ~ 0
 Signal LED with PWM option
 Text Notes 3900 1500 0    50   ~ 0
 1,8V, 2mA
-$Comp
-L Device:Q_NPN_BEC Q?
-U 1 1 5F3B8E17
-P 3450 1850
-AR Path="/5E6A63AE/5F3B8E17" Ref="Q?"  Part="1" 
-AR Path="/5F3B8E17" Ref="Q?"  Part="1" 
-AR Path="/5F39C8C1/5F3B8E17" Ref="Q4"  Part="1" 
-F 0 "Q4" H 3641 1896 50  0000 L CNN
-F 1 "BC817" H 3641 1805 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-23" H 3650 1950 50  0001 C CNN
-F 3 "https://www.mouser.de/datasheet/2/916/BC817_SER-1598763.pdf" H 3450 1850 50  0001 C CNN
-	1    3450 1850
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	3550 1600 3550 1650
 $Comp
@@ -161,20 +133,6 @@ Text Notes 2400 3500 0    50   ~ 0
 Signal LED with PWM option
 Text Notes 3900 3350 0    50   ~ 0
 1,8V, 2mA
-$Comp
-L Device:Q_NPN_BEC Q?
-U 1 1 5F3B8E36
-P 3450 3700
-AR Path="/5E6A63AE/5F3B8E36" Ref="Q?"  Part="1" 
-AR Path="/5F3B8E36" Ref="Q?"  Part="1" 
-AR Path="/5F39C8C1/5F3B8E36" Ref="Q5"  Part="1" 
-F 0 "Q5" H 3641 3746 50  0000 L CNN
-F 1 "BC817" H 3641 3655 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-23" H 3650 3800 50  0001 C CNN
-F 3 "https://www.mouser.de/datasheet/2/916/BC817_SER-1598763.pdf" H 3450 3700 50  0001 C CNN
-	1    3450 3700
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	3550 3450 3550 3500
 $Comp
@@ -361,11 +319,11 @@ Wire Notes Line
 	4350 2400 2350 2400
 Wire Notes Line
 	2350 600  2350 2400
-Text HLabel 2950 1850 0    50   Input ~ 0
-LED_OUT
-Text HLabel 5000 1850 0    50   Input ~ 0
-LED_RED
 Text HLabel 2950 3700 0    50   Input ~ 0
+LED_OUT
+Text HLabel 2950 1850 0    50   Input ~ 0
+LED_RED
+Text HLabel 5000 1850 0    50   Input ~ 0
 LED_GREEN
 Text Label 1100 1200 2    50   ~ 0
 BTN_UP
@@ -689,23 +647,23 @@ Wire Wire Line
 	5500 6950 6200 6950
 Wire Wire Line
 	5500 7150 6200 7150
-Text Label 5500 6550 2    50   ~ 0
+Text Label 5500 6750 2    50   ~ 0
 BTN_RIGHT
-Text Label 5500 6350 2    50   ~ 0
+Text Label 5500 6550 2    50   ~ 0
 BTN_LEFT
-Text Label 5500 6150 2    50   ~ 0
+Text Label 5500 6350 2    50   ~ 0
 BTN_DOWN
-Text Label 5500 5950 2    50   ~ 0
+Text Label 5500 6150 2    50   ~ 0
 BTN_UP
 Text HLabel 5500 7150 0    50   Input ~ 0
 BTN_RST
 Wire Wire Line
 	6200 5350 5500 5350
-Text Label 5500 5750 2    50   ~ 0
-GREEN
-Text Label 5500 5550 2    50   ~ 0
-YELLOW
 Text Label 5500 5350 2    50   ~ 0
+GREEN
+Text Label 5500 5750 2    50   ~ 0
+YELLOW
+Text Label 5500 5550 2    50   ~ 0
 RED
 $Comp
 L Connector_Generic:Conn_01x20 J5
@@ -744,11 +702,11 @@ Wire Wire Line
 	3550 3150 3550 3100
 Wire Wire Line
 	3550 3100 4000 3100
-Text Label 6050 1250 2    50   ~ 0
-RED
 Text Label 4000 1250 2    50   ~ 0
-YELLOW
+RED
 Text Label 4000 3100 2    50   ~ 0
+YELLOW
+Text Label 6050 1250 2    50   ~ 0
 GREEN
 $Comp
 L power:+3V3 #PWR?
@@ -787,7 +745,7 @@ Wire Wire Line
 	2000 4000 2000 3950
 Text HLabel 1100 4000 0    50   Input ~ 0
 BTN_OK
-Text HLabel 5500 6750 0    50   Input ~ 0
+Text HLabel 5500 5950 0    50   Input ~ 0
 BTN_OK
 Text Label 5500 6950 2    50   ~ 0
 BTN_CANCEL
@@ -821,43 +779,124 @@ BTN_CANCEL
 $Comp
 L Device:R R?
 U 1 1 5FAA9C4A
-P 3100 1850
+P 3300 2050
 AR Path="/5E6A63AE/5FAA9C4A" Ref="R?"  Part="1" 
 AR Path="/5FAA9C4A" Ref="R?"  Part="1" 
 AR Path="/5F39C8C1/5FAA9C4A" Ref="R23"  Part="1" 
-F 0 "R23" V 2893 1850 50  0000 C CNN
-F 1 "0?" V 2984 1850 50  0000 C CNN
-F 2 "Resistor_SMD:R_0402_1005Metric" V 3030 1850 50  0001 C CNN
-F 3 "~" H 3100 1850 50  0001 C CNN
-	1    3100 1850
-	0    1    1    0   
+F 0 "R23" V 3093 2050 50  0000 C CNN
+F 1 "0?" V 3184 2050 50  0000 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 3230 2050 50  0001 C CNN
+F 3 "~" H 3300 2050 50  0001 C CNN
+	1    3300 2050
+	0    -1   -1   0   
 $EndComp
 $Comp
 L Device:R R?
 U 1 1 5FAAA4F5
-P 5150 1850
+P 5350 2050
 AR Path="/5E6A63AE/5FAAA4F5" Ref="R?"  Part="1" 
 AR Path="/5FAAA4F5" Ref="R?"  Part="1" 
 AR Path="/5F39C8C1/5FAAA4F5" Ref="R25"  Part="1" 
-F 0 "R25" V 4943 1850 50  0000 C CNN
-F 1 "0?" V 5034 1850 50  0000 C CNN
-F 2 "Resistor_SMD:R_0402_1005Metric" V 5080 1850 50  0001 C CNN
-F 3 "~" H 5150 1850 50  0001 C CNN
-	1    5150 1850
-	0    1    1    0   
+F 0 "R25" V 5143 2050 50  0000 C CNN
+F 1 "0?" V 5234 2050 50  0000 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 5280 2050 50  0001 C CNN
+F 3 "~" H 5350 2050 50  0001 C CNN
+	1    5350 2050
+	0    -1   -1   0   
 $EndComp
 $Comp
 L Device:R R?
 U 1 1 5FAAA7FD
-P 3100 3700
+P 3300 3900
 AR Path="/5E6A63AE/5FAAA7FD" Ref="R?"  Part="1" 
 AR Path="/5FAAA7FD" Ref="R?"  Part="1" 
 AR Path="/5F39C8C1/5FAAA7FD" Ref="R24"  Part="1" 
-F 0 "R24" V 2893 3700 50  0000 C CNN
-F 1 "0?" V 2984 3700 50  0000 C CNN
-F 2 "Resistor_SMD:R_0402_1005Metric" V 3030 3700 50  0001 C CNN
-F 3 "~" H 3100 3700 50  0001 C CNN
-	1    3100 3700
-	0    1    1    0   
+F 0 "R24" V 3093 3900 50  0000 C CNN
+F 1 "0?" V 3184 3900 50  0000 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 3230 3900 50  0001 C CNN
+F 3 "~" H 3300 3900 50  0001 C CNN
+	1    3300 3900
+	0    -1   -1   0   
 $EndComp
+$Comp
+L Device:Q_NMOS_GSD Q?
+U 1 1 5F792335
+P 3450 1850
+AR Path="/5E63CFCA/5F792335" Ref="Q?"  Part="1" 
+AR Path="/5F792335" Ref="Q?"  Part="1" 
+AR Path="/5F306ECC/5F792335" Ref="Q?"  Part="1" 
+AR Path="/5F39C8C1/5F792335" Ref="Q3"  Part="1" 
+F 0 "Q3" H 3655 1896 50  0000 L CNN
+F 1 "BSS806NL6327" H 3655 1805 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 3650 1950 50  0001 C CNN
+F 3 "~" H 3450 1850 50  0001 C CNN
+	1    3450 1850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:Q_NMOS_GSD Q?
+U 1 1 5F7963CB
+P 3450 3700
+AR Path="/5E63CFCA/5F7963CB" Ref="Q?"  Part="1" 
+AR Path="/5F7963CB" Ref="Q?"  Part="1" 
+AR Path="/5F306ECC/5F7963CB" Ref="Q?"  Part="1" 
+AR Path="/5F39C8C1/5F7963CB" Ref="Q4"  Part="1" 
+F 0 "Q4" H 3655 3746 50  0000 L CNN
+F 1 "BSS806NL6327" H 3655 3655 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 3650 3800 50  0001 C CNN
+F 3 "~" H 3450 3700 50  0001 C CNN
+	1    3450 3700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:Q_NMOS_GSD Q?
+U 1 1 5F796F73
+P 5500 1850
+AR Path="/5E63CFCA/5F796F73" Ref="Q?"  Part="1" 
+AR Path="/5F796F73" Ref="Q?"  Part="1" 
+AR Path="/5F306ECC/5F796F73" Ref="Q?"  Part="1" 
+AR Path="/5F39C8C1/5F796F73" Ref="Q5"  Part="1" 
+F 0 "Q5" H 5705 1896 50  0000 L CNN
+F 1 "BSS806NL6327" H 5705 1805 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 5700 1950 50  0001 C CNN
+F 3 "~" H 5500 1850 50  0001 C CNN
+	1    5500 1850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3450 2050 3550 2050
+Connection ~ 3550 2050
+Wire Wire Line
+	3250 1850 3100 1850
+Wire Wire Line
+	3150 2050 3100 2050
+Wire Wire Line
+	3100 2050 3100 1850
+Connection ~ 3100 1850
+Wire Wire Line
+	3100 1850 2950 1850
+Wire Wire Line
+	5500 2050 5600 2050
+Connection ~ 5600 2050
+Wire Wire Line
+	5300 1850 5150 1850
+Wire Wire Line
+	5200 2050 5150 2050
+Wire Wire Line
+	5150 2050 5150 1850
+Connection ~ 5150 1850
+Wire Wire Line
+	5150 1850 5000 1850
+Wire Wire Line
+	3450 3900 3550 3900
+Connection ~ 3550 3900
+Wire Wire Line
+	3250 3700 3100 3700
+Wire Wire Line
+	3150 3900 3100 3900
+Wire Wire Line
+	3100 3900 3100 3700
+Connection ~ 3100 3700
+Wire Wire Line
+	3100 3700 2950 3700
 $EndSCHEMATC

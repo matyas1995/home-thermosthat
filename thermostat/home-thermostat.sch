@@ -580,14 +580,6 @@ F 3 "~" H -1050 1450 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	-1050 1250 -1050 1300
-Wire Notes Line
-	700  4350 700  2150
-Wire Notes Line
-	700  2150 2350 2150
-Wire Notes Line
-	2350 2150 2350 4350
-Wire Notes Line
-	700  4350 2350 4350
 $Comp
 L Connector:Conn_Coaxial J1
 U 1 1 5F529E82
@@ -617,58 +609,6 @@ Wire Notes Line
 	7850 5200 7850 6100
 Text Notes 7850 6300 0    50   ~ 0
 This matching network transform device impedance to 50Ohms\nPlace as close to device as possible
-$Comp
-L Connector:TestPoint TP9
-U 1 1 5F554204
-P 950 3350
-F 0 "TP9" V 1145 3422 50  0000 C CNN
-F 1 "GND" V 1054 3422 50  0000 C CNN
-F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 1150 3350 50  0001 C CNN
-F 3 "~" H 1150 3350 50  0001 C CNN
-	1    950  3350
-	0    -1   -1   0   
-$EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 5F5544E3
-P 1000 3350
-AR Path="/5E8AC4D3/5F5544E3" Ref="#PWR?"  Part="1" 
-AR Path="/5F5544E3" Ref="#PWR016"  Part="1" 
-F 0 "#PWR016" H 1000 3100 50  0001 C CNN
-F 1 "GND" H 1005 3177 50  0000 C CNN
-F 2 "" H 1000 3350 50  0001 C CNN
-F 3 "" H 1000 3350 50  0001 C CNN
-	1    1000 3350
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	1000 3350 950  3350
-$Comp
-L power:+3V3 #PWR?
-U 1 1 5F55E07F
-P 1000 2700
-AR Path="/5E8AC4D3/5F55E07F" Ref="#PWR?"  Part="1" 
-AR Path="/5F55E07F" Ref="#PWR015"  Part="1" 
-F 0 "#PWR015" H 1000 2550 50  0001 C CNN
-F 1 "+3V3" H 1015 2873 50  0000 C CNN
-F 2 "" H 1000 2700 50  0001 C CNN
-F 3 "" H 1000 2700 50  0001 C CNN
-	1    1000 2700
-	0    1    1    0   
-$EndComp
-$Comp
-L Connector:TestPoint TP8
-U 1 1 5F55EE65
-P 950 2700
-F 0 "TP8" V 1145 2772 50  0000 C CNN
-F 1 "3V3" V 1054 2772 50  0000 C CNN
-F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 1150 2700 50  0001 C CNN
-F 3 "~" H 1150 2700 50  0001 C CNN
-	1    950  2700
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	950  2700 1000 2700
 Text Label 8200 5050 2    50   ~ 0
 SPI1_SCK
 Text Label 8200 5150 2    50   ~ 0
@@ -837,7 +777,7 @@ U 1 1 5F332BE7
 P 6750 4050
 F 0 "U1" H 6000 5800 50  0000 C CNN
 F 1 "MKW41Z512VHT" H 7600 5800 50  0000 C CNN
-F 2 "Package_DFN_QFN:NXP_LQFN-48-1EP_7x7mm_P0.5mm_EP3.5x3.5mm_16xMask0.45x0.45" H 6700 4050 50  0001 C CNN
+F 2 "Package_DFN_QFN:NXP_LQFN-48-1EP_7x7mm_P0.5mm_EP3.5x3.5mm_16xMask0.45x0.45_ThermalVias" H 6700 4050 50  0001 C CNN
 F 3 "https://www.nxp.com/docs/en/data-sheet/MKW41Z512.pdf" H 6750 3950 50  0001 C CNN
 	1    6750 4050
 	1    0    0    -1  
@@ -1225,30 +1165,6 @@ F 3 "~" H 5650 3950 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	5450 3950 5850 3950
-$Comp
-L Connector:TestPoint TP15
-U 1 1 5F6F1851
-P 950 2400
-F 0 "TP15" V 1145 2472 50  0000 C CNN
-F 1 "5V" V 1054 2472 50  0000 C CNN
-F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 1150 2400 50  0001 C CNN
-F 3 "~" H 1150 2400 50  0001 C CNN
-	1    950  2400
-	0    -1   -1   0   
-$EndComp
-$Comp
-L power:+5V #PWR096
-U 1 1 5F6F2232
-P 1000 2400
-F 0 "#PWR096" H 1000 2250 50  0001 C CNN
-F 1 "+5V" V 1015 2528 50  0000 L CNN
-F 2 "" H 1000 2400 50  0001 C CNN
-F 3 "" H 1000 2400 50  0001 C CNN
-	1    1000 2400
-	0    1    1    0   
-$EndComp
-Wire Wire Line
-	1000 2400 950  2400
 $Comp
 L Device:L L6
 U 1 1 5F711776
@@ -1786,7 +1702,7 @@ P 1600 6900
 AR Path="/5FA1C616" Ref="J7"  Part="1" 
 AR Path="/5E6A63AE/5FA1C616" Ref="J?"  Part="1" 
 F 0 "J7" H 1680 6942 50  0000 L CNN
-F 1 "Thermosthat" H 1680 6851 50  0000 L CNN
+F 1 "UART" H 1680 6851 50  0000 L CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical_SMD_Pin1Left" H 1600 6900 50  0001 C CNN
 F 3 "~" H 1600 6900 50  0001 C CNN
 	1    1600 6900

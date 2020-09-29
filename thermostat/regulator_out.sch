@@ -247,28 +247,6 @@ Wire Wire Line
 	8600 4400 8600 4350
 Text Notes 8600 1550 0    50   ~ 0
 Grenzfrequenz 160Hz
-$Comp
-L Device:Q_NPN_BEC Q3
-U 1 1 5E8E2163
-P 7950 1950
-F 0 "Q3" H 8141 1996 50  0000 L CNN
-F 1 "BC817" H 8141 1905 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-23" H 8150 2050 50  0001 C CNN
-F 3 "https://www.mouser.de/datasheet/2/916/BC817_SER-1598763.pdf" H 7950 1950 50  0001 C CNN
-	1    7950 1950
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:Q_NPN_BEC Q2
-U 1 1 5E8E1AB8
-P 7200 1950
-F 0 "Q2" H 7391 1996 50  0000 L CNN
-F 1 "BC817" H 7391 1905 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-23" H 7400 2050 50  0001 C CNN
-F 3 "https://www.mouser.de/datasheet/2/916/BC817_SER-1598763.pdf" H 7200 1950 50  0001 C CNN
-	1    7200 1950
-	1    0    0    -1  
-$EndComp
 Wire Notes Line
 	6100 2650 11150 2650
 Wire Notes Line
@@ -302,7 +280,7 @@ Connection ~ 8050 1700
 Wire Wire Line
 	8050 1650 8050 1700
 Wire Wire Line
-	8050 2400 8050 2150
+	8050 2400 8050 2200
 $Comp
 L power:GNDA #PWR068
 U 1 1 5E7DE66A
@@ -314,17 +292,6 @@ F 3 "" H 8050 2400 50  0001 C CNN
 	1    8050 2400
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	7300 1700 7300 1750
-Wire Wire Line
-	7700 1950 7750 1950
-Wire Wire Line
-	7700 1700 7700 1950
-Wire Wire Line
-	7300 1700 7700 1700
-Connection ~ 7300 1700
-Wire Wire Line
-	7300 1650 7300 1700
 Text Notes 8100 850  0    50   ~ 0
 PWM-to-Analog converter
 $Comp
@@ -338,41 +305,6 @@ F 3 "~" H 8050 1500 50  0001 C CNN
 	1    8050 1500
 	1    0    0    -1  
 $EndComp
-$Comp
-L Device:R R10
-U 1 1 5E6AEB7F
-P 7300 1500
-F 0 "R10" H 7370 1546 50  0000 L CNN
-F 1 "4K7?" H 7370 1455 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 7230 1500 50  0001 C CNN
-F 3 "~" H 7300 1500 50  0001 C CNN
-	1    7300 1500
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR066
-U 1 1 5E6D3024
-P 7300 2400
-F 0 "#PWR066" H 7300 2150 50  0001 C CNN
-F 1 "GND" H 7305 2227 50  0000 C CNN
-F 2 "" H 7300 2400 50  0001 C CNN
-F 3 "" H 7300 2400 50  0001 C CNN
-	1    7300 2400
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+5V #PWR065
-U 1 1 5E6D86F0
-P 7300 1300
-F 0 "#PWR065" H 7300 1150 50  0001 C CNN
-F 1 "+5V" H 7315 1473 50  0000 C CNN
-F 2 "" H 7300 1300 50  0001 C CNN
-F 3 "" H 7300 1300 50  0001 C CNN
-	1    7300 1300
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	7300 1300 7300 1350
 $Comp
 L Amplifier_Operational:LM358 U7
 U 1 1 5E6B942A
@@ -448,9 +380,9 @@ P 1750 1100
 AR Path="/5F3F4C28" Ref="J?"  Part="1" 
 AR Path="/5E6A63AE/5F3F4C28" Ref="J3"  Part="1" 
 F 0 "J3" H 1830 1142 50  0000 L CNN
-F 1 "Thermosthat" H 1830 1051 50  0000 L CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical_SMD_Pin1Left" H 1750 1100 50  0001 C CNN
-F 3 "~" H 1750 1100 50  0001 C CNN
+F 1 "Thermosthat - Molex PicoBlade" H 1830 1051 50  0000 L CNN
+F 2 "Connector_Molex:Molex_PicoBlade_53261-0371_1x03-1MP_P1.25mm_Horizontal" H 1750 1100 50  0001 C CNN
+F 3 "Molex PicoBlade" H 1750 1100 50  0001 C CNN
 	1    1750 1100
 	1    0    0    -1  
 $EndComp
@@ -886,24 +818,18 @@ SUPPLY_V
 Wire Wire Line
 	8650 4000 8600 4000
 Connection ~ 8600 4000
-Wire Wire Line
-	7300 2150 7300 2400
-Wire Wire Line
-	6950 1950 7000 1950
 $Comp
 L Device:R R9
 U 1 1 5E6AA7AC
-P 6800 1950
-F 0 "R9" V 6593 1950 50  0000 C CNN
-F 1 "0" V 6684 1950 50  0000 C CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 6730 1950 50  0001 C CNN
-F 3 "~" H 6800 1950 50  0001 C CNN
-	1    6800 1950
-	0    1    1    0   
+P 7800 2200
+F 0 "R9" V 7593 2200 50  0000 C CNN
+F 1 "0" V 7684 2200 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 7730 2200 50  0001 C CNN
+F 3 "~" H 7800 2200 50  0001 C CNN
+	1    7800 2200
+	0    -1   -1   0   
 $EndComp
-Wire Wire Line
-	6600 1950 6650 1950
-Text HLabel 6600 1950 0    50   Input ~ 0
+Text HLabel 7350 1950 0    50   Input ~ 0
 REGULATOR_OUT
 $Comp
 L Device:C C49
@@ -1109,4 +1035,33 @@ F 3 "" H 3200 1800 50  0001 C CNN
 	1    3200 1800
 	1    0    0    -1  
 $EndComp
+$Comp
+L Device:Q_NMOS_GSD Q?
+U 1 1 5F7B6358
+P 7950 1950
+AR Path="/5E63CFCA/5F7B6358" Ref="Q?"  Part="1" 
+AR Path="/5F7B6358" Ref="Q?"  Part="1" 
+AR Path="/5F306ECC/5F7B6358" Ref="Q?"  Part="1" 
+AR Path="/5E6A63AE/5F7B6358" Ref="Q2"  Part="1" 
+F 0 "Q2" H 8155 1996 50  0000 L CNN
+F 1 "BSS806NL6327" H 8155 1905 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 8150 2050 50  0001 C CNN
+F 3 "~" H 7950 1950 50  0001 C CNN
+	1    7950 1950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7950 2200 8050 2200
+Connection ~ 8050 2200
+Wire Wire Line
+	8050 2200 8050 2150
+Wire Wire Line
+	7350 1950 7600 1950
+Wire Wire Line
+	7650 2200 7600 2200
+Wire Wire Line
+	7600 2200 7600 1950
+Connection ~ 7600 1950
+Wire Wire Line
+	7600 1950 7750 1950
 $EndSCHEMATC
