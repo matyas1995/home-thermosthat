@@ -1,4 +1,4 @@
-785309114181319
+785311019083319
 Package_DFN_QFN
 AMS_QFN-4-1EP_2x2mm_P0.95mm_EP0.7x1.6mm
 UFD Package, 4-Lead Plastic QFN (2mm x 2mm), http://ams.com/eng/content/download/950231/2267959/483138
@@ -690,7 +690,7 @@ NXP_LQFN-48-1EP_7x7mm_P0.5mm_EP3.5x3.5mm_16xMask0.45x0.45
 LQFN, 48 Pin (https://www.nxp.com/docs/en/package-information/98ASA00694D.pdf)
 NXP LQFN NoLead
 0
-65
+64
 49
 Package_DFN_QFN
 NXP_LQFN-48-1EP_7x7mm_P0.5mm_EP3.5x3.5mm_16xMask0.45x0.45_ThermalVias
