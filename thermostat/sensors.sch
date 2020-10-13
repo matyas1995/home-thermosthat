@@ -232,7 +232,7 @@ Wire Notes Line
 Wire Notes Line
 	3350 2350 3350 4600
 Wire Notes Line
-	6200 4600 3350 4600
+	6200 4750 3350 4750
 $Comp
 L Device:C C?
 U 1 1 5F32A0D7
@@ -543,7 +543,7 @@ P 5650 3350
 AR Path="/5F70128F" Ref="C?"  Part="1" 
 AR Path="/5F32546C/5F70128F" Ref="C12"  Part="1" 
 F 0 "C12" V 5398 3350 50  0000 C CNN
-F 1 "0" V 5489 3350 50  0000 C CNN
+F 1 "5p" V 5489 3350 50  0000 C CNN
 F 2 "Capacitor_SMD:C_0603_1608Metric" H 5688 3200 50  0001 C CNN
 F 3 "~" H 5650 3350 50  0001 C CNN
 	1    5650 3350
@@ -556,7 +556,7 @@ P 5650 3850
 AR Path="/5F701687" Ref="C?"  Part="1" 
 AR Path="/5F32546C/5F701687" Ref="C28"  Part="1" 
 F 0 "C28" V 5398 3850 50  0000 C CNN
-F 1 "0" V 5489 3850 50  0000 C CNN
+F 1 "5p" V 5489 3850 50  0000 C CNN
 F 2 "Capacitor_SMD:C_0603_1608Metric" H 5688 3700 50  0001 C CNN
 F 3 "~" H 5650 3850 50  0001 C CNN
 	1    5650 3850
@@ -565,4 +565,6 @@ $EndComp
 Text Notes 3850 4500 0    50   ~ 0
 External capacitors required, no internal load capacitors!
 NoConn ~ 7350 3550
+Text Notes 3850 4700 0    50   ~ 0
+Trace stray capacitance assumed 3pF,\ncalculated load capacitance 5pF
 $EndSCHEMATC

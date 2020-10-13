@@ -466,7 +466,7 @@ Wire Wire Line
 Wire Wire Line
 	7000 3550 7000 3500
 $Comp
-L Device:L_Iron L?
+L Device:L L?
 U 1 1 5F31538B
 P 7450 3500
 AR Path="/5E63CFCA/5F31538B" Ref="L?"  Part="1" 

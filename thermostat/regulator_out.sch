@@ -447,7 +447,7 @@ F 3 "http://www.national.com/ds/LM/LM2574.pdf" H 2450 5150 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:C C?
+L Device:C_Polarized C?
 U 1 1 5F453D8B
 P 1350 5250
 AR Path="/5E8AC4D3/5F453D8B" Ref="C?"  Part="1" 
@@ -455,7 +455,7 @@ AR Path="/5F453D8B" Ref="C?"  Part="1"
 AR Path="/5E6A63AE/5F453D8B" Ref="C32"  Part="1" 
 F 0 "C32" H 1465 5296 50  0000 L CNN
 F 1 "22u" H 1465 5205 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric" H 1388 5100 50  0001 C CNN
+F 2 "Capacitor_SMD:CP_Elec_6.3x3" H 1388 5100 50  0001 C CNN
 F 3 "~" H 1350 5250 50  0001 C CNN
 	1    1350 5250
 	1    0    0    -1  
@@ -798,7 +798,7 @@ Wire Wire Line
 Wire Wire Line
 	3750 5300 3750 5250
 $Comp
-L Device:C C?
+L Device:C_Polarized C?
 U 1 1 5F453E2E
 P 3750 5450
 AR Path="/5E8AC4D3/5F453E2E" Ref="C?"  Part="1" 
@@ -1091,17 +1091,6 @@ F 3 "~" H 6750 1500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:R R26
-U 1 1 5F7899BD
-P 7800 2200
-F 0 "R26" V 7593 2200 50  0000 C CNN
-F 1 "0" V 7684 2200 50  0000 C CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 7730 2200 50  0001 C CNN
-F 3 "~" H 7800 2200 50  0001 C CNN
-	1    7800 2200
-	0    -1   -1   0   
-$EndComp
-$Comp
 L power:GNDA #PWR016
 U 1 1 5F789E8B
 P 8050 2400
@@ -1112,17 +1101,6 @@ F 3 "" H 8050 2400 50  0001 C CNN
 	1    8050 2400
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	8050 2400 8050 2200
-Wire Wire Line
-	8050 2200 7950 2200
-Connection ~ 8050 2200
-Wire Wire Line
-	8050 2200 8050 2150
-Wire Wire Line
-	7650 2200 7600 2200
-Wire Wire Line
-	7600 2200 7600 1950
 Wire Wire Line
 	7600 1950 7750 1950
 $Comp
@@ -1147,7 +1125,8 @@ Wire Wire Line
 Connection ~ 6750 1700
 Wire Wire Line
 	6750 1700 6750 1750
-Connection ~ 7600 1950
 Text Notes 6750 1000 0    50   ~ 0
 Double NMOS to counteract inverter
+Wire Wire Line
+	8050 2150 8050 2400
 $EndSCHEMATC
