@@ -815,17 +815,6 @@ F 3 "~" H 8350 -500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector:TestPoint TP4
-U 1 1 5F6B71A5
-P 7650 -500
-F 0 "TP4" H 7708 -382 50  0000 L CNN
-F 1 "TestPoint" H 7708 -473 50  0000 L CNN
-F 2 "MountingHole:MountingHole_3.2mm_M3" H 7850 -500 50  0001 C CNN
-F 3 "~" H 7850 -500 50  0001 C CNN
-	1    7650 -500
-	1    0    0    -1  
-$EndComp
-$Comp
 L Connector:TestPoint TP3
 U 1 1 5F6B7528
 P 7150 -500
@@ -889,7 +878,6 @@ SPI1_MOSI
 NoConn ~ 7650 4950
 NoConn ~ 6650 -500
 NoConn ~ 7150 -500
-NoConn ~ 7650 -500
 NoConn ~ 8150 -500
 NoConn ~ 6450 2250
 $Comp

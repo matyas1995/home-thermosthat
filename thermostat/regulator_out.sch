@@ -381,12 +381,12 @@ AR Path="/5F3F4C28" Ref="J?"  Part="1"
 AR Path="/5E6A63AE/5F3F4C28" Ref="J3"  Part="1" 
 F 0 "J3" H 1830 1142 50  0000 L CNN
 F 1 "Thermosthat - Molex PicoBlade" H 1830 1051 50  0000 L CNN
-F 2 "Connector_Molex:Molex_PicoBlade_53261-0371_1x03-1MP_P1.25mm_Horizontal" H 1750 1100 50  0001 C CNN
+F 2 "Connector_Molex:Molex_PicoBlade_53048-0310_1x03_P1.25mm_Horizontal" H 1750 1100 50  0001 C CNN
 F 3 "Molex PicoBlade" H 1750 1100 50  0001 C CNN
 	1    1750 1100
 	1    0    0    -1  
 $EndComp
-Text Label 1000 1100 0    50   ~ 0
+Text Label 1000 1000 0    50   ~ 0
 8
 Text Label 1000 1200 0    50   ~ 0
 9
@@ -399,14 +399,14 @@ Wire Wire Line
 $Comp
 L power:+36V #PWR?
 U 1 1 5F3F4C34
-P 1000 1100
+P 1000 1000
 AR Path="/5F3F4C34" Ref="#PWR?"  Part="1" 
 AR Path="/5E6A63AE/5F3F4C34" Ref="#PWR061"  Part="1" 
-F 0 "#PWR061" H 1000 950 50  0001 C CNN
-F 1 "+36V" V 1015 1228 50  0000 L CNN
-F 2 "" H 1000 1100 50  0001 C CNN
-F 3 "" H 1000 1100 50  0001 C CNN
-	1    1000 1100
+F 0 "#PWR061" H 1000 850 50  0001 C CNN
+F 1 "+36V" V 1015 1128 50  0000 L CNN
+F 2 "" H 1000 1000 50  0001 C CNN
+F 3 "" H 1000 1000 50  0001 C CNN
+	1    1000 1000
 	0    -1   -1   0   
 $EndComp
 $Comp
@@ -811,7 +811,7 @@ F 3 "~" H 3750 5450 50  0001 C CNN
 	1    3750 5450
 	1    0    0    -1  
 $EndComp
-Text Label 1000 1000 0    50   ~ 0
+Text Label 1000 1100 0    50   ~ 0
 pwm_out
 Text HLabel 8650 4000 2    50   Input ~ 0
 SUPPLY_V
