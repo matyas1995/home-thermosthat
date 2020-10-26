@@ -505,7 +505,7 @@ Connection ~ 4700 5300
 Wire Wire Line
 	4700 5300 4850 5300
 $Comp
-L Timer_RTC:MCP7940N-xMS U2
+L home-thermostat-rescue:MCP7940N-xMS-Timer_RTC U2
 U 1 1 5F69CF88
 P 4450 3600
 F 0 "U2" H 4200 3250 50  0000 C CNN

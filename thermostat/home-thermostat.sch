@@ -755,8 +755,6 @@ Text Label 12150 3400 0    50   ~ 0
 BTN_OK
 Wire Wire Line
 	12150 3400 12650 3400
-Wire Wire Line
-	8200 2550 7650 2550
 Text Label 12150 3000 0    50   ~ 0
 I2C1_SCL
 Wire Wire Line
@@ -769,7 +767,7 @@ Text Label 12150 3200 0    50   ~ 0
 ~BTN_INT
 Wire Wire Line
 	12150 3200 12650 3200
-Text Label 8200 2550 2    50   ~ 0
+Text Label 8200 2950 2    50   ~ 0
 ~BTN_INT
 $Comp
 L MCU_NXP_Kinetis:MKW41Z512VHT U1
@@ -870,7 +868,6 @@ F 3 "~" H 4650 750 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 NoConn ~ 7650 2850
-NoConn ~ 7650 3350
 NoConn ~ 7650 3950
 NoConn ~ 7650 4050
 Text Label 8200 4850 2    50   ~ 0
@@ -1132,7 +1129,7 @@ L Connector:TestPoint TP14
 U 1 1 5F8A6123
 P 5450 3950
 F 0 "TP14" V 5350 4100 50  0000 C CNN
-F 1 "SUPPLY_V" V 5554 4022 50  0000 C CNN
+F 1 "ADC_IN" V 5554 4022 50  0000 C CNN
 F 2 "TestPoint:TestPoint_Pad_D1.0mm" H 5650 3950 50  0001 C CNN
 F 3 "~" H 5650 3950 50  0001 C CNN
 	1    5450 3950
@@ -1712,7 +1709,7 @@ Wire Wire Line
 	1050 6800 1400 6800
 Wire Wire Line
 	1050 6900 1400 6900
-Text Label 8200 2950 2    50   ~ 0
+Text Label 8200 3350 2    50   ~ 0
 BTN_OK
 Wire Wire Line
 	8200 2950 7650 2950
@@ -1770,4 +1767,7 @@ Wire Wire Line
 Wire Wire Line
 	6550 1500 6550 2250
 Connection ~ 6050 1500
+Wire Wire Line
+	8200 3350 7650 3350
+NoConn ~ 7650 2550
 $EndSCHEMATC

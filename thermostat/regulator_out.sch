@@ -447,7 +447,7 @@ F 3 "http://www.national.com/ds/LM/LM2574.pdf" H 2450 5150 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:C_Polarized C?
+L home-thermostat-rescue:C_Polarized-Device C?
 U 1 1 5F453D8B
 P 1350 5250
 AR Path="/5E8AC4D3/5F453D8B" Ref="C?"  Part="1" 
@@ -475,7 +475,7 @@ F 3 "~" H 3050 5450 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Device:L_Iron L?
+L home-thermostat-rescue:L_Iron-Device L?
 U 1 1 5F453D97
 P 3400 5250
 AR Path="/5E8AC4D3/5F453D97" Ref="L?"  Part="1" 
@@ -798,7 +798,7 @@ Wire Wire Line
 Wire Wire Line
 	3750 5300 3750 5250
 $Comp
-L Device:C_Polarized C?
+L home-thermostat-rescue:C_Polarized-Device C?
 U 1 1 5F453E2E
 P 3750 5450
 AR Path="/5E8AC4D3/5F453E2E" Ref="C?"  Part="1" 
