@@ -776,7 +776,7 @@ AR Path="/5FB0A228" Ref="J?"  Part="1"
 AR Path="/5FA4227D/5FB0A228" Ref="J2"  Part="1" 
 F 0 "J2" H 3880 7242 50  0000 L CNN
 F 1 "Conn_01x04" H 3880 7151 50  0000 L CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 3800 7250 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_2x02_P2.54mm_Vertical" H 3800 7250 50  0001 C CNN
 F 3 "~" H 3800 7250 50  0001 C CNN
 	1    3800 7250
 	1    0    0    -1  
