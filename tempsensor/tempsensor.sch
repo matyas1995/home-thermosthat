@@ -486,7 +486,7 @@ Text Label 7050 3350 2    50   ~ 0
 TMP0_CH1
 Wire Wire Line
 	7050 3350 6600 3350
-Text Label 1000 6950 2    50   ~ 0
+Text Label 1000 7150 2    50   ~ 0
 TMP0_CH2
 Text Label 7050 2650 2    50   ~ 0
 LPUART0_RX
@@ -518,19 +518,19 @@ Wire Wire Line
 	6950 4450 6600 4450
 Wire Wire Line
 	7050 4650 6600 4650
-Text Label 1000 7050 2    50   ~ 0
+Text Label 1000 7250 2    50   ~ 0
 TMP0_CH3
-Text Label 1000 6750 2    50   ~ 0
+Text Label 1000 6950 2    50   ~ 0
 PTB2
-Text Label 1000 6850 2    50   ~ 0
+Text Label 1000 7050 2    50   ~ 0
 PTB3
-Text Label 1000 7150 2    50   ~ 0
+Text Label 1000 7350 2    50   ~ 0
 PTA16
-Text Label 1000 6650 2    50   ~ 0
+Text Label 1000 6850 2    50   ~ 0
 ~BTN_INT
 Text Label 6950 4550 2    50   ~ 0
 PTA17
-Text Label 1000 7250 2    50   ~ 0
+Text Label 1000 7450 2    50   ~ 0
 PTA17
 Text Notes 7000 3600 0    50   ~ 0
 TMP1 available on these two pins
@@ -644,30 +644,21 @@ Wire Wire Line
 $Comp
 L power:GND #PWR016
 U 1 1 5FA3DB1B
-P 950 7500
-F 0 "#PWR016" H 950 7250 50  0001 C CNN
-F 1 "GND" H 955 7327 50  0000 C CNN
-F 2 "" H 950 7500 50  0001 C CNN
-F 3 "" H 950 7500 50  0001 C CNN
-	1    950  7500
-	1    0    0    -1  
+P 750 6400
+F 0 "#PWR016" H 750 6150 50  0001 C CNN
+F 1 "GND" H 755 6227 50  0000 C CNN
+F 2 "" H 750 6400 50  0001 C CNN
+F 3 "" H 750 6400 50  0001 C CNN
+	1    750  6400
+	0    1    1    0   
 $EndComp
-Wire Wire Line
-	1000 7350 950  7350
-Wire Wire Line
-	950  7350 950  7450
-Wire Wire Line
-	1000 7450 950  7450
-Connection ~ 950  7450
-Wire Wire Line
-	950  7450 950  7500
 $Comp
 L Device:Antenna_Shield AE1
 U 1 1 5FEAE3EE
 P 8700 5050
 F 0 "AE1" V 8686 5280 50  0000 L CNN
 F 1 "Antenna_Shield" V 8777 5280 50  0000 L CNN
-F 2 "RF_Antenna:Texas_SWRA117D_2.4GHz_Left" H 8700 5150 50  0001 C CNN
+F 2 "RF_Antenna:Texas_SWRA117D_2.4GHz_Right" H 8700 5150 50  0001 C CNN
 F 3 "~" H 8700 5150 50  0001 C CNN
 	1    8700 5050
 	0    1    1    0   
@@ -808,9 +799,9 @@ Text Label 12100 3000 0    50   ~ 0
 ~TMP_INT
 Wire Wire Line
 	12100 3000 12600 3000
-Text Label 1000 6550 2    50   ~ 0
+Text Label 1000 6750 2    50   ~ 0
 PTC19
-Text Label 1000 6450 2    50   ~ 0
+Text Label 1000 6650 2    50   ~ 0
 PTC4
 $Comp
 L Connector_Generic:Conn_01x14 J1
@@ -823,7 +814,7 @@ F 3 "~" H 1200 6750 50  0001 C CNN
 	1    1200 6750
 	1    0    0    -1  
 $EndComp
-Text Label 1000 6350 2    50   ~ 0
+Text Label 1000 6550 2    50   ~ 0
 PTC1
 $Comp
 L power:+1V8 #PWR0101
@@ -836,4 +827,15 @@ F 3 "" H 6050 1150 50  0001 C CNN
 	1    6050 1150
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	1000 6350 950  6350
+Wire Wire Line
+	950  6350 950  6400
+Wire Wire Line
+	950  6450 1000 6450
+Wire Wire Line
+	950  6400 750  6400
+Connection ~ 950  6400
+Wire Wire Line
+	950  6400 950  6450
 $EndSCHEMATC

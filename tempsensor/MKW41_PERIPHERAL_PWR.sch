@@ -663,7 +663,7 @@ AR Path="/5FBA3DF5" Ref="R?"  Part="1"
 AR Path="/5FB5B55F/5FBA3DF5" Ref="R11"  Part="1" 
 F 0 "R11" V 5893 5250 50  0000 C CNN
 F 1 "R" V 5984 5250 50  0000 C CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 6030 5250 50  0001 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 6030 5250 50  0001 C CNN
 F 3 "~" H 6100 5250 50  0001 C CNN
 	1    6100 5250
 	-1   0    0    1   
@@ -682,19 +682,6 @@ F 3 "" H 3200 4050 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector:TestPoint GND?
-U 1 1 5FBA3E01
-P 650 7450
-AR Path="/5FBA3E01" Ref="GND?"  Part="1" 
-AR Path="/5FB5B55F/5FBA3E01" Ref="GND1"  Part="1" 
-F 0 "GND1" H 708 7568 50  0000 L CNN
-F 1 "GND" H 708 7477 50  0000 L CNN
-F 2 "TestPoint:TestPoint_Pad_4.0x4.0mm" H 850 7450 50  0001 C CNN
-F 3 "~" H 850 7450 50  0001 C CNN
-	1    650  7450
-	1    0    0    -1  
-$EndComp
-$Comp
 L power:+BATT #PWR?
 U 1 1 5FBA3E07
 P 650 7000
@@ -707,8 +694,6 @@ F 3 "" H 650 7000 50  0001 C CNN
 	1    650  7000
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	650  7000 650  7050
 $Comp
 L power:GND #PWR?
 U 1 1 5FBA3E0E
@@ -722,8 +707,6 @@ F 3 "" H 650 7500 50  0001 C CNN
 	1    650  7500
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	650  7500 650  7450
 Text Notes 550  6750 0    50   ~ 0
 Battery Connector
 Wire Notes Line
@@ -732,19 +715,6 @@ Wire Notes Line
 	1300 6650 1300 7750
 Text Notes 2900 3750 0    50   ~ 0
 Battery Charger Circuit
-$Comp
-L Connector:TestPoint +BATT?
-U 1 1 5FBA3E1A
-P 650 7050
-AR Path="/5FBA3E1A" Ref="+BATT?"  Part="1" 
-AR Path="/5FB5B55F/5FBA3E1A" Ref="+BATT1"  Part="1" 
-F 0 "+BATT1" H 592 7076 50  0000 R CNN
-F 1 "+BAT" H 592 7167 50  0000 R CNN
-F 2 "TestPoint:TestPoint_Pad_4.0x4.0mm" H 850 7050 50  0001 C CNN
-F 3 "~" H 850 7050 50  0001 C CNN
-	1    650  7050
-	-1   0    0    1   
-$EndComp
 $Comp
 L Connector:USB_B_Micro J?
 U 1 1 5FBA3E21
@@ -937,28 +907,15 @@ $EndComp
 $Comp
 L Device:LED D?
 U 1 1 5FBB870F
-P 8800 5400
+P 8650 5800
 AR Path="/5FBB870F" Ref="D?"  Part="1" 
 AR Path="/5FB5B55F/5FBB870F" Ref="D1"  Part="1" 
-F 0 "D1" V 8839 5282 50  0000 R CNN
-F 1 "LED" V 8748 5282 50  0000 R CNN
-F 2 "LED_SMD:LED_1210_3225Metric" H 8800 5400 50  0001 C CNN
-F 3 "~" H 8800 5400 50  0001 C CNN
-	1    8800 5400
-	0    -1   -1   0   
-$EndComp
-$Comp
-L Device:Q_NMOS_GSD Q?
-U 1 1 5FBB8715
-P 8700 5800
-AR Path="/5FBB8715" Ref="Q?"  Part="1" 
-AR Path="/5FB5B55F/5FBB8715" Ref="Q1"  Part="1" 
-F 0 "Q1" H 8904 5846 50  0000 L CNN
-F 1 "BSS806N" H 8904 5755 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-23" H 8900 5900 50  0001 C CNN
-F 3 "~" H 8700 5800 50  0001 C CNN
-	1    8700 5800
-	1    0    0    -1  
+F 0 "D1" V 8689 5682 50  0000 R CNN
+F 1 "LED" V 8598 5682 50  0000 R CNN
+F 2 "LED_SMD:LED_0603_1608Metric" H 8650 5800 50  0001 C CNN
+F 3 "~" H 8650 5800 50  0001 C CNN
+	1    8650 5800
+	-1   0    0    1   
 $EndComp
 $Comp
 L Device:R R?
@@ -978,62 +935,28 @@ Wire Wire Line
 $Comp
 L power:GND #PWR?
 U 1 1 5FBB8722
-P 8800 6050
+P 8850 5850
 AR Path="/5FBB8722" Ref="#PWR?"  Part="1" 
 AR Path="/5FB5B55F/5FBB8722" Ref="#PWR071"  Part="1" 
-F 0 "#PWR071" H 8800 5800 50  0001 C CNN
-F 1 "GND" H 8805 5877 50  0000 C CNN
-F 2 "" H 8800 6050 50  0001 C CNN
-F 3 "" H 8800 6050 50  0001 C CNN
-	1    8800 6050
+F 0 "#PWR071" H 8850 5600 50  0001 C CNN
+F 1 "GND" H 8855 5677 50  0000 C CNN
+F 2 "" H 8850 5850 50  0001 C CNN
+F 3 "" H 8850 5850 50  0001 C CNN
+	1    8850 5850
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	8800 6050 8800 6000
-Wire Wire Line
-	8800 5550 8800 5600
-$Comp
-L Device:R R?
-U 1 1 5FBB872A
-P 8800 5050
-AR Path="/5FBB872A" Ref="R?"  Part="1" 
-AR Path="/5FB5B55F/5FBB872A" Ref="R9"  Part="1" 
-F 0 "R9" V 8593 5050 50  0000 C CNN
-F 1 "R" V 8684 5050 50  0000 C CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 8730 5050 50  0001 C CNN
-F 3 "~" H 8800 5050 50  0001 C CNN
-	1    8800 5050
-	-1   0    0    1   
-$EndComp
-Wire Wire Line
-	8800 5200 8800 5250
-Wire Wire Line
-	8800 4850 8800 4900
 $Comp
 L Device:LED D?
 U 1 1 5FBB8738
-P 10550 5400
+P 10400 5800
 AR Path="/5FBB8738" Ref="D?"  Part="1" 
 AR Path="/5FB5B55F/5FBB8738" Ref="D2"  Part="1" 
-F 0 "D2" V 10589 5282 50  0000 R CNN
-F 1 "LED" V 10498 5282 50  0000 R CNN
-F 2 "LED_SMD:LED_1210_3225Metric" H 10550 5400 50  0001 C CNN
-F 3 "~" H 10550 5400 50  0001 C CNN
-	1    10550 5400
-	0    -1   -1   0   
-$EndComp
-$Comp
-L Device:Q_NMOS_GSD Q?
-U 1 1 5FBB873E
-P 10450 5800
-AR Path="/5FBB873E" Ref="Q?"  Part="1" 
-AR Path="/5FB5B55F/5FBB873E" Ref="Q2"  Part="1" 
-F 0 "Q2" H 10654 5846 50  0000 L CNN
-F 1 "BSS806N" H 10654 5755 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-23" H 10650 5900 50  0001 C CNN
-F 3 "~" H 10450 5800 50  0001 C CNN
-	1    10450 5800
-	1    0    0    -1  
+F 0 "D2" V 10439 5682 50  0000 R CNN
+F 1 "LED" V 10348 5682 50  0000 R CNN
+F 2 "LED_SMD:LED_0603_1608Metric" H 10400 5800 50  0001 C CNN
+F 3 "~" H 10400 5800 50  0001 C CNN
+	1    10400 5800
+	-1   0    0    1   
 $EndComp
 $Comp
 L Device:R R?
@@ -1053,37 +976,16 @@ Wire Wire Line
 $Comp
 L power:GND #PWR?
 U 1 1 5FBB874B
-P 10550 6050
+P 10600 5850
 AR Path="/5FBB874B" Ref="#PWR?"  Part="1" 
 AR Path="/5FB5B55F/5FBB874B" Ref="#PWR072"  Part="1" 
-F 0 "#PWR072" H 10550 5800 50  0001 C CNN
-F 1 "GND" H 10555 5877 50  0000 C CNN
-F 2 "" H 10550 6050 50  0001 C CNN
-F 3 "" H 10550 6050 50  0001 C CNN
-	1    10550 6050
+F 0 "#PWR072" H 10600 5600 50  0001 C CNN
+F 1 "GND" H 10605 5677 50  0000 C CNN
+F 2 "" H 10600 5850 50  0001 C CNN
+F 3 "" H 10600 5850 50  0001 C CNN
+	1    10600 5850
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	10550 6050 10550 6000
-Wire Wire Line
-	10550 5550 10550 5600
-$Comp
-L Device:R R?
-U 1 1 5FBB8753
-P 10550 5050
-AR Path="/5FBB8753" Ref="R?"  Part="1" 
-AR Path="/5FB5B55F/5FBB8753" Ref="R10"  Part="1" 
-F 0 "R10" V 10343 5050 50  0000 C CNN
-F 1 "R" V 10434 5050 50  0000 C CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 10480 5050 50  0001 C CNN
-F 3 "~" H 10550 5050 50  0001 C CNN
-	1    10550 5050
-	-1   0    0    1   
-$EndComp
-Wire Wire Line
-	10550 5200 10550 5250
-Wire Wire Line
-	10550 4850 10550 4900
 Wire Wire Line
 	8100 5800 8150 5800
 Wire Wire Line
@@ -1149,32 +1051,6 @@ Text Notes 4050 3950 0    50   ~ 0
 DNP pullups\nFor V2, check if the internal Pullups are \nactive in VLLS and LLS power modes
 Text Notes 9100 4600 0    50   ~ 0
 LEDs intended for charge indication
-$Comp
-L power:VBUS #PWR?
-U 1 1 5FC21E54
-P 8800 4850
-AR Path="/5FC21E54" Ref="#PWR?"  Part="1" 
-AR Path="/5FB5B55F/5FC21E54" Ref="#PWR066"  Part="1" 
-F 0 "#PWR066" H 8800 4700 50  0001 C CNN
-F 1 "VBUS" H 8815 5023 50  0000 C CNN
-F 2 "" H 8800 4850 50  0001 C CNN
-F 3 "" H 8800 4850 50  0001 C CNN
-	1    8800 4850
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:VBUS #PWR?
-U 1 1 5FC23977
-P 10550 4850
-AR Path="/5FC23977" Ref="#PWR?"  Part="1" 
-AR Path="/5FB5B55F/5FC23977" Ref="#PWR067"  Part="1" 
-F 0 "#PWR067" H 10550 4700 50  0001 C CNN
-F 1 "VBUS" H 10565 5023 50  0000 C CNN
-F 2 "" H 10550 4850 50  0001 C CNN
-F 3 "" H 10550 4850 50  0001 C CNN
-	1    10550 4850
-	1    0    0    -1  
-$EndComp
 Text HLabel 10100 2600 0    50   Input ~ 0
 VREFHVREF_OUT
 Text HLabel 10800 3500 2    50   Input ~ 0
@@ -1223,7 +1099,7 @@ AR Path="/5FBF175A" Ref="R?"  Part="1"
 AR Path="/5FB5B55F/5FBF175A" Ref="R8"  Part="1" 
 F 0 "R8" V 4893 4450 50  0000 C CNN
 F 1 "R" V 4984 4450 50  0000 C CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 5030 4450 50  0001 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 5030 4450 50  0001 C CNN
 F 3 "~" H 5100 4450 50  0001 C CNN
 	1    5100 4450
 	-1   0    0    1   
@@ -1236,7 +1112,7 @@ AR Path="/5FBF1754" Ref="R?"  Part="1"
 AR Path="/5FB5B55F/5FBF1754" Ref="R7"  Part="1" 
 F 0 "R7" V 4343 4450 50  0000 C CNN
 F 1 "R" V 4434 4450 50  0000 C CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 4480 4450 50  0001 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 4480 4450 50  0001 C CNN
 F 3 "~" H 4550 4450 50  0001 C CNN
 	1    4550 4450
 	-1   0    0    1   
@@ -1249,7 +1125,7 @@ AR Path="/5FBF174E" Ref="R?"  Part="1"
 AR Path="/5FB5B55F/5FBF174E" Ref="R6"  Part="1" 
 F 0 "R6" V 3743 4450 50  0000 C CNN
 F 1 "R" V 3834 4450 50  0000 C CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 3880 4450 50  0001 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 3880 4450 50  0001 C CNN
 F 3 "~" H 3950 4450 50  0001 C CNN
 	1    3950 4450
 	-1   0    0    1   
@@ -1303,4 +1179,27 @@ Wire Notes Line
 	500  2400 8250 2400
 Wire Wire Line
 	3850 5050 6100 5050
+Wire Wire Line
+	10600 5850 10600 5800
+Wire Wire Line
+	10600 5800 10550 5800
+Wire Wire Line
+	8850 5850 8850 5800
+Wire Wire Line
+	8850 5800 8800 5800
+$Comp
+L Connector_Generic:Conn_01x02 J5
+U 1 1 5FC07FE0
+P 850 7200
+F 0 "J5" H 930 7192 50  0000 L CNN
+F 1 "Conn_01x02" H 930 7101 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 850 7200 50  0001 C CNN
+F 3 "~" H 850 7200 50  0001 C CNN
+	1    850  7200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	650  7000 650  7200
+Wire Wire Line
+	650  7300 650  7500
 $EndSCHEMATC
