@@ -758,4 +758,6 @@ Wire Wire Line
 Wire Wire Line
 	1150 5900 1150 5950
 Connection ~ 1150 5950
+Text Notes 4500 2650 0    50   ~ 0
+2 Temperature sources to compare:\n- I2C temperature sensor\n- MCU has integrated temperature sensor on ADC!
 $EndSCHEMATC

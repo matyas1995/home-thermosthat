@@ -27,19 +27,6 @@ F 3 "~" H 3850 1800 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Switch:SW_Push SW?
-U 1 1 5FB6EE7F
-P 2550 1350
-AR Path="/5FB6EE7F" Ref="SW?"  Part="1" 
-AR Path="/5FB5B55F/5FB6EE7F" Ref="SW3"  Part="1" 
-F 0 "SW3" V 2504 1498 50  0000 L CNN
-F 1 "~RST" V 2595 1498 50  0000 L CNN
-F 2 "Button_Switch_SMD:SW_SPST_Panasonic_EVQPL_3PL_5PL_PT_A08" H 2550 1550 50  0001 C CNN
-F 3 "~" H 2550 1550 50  0001 C CNN
-	1    2550 1350
-	0    1    1    0   
-$EndComp
-$Comp
 L Connector:Conn_ARM_JTAG_SWD_10 J?
 U 1 1 5FB6EE85
 P 1000 1400
@@ -126,25 +113,6 @@ Wire Wire Line
 Connection ~ 2100 1100
 Wire Wire Line
 	2100 1100 2100 1150
-Wire Wire Line
-	2100 1100 2550 1100
-Wire Wire Line
-	2550 1100 2550 1150
-$Comp
-L power:GND #PWR?
-U 1 1 5FB6EEB5
-P 2550 1600
-AR Path="/5FB6EEB5" Ref="#PWR?"  Part="1" 
-AR Path="/5FB5B55F/5FB6EEB5" Ref="#PWR048"  Part="1" 
-F 0 "#PWR048" H 2550 1350 50  0001 C CNN
-F 1 "GND" H 2555 1427 50  0000 C CNN
-F 2 "" H 2550 1600 50  0001 C CNN
-F 3 "" H 2550 1600 50  0001 C CNN
-	1    2550 1600
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	2550 1600 2550 1550
 NoConn ~ 1500 1500
 NoConn ~ 1500 1600
 $Comp
@@ -162,10 +130,6 @@ F 3 "" H 3850 1850 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	3850 1850 3850 1800
-Wire Wire Line
-	3850 1350 3850 1400
-Text Label 3350 1350 0    50   ~ 0
-~BTN_INT
 Wire Wire Line
 	3350 1350 3450 1350
 $Comp
@@ -216,7 +180,6 @@ F 3 "~" H 3850 1150 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	3850 1300 3850 1350
-Connection ~ 3850 1350
 $Comp
 L power:+1V8 #PWR?
 U 1 1 5FB6EEE0
@@ -1064,9 +1027,6 @@ Text HLabel 9850 5800 0    50   Input ~ 0
 TMP0_CH1
 Text HLabel 2600 1100 2    50   Input ~ 0
 ~MCU_RST
-Wire Wire Line
-	2600 1100 2550 1100
-Connection ~ 2550 1100
 Text HLabel 1550 1300 2    50   Input ~ 0
 SWD_CLK
 Text HLabel 1550 1400 2    50   Input ~ 0
@@ -1202,4 +1162,11 @@ Wire Wire Line
 	650  7000 650  7200
 Wire Wire Line
 	650  7300 650  7500
+Wire Wire Line
+	2100 1100 2600 1100
+Wire Wire Line
+	3850 1400 3850 1350
+Connection ~ 3850 1350
+Text HLabel 3350 1350 0    50   Input ~ 0
+~BTN_INT
 $EndSCHEMATC
