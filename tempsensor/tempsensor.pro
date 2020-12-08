@@ -1,4 +1,4 @@
-update=Sa 21 Nov 2020 21:04:51 CET
+update=Mo 07 Dez 2020 20:11:30 CET
 version=1
 last_client=kicad
 [general]
@@ -31,8 +31,10 @@ MinHoleToHole=0.25
 TrackWidth1=0.15
 TrackWidth2=0.2
 TrackWidth3=0.254
-TrackWidth4=0.5
-TrackWidth5=1
+TrackWidth4=0.38276
+TrackWidth5=0.5
+TrackWidth6=0.501812
+TrackWidth7=1
 ViaDiameter1=0.6
 ViaDrill1=0.3
 dPairWidth1=0.2
@@ -233,6 +235,17 @@ Enabled=0
 Name=Default
 Clearance=0.15
 TrackWidth=0.15
+ViaDiameter=0.6
+ViaDrill=0.3
+uViaDiameter=0.5
+uViaDrill=0.2
+dPairWidth=0.2
+dPairGap=0.25
+dPairViaGap=0.25
+[pcbnew/Netclasses/1]
+Name=RF
+Clearance=0.2
+TrackWidth=0.38276
 ViaDiameter=0.6
 ViaDrill=0.3
 uViaDiameter=0.5

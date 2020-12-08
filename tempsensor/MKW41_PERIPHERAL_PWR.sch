@@ -625,7 +625,7 @@ P 6100 5250
 AR Path="/5FBA3DF5" Ref="R?"  Part="1" 
 AR Path="/5FB5B55F/5FBA3DF5" Ref="R11"  Part="1" 
 F 0 "R11" V 5893 5250 50  0000 C CNN
-F 1 "R" V 5984 5250 50  0000 C CNN
+F 1 "1K8" V 5984 5250 50  0000 C CNN
 F 2 "Resistor_SMD:R_0402_1005Metric" V 6030 5250 50  0001 C CNN
 F 3 "~" H 6100 5250 50  0001 C CNN
 	1    6100 5250
@@ -1169,4 +1169,6 @@ Wire Wire Line
 Connection ~ 3850 1350
 Text HLabel 3350 1350 0    50   Input ~ 0
 ~BTN_INT
+Text Notes 6450 5300 0    50   ~ 0
+1k8 for just under 500ma charge current
 $EndSCHEMATC

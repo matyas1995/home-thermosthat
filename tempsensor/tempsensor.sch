@@ -652,34 +652,19 @@ F 3 "" H 750 6400 50  0001 C CNN
 	1    750  6400
 	0    1    1    0   
 $EndComp
-$Comp
-L Device:Antenna_Shield AE1
-U 1 1 5FEAE3EE
-P 8700 5050
-F 0 "AE1" V 8686 5280 50  0000 L CNN
-F 1 "Antenna_Shield" V 8777 5280 50  0000 L CNN
-F 2 "RF_Antenna:Texas_SWRA117D_2.4GHz_Right" H 8700 5150 50  0001 C CNN
-F 3 "~" H 8700 5150 50  0001 C CNN
-	1    8700 5050
-	0    1    1    0   
-$EndComp
 Wire Wire Line
 	8500 5050 8000 5050
 $Comp
 L power:GND #PWR011
 U 1 1 5FED4FC5
-P 8450 5200
-F 0 "#PWR011" H 8450 4950 50  0001 C CNN
-F 1 "GND" H 8455 5027 50  0000 C CNN
-F 2 "" H 8450 5200 50  0001 C CNN
-F 3 "" H 8450 5200 50  0001 C CNN
-	1    8450 5200
+P 8700 5250
+F 0 "#PWR011" H 8700 5000 50  0001 C CNN
+F 1 "GND" H 8705 5077 50  0000 C CNN
+F 2 "" H 8700 5250 50  0001 C CNN
+F 3 "" H 8700 5250 50  0001 C CNN
+	1    8700 5250
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	8450 5200 8450 5150
-Wire Wire Line
-	8450 5150 8500 5150
 Wire Notes Line
 	8100 5100 8100 5350
 $Sheet
@@ -845,4 +830,17 @@ Text Label 11950 1850 0    50   ~ 0
 ~BTN_INT
 Wire Wire Line
 	11950 1850 12600 1850
+$Comp
+L Connector:Conn_Coaxial J6
+U 1 1 5FC59DB4
+P 8700 5050
+F 0 "J6" H 8800 5025 50  0000 L CNN
+F 1 "Conn_Coaxial" H 8800 4934 50  0000 L CNN
+F 2 "Connector_Coaxial:SMA_Amphenol_132289_EdgeMount" H 8700 5050 50  0001 C CNN
+F 3 " ~" H 8700 5050 50  0001 C CNN
+	1    8700 5050
+	1    0    0    -1  
+$EndComp
+Text Notes -650 3750 0    50   ~ 0
+Future option: Test the internal Temperature sensor against the I2C module.\nIf the internal ADC can output similar interrupts on compare match \n(so set a reference temperature to wake up on and then go to sleep),\nthen I can just save that IC in next revision and either use the internal tempsensor or an external thermistor.\n\nHowever, it seems the ADC cannot wake up the MCU from Low-Leakage modes,\nso I would have to set the timer or the internal RTC to wake up periodically and to measure temp.\nWith external tempsensor, I can sleep till next heatplan change (change from night to day temp mode) and only wake up when lower temp threshold has been underrun.
 $EndSCHEMATC

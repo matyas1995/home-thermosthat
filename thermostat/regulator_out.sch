@@ -381,7 +381,7 @@ AR Path="/5F3F4C28" Ref="J?"  Part="1"
 AR Path="/5E6A63AE/5F3F4C28" Ref="J3"  Part="1" 
 F 0 "J3" H 1830 1142 50  0000 L CNN
 F 1 "Thermosthat - Molex PicoBlade" H 1830 1051 50  0000 L CNN
-F 2 "Connector_Molex:Molex_PicoBlade_53048-0310_1x03_P1.25mm_Horizontal" H 1750 1100 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical_SMD_Pin1Left" H 1750 1100 50  0001 C CNN
 F 3 "Molex PicoBlade" H 1750 1100 50  0001 C CNN
 	1    1750 1100
 	1    0    0    -1  
