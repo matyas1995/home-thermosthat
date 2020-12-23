@@ -883,7 +883,7 @@ U 1 1 5F75FD88
 P -1700 5750
 F 0 "U9" H -1950 6200 50  0000 C CNN
 F 1 "SN74LVC2T45DCUR" H -1200 6200 50  0000 C CNN
-F 2 "Package_SO:VSSOP-8_2.4x2.1mm_P0.5mm" H -1650 5200 50  0001 C CNN
+F 2 "Package_SO:VSSOP-8_3.0x3.0mm_P0.65mm" H -1650 5200 50  0001 C CNN
 F 3 "http://www.ti.com/lit/ds/symlink/sn74lvc2t45.pdf" H -2600 5200 50  0001 C CNN
 	1    -1700 5750
 	1    0    0    -1  
@@ -910,45 +910,23 @@ DIR on VCCA means Port A is input\n
 $Comp
 L Device:C C46
 U 1 1 5F77E1BA
-P -2250 4950
-F 0 "C46" H -2135 4996 50  0000 L CNN
-F 1 "1u" H -2135 4905 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0402_1005Metric" H -2212 4800 50  0001 C CNN
-F 3 "~" H -2250 4950 50  0001 C CNN
-	1    -2250 4950
+P -2650 4950
+F 0 "C46" H -2535 4996 50  0000 L CNN
+F 1 "100n" H -2535 4905 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H -2612 4800 50  0001 C CNN
+F 3 "~" H -2650 4950 50  0001 C CNN
+	1    -2650 4950
 	1    0    0    -1  
 $EndComp
 $Comp
 L Device:C C47
 U 1 1 5F77EF73
-P -1150 4950
-F 0 "C47" H -1035 4996 50  0000 L CNN
-F 1 "1u" H -1035 4905 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0402_1005Metric" H -1112 4800 50  0001 C CNN
-F 3 "~" H -1150 4950 50  0001 C CNN
-	1    -1150 4950
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C C48
-U 1 1 5F77F9AF
 P -800 4950
-F 0 "C48" H -685 4996 50  0000 L CNN
-F 1 "0,1u" H -685 4905 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0402_1005Metric" H -762 4800 50  0001 C CNN
+F 0 "C47" H -685 4996 50  0000 L CNN
+F 1 "100n" H -685 4905 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H -762 4800 50  0001 C CNN
 F 3 "~" H -800 4950 50  0001 C CNN
 	1    -800 4950
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C C29
-U 1 1 5F77FD0D
-P -2650 4950
-F 0 "C29" H -2535 4996 50  0000 L CNN
-F 1 "0,1u" H -2535 4905 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0402_1005Metric" H -2612 4800 50  0001 C CNN
-F 3 "~" H -2650 4950 50  0001 C CNN
-	1    -2650 4950
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -965,14 +943,9 @@ F 3 "" H -550 5200 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	-1150 5100 -1150 5150
-Wire Wire Line
-	-1150 5150 -800 5150
-Wire Wire Line
 	-550 5150 -550 5200
 Wire Wire Line
 	-800 5100 -800 5150
-Connection ~ -800 5150
 Wire Wire Line
 	-800 5150 -550 5150
 $Comp
@@ -989,38 +962,19 @@ F 3 "" H -2800 5200 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	-2250 5100 -2250 5150
-Wire Wire Line
-	-2250 5150 -2650 5150
-Wire Wire Line
 	-2800 5150 -2800 5200
 Wire Wire Line
 	-2650 5100 -2650 5150
-Connection ~ -2650 5150
 Wire Wire Line
 	-2650 5150 -2800 5150
 Wire Wire Line
 	-800 4800 -800 4750
 Wire Wire Line
-	-800 4750 -1150 4750
-Wire Wire Line
-	-1150 4750 -1150 4800
-Wire Wire Line
 	-2650 4800 -2650 4750
-Wire Wire Line
-	-2650 4750 -2250 4750
-Wire Wire Line
-	-2250 4750 -2250 4800
 Wire Wire Line
 	-1600 5250 -1600 4750
 Wire Wire Line
-	-1600 4750 -1150 4750
-Connection ~ -1150 4750
-Wire Wire Line
-	-2250 4750 -1800 4750
-Wire Wire Line
 	-1800 4750 -1800 5200
-Connection ~ -2250 4750
 $Comp
 L power:+5V #PWR094
 U 1 1 5F7C1B4B
@@ -1458,7 +1412,7 @@ U 1 1 5F86122D
 P -1700 7950
 F 0 "U10" H -1950 8400 50  0000 C CNN
 F 1 "SN74LVC2T45DCUR" H -1200 8400 50  0000 C CNN
-F 2 "Package_SO:VSSOP-8_2.4x2.1mm_P0.5mm" H -1650 7400 50  0001 C CNN
+F 2 "Package_SO:VSSOP-8_3.0x3.0mm_P0.65mm" H -1650 7400 50  0001 C CNN
 F 3 "http://www.ti.com/lit/ds/symlink/sn74lvc2t45.pdf" H -2600 7400 50  0001 C CNN
 	1    -1700 7950
 	1    0    0    -1  
@@ -1483,45 +1437,23 @@ DIR on GND means Port A is output
 $Comp
 L Device:C C57
 U 1 1 5F861244
-P -2250 7150
-F 0 "C57" H -2135 7196 50  0000 L CNN
-F 1 "1u" H -2135 7105 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0402_1005Metric" H -2212 7000 50  0001 C CNN
-F 3 "~" H -2250 7150 50  0001 C CNN
-	1    -2250 7150
+P -2650 7150
+F 0 "C57" H -2535 7196 50  0000 L CNN
+F 1 "100n" H -2535 7105 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H -2612 7000 50  0001 C CNN
+F 3 "~" H -2650 7150 50  0001 C CNN
+	1    -2650 7150
 	1    0    0    -1  
 $EndComp
 $Comp
 L Device:C C58
 U 1 1 5F86124E
-P -1150 7150
-F 0 "C58" H -1035 7196 50  0000 L CNN
-F 1 "1u" H -1035 7105 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0402_1005Metric" H -1112 7000 50  0001 C CNN
-F 3 "~" H -1150 7150 50  0001 C CNN
-	1    -1150 7150
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C C59
-U 1 1 5F861258
 P -800 7150
-F 0 "C59" H -685 7196 50  0000 L CNN
-F 1 "0,1u" H -685 7105 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0402_1005Metric" H -762 7000 50  0001 C CNN
+F 0 "C58" H -685 7196 50  0000 L CNN
+F 1 "100n" H -685 7105 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H -762 7000 50  0001 C CNN
 F 3 "~" H -800 7150 50  0001 C CNN
 	1    -800 7150
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C C56
-U 1 1 5F861262
-P -2650 7150
-F 0 "C56" H -2535 7196 50  0000 L CNN
-F 1 "0,1u" H -2535 7105 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0402_1005Metric" H -2612 7000 50  0001 C CNN
-F 3 "~" H -2650 7150 50  0001 C CNN
-	1    -2650 7150
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -1538,14 +1470,9 @@ F 3 "" H -550 7400 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	-1150 7300 -1150 7350
-Wire Wire Line
-	-1150 7350 -800 7350
-Wire Wire Line
 	-550 7350 -550 7400
 Wire Wire Line
 	-800 7300 -800 7350
-Connection ~ -800 7350
 Wire Wire Line
 	-800 7350 -550 7350
 $Comp
@@ -1562,36 +1489,17 @@ F 3 "" H -2800 7400 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	-2250 7300 -2250 7350
-Wire Wire Line
-	-2250 7350 -2650 7350
-Wire Wire Line
 	-2800 7350 -2800 7400
 Wire Wire Line
 	-2650 7300 -2650 7350
-Connection ~ -2650 7350
 Wire Wire Line
 	-2650 7350 -2800 7350
 Wire Wire Line
 	-800 7000 -800 6950
 Wire Wire Line
-	-800 6950 -1150 6950
-Wire Wire Line
-	-1150 6950 -1150 7000
-Wire Wire Line
 	-2650 7000 -2650 6950
 Wire Wire Line
-	-2650 6950 -2250 6950
-Wire Wire Line
-	-2250 6950 -2250 7000
-Wire Wire Line
 	-1600 7450 -1600 6950
-Wire Wire Line
-	-1600 6950 -1150 6950
-Connection ~ -1150 6950
-Wire Wire Line
-	-2250 6950 -1800 6950
-Connection ~ -2250 6950
 $Comp
 L power:GND #PWR?
 U 1 1 5F8612A8
@@ -1770,4 +1678,12 @@ Connection ~ 6050 1500
 Wire Wire Line
 	8200 3350 7650 3350
 NoConn ~ 7650 2550
+Wire Wire Line
+	-1600 6950 -800 6950
+Wire Wire Line
+	-2650 6950 -1800 6950
+Wire Wire Line
+	-2650 4750 -1800 4750
+Wire Wire Line
+	-1600 4750 -800 4750
 $EndSCHEMATC
