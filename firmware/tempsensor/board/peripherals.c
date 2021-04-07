@@ -41,10 +41,16 @@ product: Peripherals v1.0
 /* This is a template for board specific configuration created by MCUXpresso IDE Project Wizard.*/
 
 #include "peripherals.h"
+#include "fsl_dcdc.h"
 
 /**
  * @brief Set up and initialize all required blocks and functions related to the peripherals hardware.
  */
 void BOARD_InitBootPeripherals(void) {
 	/* The user initialization should be placed here */
+	DCDC_Init(DCDC);
+	DCDC_SetPSwitchInterruptConfig(DCDC, kDCDC_PSwitchRisingEdgeDetectEnable);
+	DCDC_SetBatteryVoltageDivider(DCDC, kDCDC_VBatVoltageDivider4);
+	DCDC_EnableInterrupts(DCDC, kDCDC_PSwitchEdgeDetectInterruptEnable);
+	EnableIRQ(LVD_LVW_DCDC_IRQn);
 }
