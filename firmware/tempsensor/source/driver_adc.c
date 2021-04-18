@@ -6,16 +6,11 @@
  */
 #include "driver_adc.h"
 
-#define ADC16_TEMP_SENSOR_CHN         (26U) /* ADC channel of the Temperature Sensor */
-#define ADC16_BATLVL_CHN              (23U) /* Battery measurement channel */
-#define REF_VOLTAGE                   (1195U) /* Reference voltage source output level in mV */
-
-SemaphoreHandle_t xADCSemaphore;
-SemaphoreHandle_t xADCMutex;
+static adc_requests_queue_t xADCRequestsQueue;
+static SemaphoreHandle_t xADCSemaphore;
 static adc16_config_t adc16ConfigStruct;
 static adc16_channel_config_t adc16ChannelConfigStruct;
-static bool initialized = false;
-volatile uint32_t adc16ConversionValue = 0;
+volatile static uint32_t adc16ConversionValue = 0;
 
 /*
  * @brief Interrupt handling routine for the ADC. Sets a binary semaphore to signalize starting thread that a conversion has been executed
@@ -26,23 +21,7 @@ void ADC0_IRQHandler(void) {
 	xSemaphoreGiveFromISR(xADCSemaphore, &xHigherPriorityTaskWoken);
 }
 
-static void DRIVER_ADC_SetupSemaphores(void) {
-	/*
-	 * Set up a binary semaphore and mutex for tasks accessing the ADC converter.
-	 * Each task is responsible to set up and configure the ADC (and possibly the reference voltage source) before use and
-	 * to deinit it after use
-	 * The Mutex must be taken before any access to the ADC and must be returned after deinit.
-	 * The binary semaphore is used by the ADC's ISR to signal the end of a conversion
-	 */
-	if (!initialized) {
-		xADCSemaphore = xSemaphoreCreateBinary();
-		xADCMutex = xSemaphoreCreateMutex();
-	}
-}
-
-void DRIVER_ADC_Init(void) {
-	DRIVER_ADC_SetupSemaphores();
-
+static void DRIVER_ADC_Init(void) {
 	vref_config_t vrefConfigStruct;
 	VREF_GetDefaultConfig(&vrefConfigStruct);
 	VREF_Init(VREF, &vrefConfigStruct);
@@ -72,7 +51,7 @@ void DRIVER_ADC_Init(void) {
 	ADC16_SetHardwareAverage(ADC0 , kADC16_HardwareAverageCount16);
 }
 
-void DRIVER_ADC_Deinit() {
+static void DRIVER_ADC_Deinit() {
 	/*
 	 * Finally, deinit the VREF and the ADC to save some power
 	 */
@@ -82,28 +61,10 @@ void DRIVER_ADC_Deinit() {
 }
 
 /*
- * @brief Gets the current voltage of the battery
- *
- * This function measure the ADC channel corresponding to the battery
- */
-uint32_t DRIVER_ADC_GetBatteryMv(void) {
-	return DRIVER_ADC_Read(ADC16_BATLVL_CHN) * 4 / 1195; /* The Battery Voltage is divided by 4 before being fed into ADC, which is using the fixed 1195mV reference source */
-}
-
-/*
- * @brief Gets the current voltage of the battery
- *
- * This function measure the ADC channel corresponding to the battery
- */
-static inline uint32_t DRIVER_ADC_TempRaw(void) {
-	return DRIVER_ADC_Read(ADC16_TEMP_SENSOR_CHN);
-}
-
-/*
  * Measure and return a voltage on the specified ADC channel
  * Measurement in single ended mode
  */
-uint32_t DRIVER_ADC_Read(uint32_t xChannelId) {
+static uint32_t DRIVER_ADC_Read(uint32_t xChannelId) {
 	/*
 	 * Configure the ADC channel
 	 * Channel 23 corresponds to scaled battery voltage
@@ -124,3 +85,42 @@ uint32_t DRIVER_ADC_Read(uint32_t xChannelId) {
 	return adc16ConversionValue;
 }
 
+/*
+ * @brief Gets the current voltage of the battery
+ *
+ * This function measure the ADC channel corresponding to the battery
+ */
+static uint32_t DRIVER_ADC_GetBatteryMv(void) {
+	return DRIVER_ADC_Read(ADC16_BATLVL_CHN) * 4 / REF_VOLTAGE; /* The Battery Voltage is divided by 4 before being fed into ADC, which is using the fixed 1195mV reference source */
+}
+
+/*
+ * @brief Gets the raw tempsensor reading
+ */
+static uint32_t DRIVER_ADC_TempRaw(void) {
+	return DRIVER_ADC_Read(ADC16_TEMP_SENSOR_CHN);
+}
+
+void vDriverADCTask(void *pvParameters) {
+	/*
+	 * Set up a binary semaphore for accessing the ADC hardware.
+	 * The binary semaphore is used by the ADC's ISR to signal the end of a conversion
+	 *
+	 * Maybe it would make sense to allow the queue size to be set by init params
+	 */
+	xADCSemaphore = xSemaphoreCreateBinary();
+	xADCRequestsQueue = xQueueCreate(10, sizeof(adc_request_handle_t));
+
+	DRIVER_ADC_Init();
+
+	while(true) {
+		/*
+		 * Block on a queue holding ADC measurement requests
+		 * Timeout on queue can be used to deinit ADC and put everything into powersave
+		 */
+	}
+}
+
+adc_requests_queue_t xDriverADCGetRequestQueue() {
+	return xADCRequestsQueue;
+}
