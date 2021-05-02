@@ -120,7 +120,7 @@ int main(void) {
 
 
     xTaskCreate(vBatteryMonitor, "BatteryMon", 1000, NULL, 1, NULL);
-    //xTaskCreate(vInternalTempMonitor, "InternalTempSensor", 1000, NULL, 1, NULL);
+    xTaskCreate(vInternalTempMonitor, "InternalTempSensor", 1000, NULL, 1, NULL);
 
     printf("Hello World\r\nStart scheduler\r\n");
 
@@ -131,16 +131,12 @@ int main(void) {
 
 /*
  * @brief This is a FREE_RTOS task function to monitor the battery voltage.
- * It periodically sets up the ADC and the VREF HW and reads the battery voltage,
- * in future it will then write it to the according register of the DCDC module
- * and into a FREE_RTOS mailbox queue for status messages
  */
 void vBatteryMonitor(void *pvParameters) {
-	DRIVER_ADC_Init();
 	/*
 	 * Time to wait between separate conversions. Maybe use task parameters to avoid hardcoding this?
 	 */
-	const TickType_t xDelay = pdMS_TO_TICKS(50000UL);
+	const TickType_t xDelay = pdMS_TO_TICKS(5000UL);
 
 	while(true) {
 		printf("Battery Voltage: %i mV\r\n", DRIVER_ADC_GetBatteryMv());
@@ -152,17 +148,18 @@ void vBatteryMonitor(void *pvParameters) {
 
 /*
  * @brief This is a FREE_RTOS task function to monitor the chip internal temperature sensor voltage.
- * It periodically sets up the ADC and the VREF HW and reads the tempsensor voltage,
- * and into a FREE_RTOS mailbox queue for status messages?
  */
 void vInternalTempMonitor(void *pvParameters) {
-
+	/*
+	 * Time to wait between separate conversions. Maybe use task parameters to avoid hardcoding this?
+	 */
+	const TickType_t xDelay = pdMS_TO_TICKS(5000UL);
 
 	while(true) {
 		/*
 		 * Write sensor voltage
 		 */
-		printf("ADC measurement value: %i\r\n", adc16ConversionValue);
+		printf("ADC Tempsensor measurement value: %i\r\n", DRIVER_ADC_TempRaw());
 
 		printf("Now the task goes to sleep\r\n");
 		vTaskDelay(xDelay);

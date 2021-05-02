@@ -53,4 +53,7 @@ void BOARD_InitBootPeripherals(void) {
 	DCDC_SetBatteryVoltageDivider(DCDC, kDCDC_VBatVoltageDivider4);
 	DCDC_EnableInterrupts(DCDC, kDCDC_PSwitchEdgeDetectInterruptEnable);
 	EnableIRQ(LVD_LVW_DCDC_IRQn);
+
+	DRIVER_ADC_Create_Semaphores();
+	DRIVER_ADC_Init();
 }

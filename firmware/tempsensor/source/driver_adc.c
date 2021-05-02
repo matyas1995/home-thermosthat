@@ -6,8 +6,8 @@
  */
 #include "driver_adc.h"
 
-static adc_requests_queue_t xADCRequestsQueue;
 static SemaphoreHandle_t xADCSemaphore;
+static SemaphoreHandle_t xADCMutex;
 static adc16_config_t adc16ConfigStruct;
 static adc16_channel_config_t adc16ChannelConfigStruct;
 volatile static uint32_t adc16ConversionValue = 0;
@@ -21,7 +21,18 @@ void ADC0_IRQHandler(void) {
 	xSemaphoreGiveFromISR(xADCSemaphore, &xHigherPriorityTaskWoken);
 }
 
-static void DRIVER_ADC_Init(void) {
+void DRIVER_ADC_Create_Semaphores(void) {
+	/*
+	 * Set up a binary semaphore for accessing the ADC hardware.
+	 * The binary semaphore is used by the ADC's ISR to signal the end of a conversion
+	 *
+	 * Maybe it would make sense to allow the queue size to be set by init params
+	 */
+	xADCSemaphore = xSemaphoreCreateBinary();
+	xADCMutex = xSemaphoreCreateMutex();
+}
+
+void DRIVER_ADC_Init(void) {
 	vref_config_t vrefConfigStruct;
 	VREF_GetDefaultConfig(&vrefConfigStruct);
 	VREF_Init(VREF, &vrefConfigStruct);
@@ -51,7 +62,7 @@ static void DRIVER_ADC_Init(void) {
 	ADC16_SetHardwareAverage(ADC0 , kADC16_HardwareAverageCount16);
 }
 
-static void DRIVER_ADC_Deinit() {
+void DRIVER_ADC_Deinit(void) {
 	/*
 	 * Finally, deinit the VREF and the ADC to save some power
 	 */
@@ -79,9 +90,12 @@ static uint32_t DRIVER_ADC_Read(uint32_t xChannelId) {
 	 * Configure ADC channel group 0
 	 * A write will immediately start the conversion
 	 * Then block on the binary semaphore for the Interrupt handler to signal completion and data read
+	 * Mutex ensures no two processes may initiate a conversion at the same time
 	 */
+	xSemaphoreTake(xADCMutex, portMAX_DELAY);
 	ADC16_SetChannelConfig(ADC0, 0U, &adc16ChannelConfigStruct);
 	xSemaphoreTake(xADCSemaphore, portMAX_DELAY); // Indefinite timeouts not recommended for production code ;)
+	xSemaphoreGive(xADCMutex);
 	return adc16ConversionValue;
 }
 
@@ -90,37 +104,22 @@ static uint32_t DRIVER_ADC_Read(uint32_t xChannelId) {
  *
  * This function measure the ADC channel corresponding to the battery
  */
-static uint32_t DRIVER_ADC_GetBatteryMv(void) {
-	return DRIVER_ADC_Read(ADC16_BATLVL_CHN) * 4 / REF_VOLTAGE; /* The Battery Voltage is divided by 4 before being fed into ADC, which is using the fixed 1195mV reference source */
+uint32_t DRIVER_ADC_GetBatteryMv(void) {
+	/*
+	 * Normally, one would calculate
+	 * DRIVER_ADC_Read(ADC16_BATLVL_CHN) * 4 / 4095 * VREF_VOLTAGE
+	 * for scaling the /4 input scaling of the battery voltage input and to normalize it first to the 12 bit measurement resolution of the ADC
+	 * and then to the 1195mV of the ADC reference voltage
+	 * As the ADC range is 12 bit (max value 4095), the battery voltage scaling and normalizing can be combined together from VALUE * 4 / 4095 to just VALUE / 1023
+	 */
+	return DRIVER_ADC_Read(ADC16_BATLVL_CHN) * VREF_VOLTAGE / 1023; /* The Battery Voltage is divided by 4 before being fed into ADC, which is using the fixed 1195mV reference source */
 }
 
 /*
  * @brief Gets the raw tempsensor reading
  */
-static uint32_t DRIVER_ADC_TempRaw(void) {
+uint32_t DRIVER_ADC_TempRaw(void) {
 	return DRIVER_ADC_Read(ADC16_TEMP_SENSOR_CHN);
 }
 
-void vDriverADCTask(void *pvParameters) {
-	/*
-	 * Set up a binary semaphore for accessing the ADC hardware.
-	 * The binary semaphore is used by the ADC's ISR to signal the end of a conversion
-	 *
-	 * Maybe it would make sense to allow the queue size to be set by init params
-	 */
-	xADCSemaphore = xSemaphoreCreateBinary();
-	xADCRequestsQueue = xQueueCreate(10, sizeof(adc_request_handle_t));
 
-	DRIVER_ADC_Init();
-
-	while(true) {
-		/*
-		 * Block on a queue holding ADC measurement requests
-		 * Timeout on queue can be used to deinit ADC and put everything into powersave
-		 */
-	}
-}
-
-adc_requests_queue_t xDriverADCGetRequestQueue() {
-	return xADCRequestsQueue;
-}
