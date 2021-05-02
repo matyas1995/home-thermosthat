@@ -50,6 +50,11 @@
                         <data>true</data>
                      </feature>
                   </dependency>
+                  <dependency resourceType="Peripheral" resourceId="I2C1" description="Peripheral I2C1 is not initialized" problem_level="1" source="Pins:BOARD_InitPins">
+                     <feature name="initialized" evaluation="equal">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
                   <dependency resourceType="SWComponent" resourceId="platform.drivers.common" description="Pins initialization requires the COMMON Driver in the project." problem_level="2" source="Pins:BOARD_InitPins">
                      <feature name="enabled" evaluation="equal" configuration="core0">
                         <data>true</data>
@@ -101,6 +106,8 @@
                         <pin_feature name="gpio_interrupt" value="kPORT_InterruptEitherEdge"/>
                      </pin_features>
                   </pin>
+                  <pin peripheral="I2C1" signal="CLK" pin_num="38" pin_signal="TSI0_CH14/PTC2/LLWU_P10/TX_SWITCH/I2C1_SCL/UART0_RX/CMT_IRO/DTM_RX"/>
+                  <pin peripheral="I2C1" signal="SDA" pin_num="39" pin_signal="TSI0_CH15/PTC3/LLWU_P11/RX_SWITCH/I2C1_SDA/UART0_TX/TPM0_CH1/DTM_TX"/>
                </pins>
             </function>
          </functions_list>
@@ -159,7 +166,7 @@
                </clock_outputs>
                <clock_settings>
                   <setting id="MCG.FCRDIV.scale" value="1" locked="false"/>
-                  <setting id="MCG.FLL_mul.scale" value="1464" locked="false"/>
+                  <setting id="MCG.FLL_mul.scale" value="1464" locked="true"/>
                   <setting id="MCG.FRDIV.scale" value="32" locked="false"/>
                   <setting id="MCG_C1_IRCLKEN_CFG" value="Enabled" locked="false"/>
                   <setting id="MCG_C2_RANGE0_FRDIV_CFG" value="Very_high" locked="false"/>

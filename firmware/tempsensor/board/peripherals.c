@@ -42,6 +42,7 @@ product: Peripherals v1.0
 
 #include "peripherals.h"
 #include "fsl_dcdc.h"
+#include "driver_adc.h"
 
 /**
  * @brief Set up and initialize all required blocks and functions related to the peripherals hardware.
@@ -54,6 +55,5 @@ void BOARD_InitBootPeripherals(void) {
 	DCDC_EnableInterrupts(DCDC, kDCDC_PSwitchEdgeDetectInterruptEnable);
 	EnableIRQ(LVD_LVW_DCDC_IRQn);
 
-	DRIVER_ADC_Create_Semaphores();
 	DRIVER_ADC_Init();
 }

@@ -8,9 +8,11 @@
 #ifndef MCP9844_H_
 #define MCP9844_H_
 
-#define MCP9844_GENERIC_DEVICE_ADDR (0x30) /* The generic MCP9844 device address. Bits 1 to 3 can be individually set by pulling some package pins of the device */
+#define MCP9844_GENERIC_DEVICE_ADDR (0x18) /* The generic MCP9844 device address. Bits 1 to 3 can be individually set by pulling some package pins of the device */
 
-
+/*
+ * MCP9844 is configured by first writing the target register address into its internal register pointer, followed by the data to be written into target register.
+ */
 #define MCP9844_CAPABILITY_REG_ADDR (0x00)
 #define MCP9844_CONFIG_REG_ADDR (0x01)
 #define MCP9844_TUPPER_REG_ADDR (0x02)
@@ -66,5 +68,7 @@
 void DRIVER_MCP9844_SetResolution(uint8_t resolution);
 
 uint16_t DRIVER_MCP9844_GetTemperature();
+
+void DRIVER_MCP9844_SetShutdown(bool state);
 
 #endif /* MCP9844_H_ */

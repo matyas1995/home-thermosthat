@@ -209,7 +209,7 @@ outputs:
 - {id: System_clock.outFreq, value: 47.972352 MHz}
 settings:
 - {id: MCG.FCRDIV.scale, value: '1'}
-- {id: MCG.FLL_mul.scale, value: '1464'}
+- {id: MCG.FLL_mul.scale, value: '1464', locked: true}
 - {id: MCG.FRDIV.scale, value: '32'}
 - {id: MCG_C1_IRCLKEN_CFG, value: Enabled}
 - {id: MCG_C2_RANGE0_FRDIV_CFG, value: Very_high}

@@ -42,16 +42,21 @@
 #include "FreeRTOS.h"
 #include "semphr.h"
 #include "task.h"
+#include "fsl_clock.h"
 #include "fsl_dcdc.h"
 #include "fsl_gpio.h"
 #include "fsl_common.h"
 #include "driver_adc.h"
+#include "fsl_i2c.h"
+#include "fsl_i2c_freertos.h"
+#include "mcp9844.h"
 
+void vExternalTempMonitor(void *pvParameters);
 void vBatteryMonitor(void *pvParameters);
 void vInternalTempMonitor(void *pvParameters);
 
+i2c_rtos_handle_t peripheral_i2c_handle;
 
-/* TODO: insert other definitions and declarations here. */
 
 
 /*
@@ -109,24 +114,65 @@ void PORTB_PORTC_IRQHandler(void) {
  * @brief   Application entry point.
  */
 int main(void) {
-
-
-    /* Init board hardware. */
+	status_t status;
+	/* Init board hardware. */
     BOARD_InitBootPins();
     BOARD_InitBootClocks();
     BOARD_InitBootPeripherals();
     EnableIRQ(PORTA_IRQn);
     EnableIRQ(PORTB_PORTC_IRQn);
 
+    i2c_master_config_t masterConfig;
+    I2C_MasterGetDefaultConfig(&masterConfig);
+    status = I2C_RTOS_Init(&peripheral_i2c_handle, I2C1, &masterConfig, CLOCK_GetFreq(kCLOCK_CoreSysClk)); // I2C1 is clocked by the system clock
+    if (status != kStatus_Success) {
+		printf("I2C master: error during init, %d", status);
+	}
 
-    xTaskCreate(vBatteryMonitor, "BatteryMon", 1000, NULL, 1, NULL);
-    xTaskCreate(vInternalTempMonitor, "InternalTempSensor", 1000, NULL, 1, NULL);
+    xTaskCreate(vExternalTempMonitor, "TempSensor", 500, NULL, 1, NULL);
+    xTaskCreate(vBatteryMonitor, "BatteryMon", 500, NULL, 1, NULL);
+    xTaskCreate(vInternalTempMonitor, "InternalTempSensor", 500, NULL, 1, NULL);
 
     printf("Hello World\r\nStart scheduler\r\n");
 
     vTaskStartScheduler();
 
     return 0 ;
+}
+
+void vExternalTempMonitor(void *pvParameters) {
+	/*
+	 * Time to wait between separate conversions. Maybe use task parameters to avoid hardcoding this?
+	 */
+	const TickType_t xDelay = pdMS_TO_TICKS(5000UL);
+
+	status_t status;
+	uint8_t tempVal[2];
+	uint16_t temperature;
+
+	i2c_master_transfer_t xfer;
+	xfer.flags = kI2C_TransferDefaultFlag;
+	xfer.slaveAddress = MCP9844_GENERIC_DEVICE_ADDR;
+	xfer.subaddress = MCP9844_TAMBIENT_REG_ADDR;
+	xfer.subaddressSize = 1;
+	xfer.direction = kI2C_Read;
+	xfer.data = tempVal;
+	xfer.dataSize = 2;
+
+	while(true) {
+		tempVal[0] = 0U;
+		tempVal[1] = 0U;
+		status = I2C_RTOS_Transfer(&peripheral_i2c_handle, &xfer);
+		if (status != kStatus_Success) {
+			printf("I2C master: error during transaction, failed to read data: %d\r\n", status);
+			vTaskSuspendAll();
+		}
+		temperature = ((tempVal[0] & 0x0F) << 8) | tempVal[1];
+		printf("I2C temperature: %i.%i \r\n", (temperature >> 4U), ((temperature & 0x000E) * 125));
+
+		printf("Now the I2C task goes to sleep\r\n");
+		vTaskDelay(xDelay);
+	}
 }
 
 /*
@@ -136,12 +182,12 @@ void vBatteryMonitor(void *pvParameters) {
 	/*
 	 * Time to wait between separate conversions. Maybe use task parameters to avoid hardcoding this?
 	 */
-	const TickType_t xDelay = pdMS_TO_TICKS(5000UL);
+	const TickType_t xDelay = pdMS_TO_TICKS(6000UL);
 
 	while(true) {
 		printf("Battery Voltage: %i mV\r\n", DRIVER_ADC_GetBatteryMv());
 
-		printf("Now the task goes to sleep\r\n");
+		printf("Now the Battery task goes to sleep\r\n");
 		vTaskDelay(xDelay);
 	}
 }
@@ -159,9 +205,9 @@ void vInternalTempMonitor(void *pvParameters) {
 		/*
 		 * Write sensor voltage
 		 */
-		printf("ADC Tempsensor measurement value: %i\r\n", DRIVER_ADC_TempRaw());
+		printf("ADC Tempsensor measurement value: %i\r\n", DRIVER_ADC_TempCelsius());
 
-		printf("Now the task goes to sleep\r\n");
+		printf("Now the Tempsensor task goes to sleep\r\n");
 		vTaskDelay(xDelay);
 	}
 }

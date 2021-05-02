@@ -52,6 +52,8 @@ BOARD_InitPins:
     gpio_interrupt: kPORT_InterruptEitherEdge}
   - {pin_num: '46', peripheral: GPIOC, signal: 'GPIO, 17', pin_signal: TSI0_CH5/PTC17/LLWU_P1/SPI0_SOUT/I2C1_SCL/UART0_RX/BSM_FRAME/DTM_RX, direction: INPUT, gpio_interrupt: kPORT_InterruptEitherEdge}
   - {pin_num: '47', peripheral: GPIOC, signal: 'GPIO, 18', pin_signal: TSI0_CH6/PTC18/LLWU_P2/SPI0_SIN/I2C1_SDA/UART0_TX/BSM_DATA/DTM_TX, direction: INPUT, gpio_interrupt: kPORT_InterruptEitherEdge}
+  - {pin_num: '38', peripheral: I2C1, signal: CLK, pin_signal: TSI0_CH14/PTC2/LLWU_P10/TX_SWITCH/I2C1_SCL/UART0_RX/CMT_IRO/DTM_RX}
+  - {pin_num: '39', peripheral: I2C1, signal: SDA, pin_signal: TSI0_CH15/PTC3/LLWU_P11/RX_SWITCH/I2C1_SDA/UART0_TX/TPM0_CH1/DTM_TX}
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS ***********
  */
 /* clang-format on */
@@ -136,6 +138,12 @@ void BOARD_InitPins(void)
 
     /* Interrupt configuration on PORTC18 (pin 47): Interrupt on either edge */
     PORT_SetPinInterruptConfig(BOARD_INITPINS_CHG_DONE_PORT, BOARD_INITPINS_CHG_DONE_PIN, kPORT_InterruptEitherEdge);
+
+    /* PORTC2 (pin 38) is configured as I2C1_SCL */
+    PORT_SetPinMux(PORTC, 2U, kPORT_MuxAlt3);
+
+    /* PORTC3 (pin 39) is configured as I2C1_SDA */
+    PORT_SetPinMux(PORTC, 3U, kPORT_MuxAlt3);
 
     /* PORTC5 (pin 41) is configured as PTC5 */
     PORT_SetPinMux(BOARD_INITPINS_CHG_PG_PORT, BOARD_INITPINS_CHG_PG_PIN, kPORT_MuxAsGpio);

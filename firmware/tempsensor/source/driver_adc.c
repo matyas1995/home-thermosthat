@@ -16,23 +16,20 @@ volatile static uint32_t adc16ConversionValue = 0;
  * @brief Interrupt handling routine for the ADC. Sets a binary semaphore to signalize starting thread that a conversion has been executed
  */
 void ADC0_IRQHandler(void) {
-	BaseType_t xHigherPriorityTaskWoken = pdFALSE; // not used as only one task accesses the adc at any given time
+	BaseType_t xHigherPriorityTaskWoken;
 	adc16ConversionValue = ADC16_GetChannelConversionValue(ADC0, 0U); // dummy read to clear the interrupt
 	xSemaphoreGiveFromISR(xADCSemaphore, &xHigherPriorityTaskWoken);
-}
-
-void DRIVER_ADC_Create_Semaphores(void) {
-	/*
-	 * Set up a binary semaphore for accessing the ADC hardware.
-	 * The binary semaphore is used by the ADC's ISR to signal the end of a conversion
-	 *
-	 * Maybe it would make sense to allow the queue size to be set by init params
-	 */
-	xADCSemaphore = xSemaphoreCreateBinary();
-	xADCMutex = xSemaphoreCreateMutex();
+	portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
 }
 
 void DRIVER_ADC_Init(void) {
+	/*
+	 * Set up a binary semaphore and mutex for accessing the ADC hardware.
+	 * The binary semaphore is used by the ADC's ISR to signal the end of a conversion
+	 */
+	xADCSemaphore = xSemaphoreCreateBinary();
+	xADCMutex = xSemaphoreCreateMutex();
+
 	vref_config_t vrefConfigStruct;
 	VREF_GetDefaultConfig(&vrefConfigStruct);
 	VREF_Init(VREF, &vrefConfigStruct);
@@ -122,4 +119,16 @@ uint32_t DRIVER_ADC_TempRaw(void) {
 	return DRIVER_ADC_Read(ADC16_TEMP_SENSOR_CHN);
 }
 
-
+/*
+ * @brief Gets the temperature sensor reading in degrees Celsius
+ */
+uint32_t DRIVER_ADC_TempCelsius(void) {
+	/*
+	 * Temperature in degrees celsius is calculated with the formula
+	 * 25 - ((V_temp - V_temp25) / Tempsensor_slope)
+	 *
+	 * The following function calculates the temperature in micro Celsius to avoid calculating with floating point values while retaining adequate accuracy.
+	 * This is done because the Cortex m0+ core lacks an FPU, making floating point calculations very slow
+	 */
+	return 25000000 - ((DRIVER_ADC_Read(ADC16_TEMP_SENSOR_CHN) * VREF_VOLTAGE * 1000 / 4095 - TEMPSENSOR_VTEMP25) / TEMPSENSOR_SLOPE);
+}
