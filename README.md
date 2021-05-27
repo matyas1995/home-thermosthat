@@ -1,16 +1,18 @@
-# home-thermosthat
-Projektdateien für mein SmartHome Hobbyprojekt
+![IMG_20210517_141732_HDR](https://user-images.githubusercontent.com/11467555/119831615-be154380-befd-11eb-93b1-1e32d82ae6f9.jpg)
+![IMG_20210517_141834_HDR](https://user-images.githubusercontent.com/11467555/119831625-c1103400-befd-11eb-94ed-dd98717984c3.jpg)
+![IMG_20210517_141855_HDR](https://user-images.githubusercontent.com/11467555/119831634-c2d9f780-befd-11eb-8525-0a8797b3159c.jpg)
 
-Inhalt der einzelnen Ordner:
 
-firmware:
-die MCUXPresso source files für manch Demoprogramme sowie erste Experimente mit FreeRTOS.
+Gegen Ende des Masterstudiums hatte ich die Idee, ein größeres Hobbyprojekt im Bereich der Embedded Hardware / Software Entwicklung zu starten. Dieser sollte möglichst viele Interessenbereiche von mir abdecken und einige neue Themenfelder erschließen und somit Möglichkeiten für spielerisches Lernen bieten.
 
-frdm-board:
-die Schematics für den FRDM Demo Broard von NXP für den MKW41Z MCU
+Die Wahl fiel auf die in meiner Wohnung verbauten Heizung, die als Etagenheizung mit einer Gastherme ausgeführt ist. Ein großes Nachteil der bisherigen Installation ist der im Eingangsbereich verbaute Thermosthat, der direkt die Therme regelt. Da aber im Eingangsbereich kein Heizkörper verbaut ist, wird die Temperatur in den jeweiligen Zimmern stark durch geöffnete oder geschlossene Zimmertüren beziehungsweise Fenster beeinflusst.
 
-tempsensor:
-Die KiCAD schematics und das Layout für die Sensorplatinen
+Die Idee ist, den Thermosthat durch einen Eigenbau zu ersetzen, der mit über eine Funkschnittstelle angeschlossenen Temperatursensoren gemeinsam die Regelung der Temperatur in der Wohnung übernehmen soll. Dabei soll sie wesentlich präziser steuern können und um einige neue Funktionen aufwarten, wie etwa die Erkennung geöffneter Fenster oder einer Anwesenheitserkennung. Relevante Informationen zum Betrieb sollen stets über einen energiesparenden E-Ink Display angezeigt werden.
 
-thermosthat:
-Die KiCAD schematics und das Layout für die Hauptplatine des Thermosthats
+Zu den wesentlichen Eigenschaften des geplanten Systems gehören ein zentraler Thermosthatmodul, der den ursprünglichen Vaillant Thermosthat emuliert sowie etliche batteriebetriebene Sensormodule, die über das Thread Mesh Protokoll (der selbst auf den IEEE 802.15.4 Protokoll aufbaut) miteinander vernetzt sind. Das Herzstück jedes Moduls ist ein Kinetis MKW41Z Microcontroller von NXP, der mit Hinblick auf den integrierten Funkmodul sowie der integrierten DC/DC Spannungswandler gewählt wurde. Das ermöglicht es, die Sensormodule direkt von einer Lithium-Ionen Batteriezelle zu versorgen, da sie ihre benötigte Betriebsspannung selbst regulieren können. Dank der umfangreichen Peripherie und unterstützter Bussysteme wie I2C und SPI können externe Temperatursensoren, EEPROMs, das eInk Display und andere Peripherie einfach angeschlossen werden. Da die Heizungstherme eine Versorgungsspannung für den Thermosthat bereitstellt, das allerdings zu hoch für den in den MKW41Z integrierten Wandler ist, ist auf der Thermosthatplatine ein zusätzlicher DC/DC Wandler mit einen LM2574 Standardbaustein aufgebaut, der die Betriebsspannung für die Platine bereitstellt.
+
+Die 4-Lagigen Leiterplatten für den Thermosthat sowie die Sensormodule wurden in Eigenregie mit dem EDA-Tool KiCAD entworfen und im Elektroniklabor der Fachschaft Elektrotechnik eigenhändig bestückt und in Betrieb genommen. Der Hardwaredesign wurde mit kleinen Demoprojekten auf die Funktionsfähigkeit der Peripherie und der Aufbau hin getestet und für funktionsfähig befunden. 
+
+Im nächsten Schritt steht die Konzeption eines modularen Softwarearchitekturs auf Basis von FreeRTOS an, um die im Einzelnen funktionsfähige Demos in ein Gesamtsystem zu integrieren und letztendlich im Alltagsbetrieb einzusetzen. Hierbei soll der Fokus auf einen modularen Softwareaufbau liegen, das es mit der von FreeRTOS ermöglichten Flexibilität ermöglichen soll, schnell und mit wenig Aufwand neue Features zu integrieren. Zuerst soll neben einer zeitgesteuerten Temperaturregelung und einer Urlaubsfunktion der Fokus darauf gelegt werden, die Batterielaufzeit der einzelnen Sensormodule möglichst zu maximieren.
+
+Da der Thread Mesh protokoll auf eine Implementierung des IPv6 Protokolls für Low Power Netzwerke aufbaut, könnte zu einem späteren Zeitpunkt ein Gateway zum Heimnetzwerk gebaut werden. Ein Sensormodul mit angepasster Software könnte dafür mit meinem Heimserver, der auch zum Teil in Eigenbau entstanden ist, über eine serielle Schnittstelle verbunden werden und diese Funktion erfüllen. Das würde wieder zahlreiche Möglichkeiten für weiterführende Projekte eröffnen.
