@@ -148,16 +148,46 @@ void vExternalTempMonitor(void *pvParameters) {
 
 	status_t status;
 	uint8_t tempVal[2];
-	uint16_t temperature;
+	uint16_t temperature[2];
+
+	/*
+	 * Setup and configure I2C Tempsensor
+	 *
+	 * Resolution can only be changed in shutdown mode, so we do that
+	 */
+
+	tempVal[0] = MCP9844_CONFIG_SHDN_MASK >> 8;
+	tempVal[1] = 0x00;
 
 	i2c_master_transfer_t xfer;
 	xfer.flags = kI2C_TransferDefaultFlag;
 	xfer.slaveAddress = MCP9844_GENERIC_DEVICE_ADDR;
-	xfer.subaddress = MCP9844_TAMBIENT_REG_ADDR;
+	xfer.subaddress = MCP9844_CONFIG_REG_ADDR;
 	xfer.subaddressSize = 1;
-	xfer.direction = kI2C_Read;
+	xfer.direction = kI2C_Write;
 	xfer.data = tempVal;
 	xfer.dataSize = 2;
+
+	I2C_RTOS_Transfer(&peripheral_i2c_handle, &xfer);
+
+	xfer.subaddress = MCP9844_RESOLUTION_REG_ADDR;
+	tempVal[0] = 0x00;
+	tempVal[1] = MCP9844_RESOLUTION_HEXDECA;
+
+	I2C_RTOS_Transfer(&peripheral_i2c_handle, &xfer);
+
+	xfer.subaddress = MCP9844_CONFIG_REG_ADDR;
+	tempVal[1] = 0x00;
+
+	I2C_RTOS_Transfer(&peripheral_i2c_handle, &xfer);
+
+	xfer.subaddress = MCP9844_CAPABILITY_REG_ADDR;
+	xfer.direction = kI2C_Read;
+
+	I2C_RTOS_Transfer(&peripheral_i2c_handle, &xfer);
+	printf("MCP9844 resolution capability: %i\r\n", (tempVal[1] & 0x18) >> 3);
+
+	xfer.subaddress = MCP9844_TAMBIENT_REG_ADDR;
 
 	while(true) {
 		tempVal[0] = 0U;
@@ -167,8 +197,9 @@ void vExternalTempMonitor(void *pvParameters) {
 			printf("I2C master: error during transaction, failed to read data: %d\r\n", status);
 			vTaskSuspendAll();
 		}
-		temperature = ((tempVal[0] & 0x0F) << 8) | tempVal[1];
-		printf("I2C temperature: %i.%i \r\n", (temperature >> 4U), ((temperature & 0x000E) * 125));
+		temperature[1] = ((tempVal[0] & 0x0F) << 4) | (tempVal[1] >> 4);
+		temperature[0] = (tempVal[1] & 0x0F) * 625;
+		printf("I2C temperature: %i.%i \r\n", temperature[1], temperature[0]);
 
 		printf("Now the I2C task goes to sleep\r\n");
 		vTaskDelay(xDelay);
