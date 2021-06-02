@@ -1,0 +1,1 @@
+Errata: gate resistors on GPIO LED drivers missing. Will not pose great problems as long as switching frequency does not get too high to overload MCU pins.
