@@ -248,13 +248,9 @@ Wire Wire Line
 Text Notes 8600 1550 0    50   ~ 0
 Grenzfrequenz 160Hz
 Wire Notes Line
-	6100 2650 11150 2650
-Wire Notes Line
 	11150 600  11150 2650
 Wire Notes Line
-	6100 600  11150 600 
-Wire Notes Line
-	6100 2650 6100 600 
+	5300 2650 5300 600 
 Wire Wire Line
 	8050 1300 8050 1350
 $Comp
@@ -279,8 +275,6 @@ Wire Wire Line
 Connection ~ 8050 1700
 Wire Wire Line
 	8050 1650 8050 1700
-Wire Wire Line
-	6750 2400 6750 2200
 $Comp
 L power:GNDA #PWR068
 U 1 1 5E7DE66A
@@ -818,17 +812,6 @@ SUPPLY_V
 Wire Wire Line
 	8650 4000 8600 4000
 Connection ~ 8600 4000
-$Comp
-L Device:R R9
-U 1 1 5E6AA7AC
-P 6500 2200
-F 0 "R9" V 6293 2200 50  0000 C CNN
-F 1 "0" V 6384 2200 50  0000 C CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 6430 2200 50  0001 C CNN
-F 3 "~" H 6500 2200 50  0001 C CNN
-	1    6500 2200
-	0    -1   -1   0   
-$EndComp
 Text HLabel 6050 1950 0    50   Input ~ 0
 REGULATOR_OUT
 $Comp
@@ -1050,20 +1033,6 @@ F 3 "~" H 6650 1950 50  0001 C CNN
 	1    6650 1950
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	6650 2200 6750 2200
-Connection ~ 6750 2200
-Wire Wire Line
-	6750 2200 6750 2150
-Wire Wire Line
-	6050 1950 6300 1950
-Wire Wire Line
-	6350 2200 6300 2200
-Wire Wire Line
-	6300 2200 6300 1950
-Connection ~ 6300 1950
-Wire Wire Line
-	6300 1950 6450 1950
 $Comp
 L Device:Q_NMOS_GSD Q?
 U 1 1 5F7826E9
@@ -1129,4 +1098,14 @@ Text Notes 6750 1000 0    50   ~ 0
 Double NMOS to counteract inverter
 Wire Wire Line
 	8050 2150 8050 2400
+Text Notes 5600 2550 0    50   ~ 0
+NO pulldown!\nManaged by MCU\nNMI interrupt hangs \non here, if this pin is \nexternally pulled low, \nshit will hit the fan
+Wire Wire Line
+	6750 2150 6750 2400
+Wire Wire Line
+	6050 1950 6450 1950
+Wire Notes Line
+	5300 600  11150 600 
+Wire Notes Line
+	5300 2650 11150 2650
 $EndSCHEMATC
