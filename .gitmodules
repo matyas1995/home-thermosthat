@@ -1,0 +1,3 @@
+[submodule "firmware/thermosthat/openthread"]
+	path = firmware/thermosthat/openthread
+	url = https://github.com/openthread/openthread.git
