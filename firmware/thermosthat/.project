@@ -24,4 +24,21 @@
 		<nature>org.eclipse.cdt.managedbuilder.core.managedBuildNature</nature>
 		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>XCVR</name>
+			<type>2</type>
+			<locationURI>WORKSPACE_LOC/XCVR</locationURI>
+		</link>
+		<link>
+			<name>openthread</name>
+			<type>2</type>
+			<locationURI>WORKSPACE_LOC/openthread</locationURI>
+		</link>
+		<link>
+			<name>openthread_kw41_port</name>
+			<type>2</type>
+			<locationURI>WORKSPACE_LOC/openthread_kw41_port</locationURI>
+		</link>
+	</linkedResources>
 </projectDescription>

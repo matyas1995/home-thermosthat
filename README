@@ -1,0 +1,30 @@
+What to do to get OpenThread running
+
+first, thermosthat firmware is selected to try.
+Sources have been copied over from KW41Z OpenThread port.
+Look at OpenThread cli app example (and possibly try to compile, good starting point). It has callback functions for OpenThread tasklets. That is the way to put OpenThread Stack into FreeRTOS!
+
+to port compile definitions to the MCUXpresso build system: all of the configuration options for CMAKE (from which cmake generates the makefiles) are defined in openthread/etc/cmake/options.cmake
+openthread/src/core/ftd.cmake
+openthread/examples/common-switches.mk
+
+see also what options are activated if the OT-FTD options are activated
+
+in openthread/src/core/config/openthread-core-default-config.h the default values and their meaning are explained.
+
+at this moment, the only way to get this into MCUXpresso is to follow what config switches CMAKE has and set these manually in MCUXpresso. So it will be a grep orgy, both for the sensors as well as for the thermosthat. Pay attention to the thing that unused options do not need to be defined but there are some which are activated by default (SLAAC). Do not forget to define these.
+
+OPENTHREAD_CONFIG_HEAP_EXTERNAL_ENABLE sollte womöglich für FreeRTOS aktiviert werden, da jede App seinen eigenen Heap hat (oder Stack?)
+referenz: openthread cli app main.c
+-> nein, das wird nur von MbedTLS benötigt, wenn mehrere Instanzen auf einen MCU gefahren werden.
+
+openthread/src/core/openthread-core-config.h hat allen bereits konfiguriert und bindet header ein mit default configs! Kein CMAKE benötigt. mit 
+OPENTHREAD_CONFIG_CORE_USER_CONFIG_HEADER_ENABLE bzw. OPENTHREAD_PROJECT_CORE_CONFIG_FILE
+gibt es auch die Möglichkeit, einen eigenen File mit Configs mitzugeben. Wenn man den als symbol definiert, muss man das nicht in den Projektoptionen machen.
+
+
+
+TODO:
+rewrite alarm port of openthread to use freertos software timers instead of the pit -> could be accurate enough if the systick is set to 1000Hz at least. Higher would be better. The current time as per openthread api could be get by returning the xTastGetTickCount() function.
+remove all kw41z pinmux etc. config from platform abstraction, these can be managed by MCUXpresso. Otherwise, this will create havoc
+maybe for first tests, use the api to save settings to ram intsead of flash
