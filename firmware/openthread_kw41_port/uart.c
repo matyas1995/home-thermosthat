@@ -45,7 +45,6 @@
 
 enum
 {
-    kPlatformClock     = 32000000,
     kBaudRate          = 115200,
     kReceiveBufferSize = 256,
 };
@@ -76,19 +75,11 @@ otError otPlatUartEnable(void)
     sReceive.mHead = 0;
     sReceive.mTail = 0;
 
-    /* Pin MUX */
-    CLOCK_EnableClock(kCLOCK_PortC);
-    PORT_SetPinMux(PORTC, 6, kPORT_MuxAlt4);
-    PORT_SetPinMux(PORTC, 7, kPORT_MuxAlt4);
-
-    /* Set OSCERCLK as LPUART Rx/Tx clock */
-    CLOCK_SetLpuartClock(2);
-
     LPUART_GetDefaultConfig(&config);
     config.enableRx     = 1;
     config.enableTx     = 1;
     config.baudRate_Bps = kBaudRate;
-    LPUART_Init(LPUART0, &config, kPlatformClock);
+    LPUART_Init(LPUART0, &config, CLOCK_GetInternalRefClkFreq());
     LPUART_EnableInterrupts(LPUART0, kLPUART_RxDataRegFullInterruptEnable);
 
     NVIC_ClearPendingIRQ(LPUART0_IRQn);

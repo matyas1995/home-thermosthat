@@ -58,6 +58,11 @@
                         <data>true</data>
                      </feature>
                   </dependency>
+                  <dependency resourceType="Peripheral" resourceId="LPUART0" description="Peripheral LPUART0 is not initialized" problem_level="1" source="Pins:BOARD_InitPins">
+                     <feature name="initialized" evaluation="equal">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
                   <dependency resourceType="SWComponent" resourceId="platform.drivers.common" description="Pins initialization requires the COMMON Driver in the project." problem_level="2" source="Pins:BOARD_InitPins">
                      <feature name="enabled" evaluation="equal" configuration="core0">
                         <data>true</data>
@@ -123,6 +128,8 @@
                         <pin_feature name="direction" value="INPUT"/>
                      </pin_features>
                   </pin>
+                  <pin peripheral="LPUART0" signal="TX" pin_num="43" pin_signal="TSI0_CH3/PTC7/LLWU_P15/SPI0_PCS2/I2C1_SDA/UART0_TX/TPM2_CH1/BSM_DATA"/>
+                  <pin peripheral="LPUART0" signal="RX" pin_num="42" pin_signal="TSI0_CH2/PTC6/LLWU_P14/XTAL_OUT_EN/I2C1_SCL/UART0_RX/TPM2_CH0/BSM_FRAME"/>
                </pins>
             </function>
          </functions_list>
@@ -140,22 +147,57 @@
                <description></description>
                <options/>
                <dependencies>
+                  <dependency resourceType="PinSignal" resourceId="RADIO.EXTAL" description="&apos;EXTAL0&apos; (Pins tool id: RADIO.EXTAL, Clocks tool id: REFOSC.EXTAL0) needs to be routed" problem_level="1" source="Clocks:BOARD_BootClockRUN">
+                     <feature name="routed" evaluation="">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="PinSignal" resourceId="RADIO.EXTAL" description="&apos;EXTAL0&apos; (Pins tool id: RADIO.EXTAL, Clocks tool id: REFOSC.EXTAL0) needs to have &apos;INPUT&apos; direction" problem_level="1" source="Clocks:BOARD_BootClockRUN">
+                     <feature name="direction" evaluation="">
+                        <data>INPUT</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="PinSignal" resourceId="RADIO.XTAL" description="&apos;XTAL0&apos; (Pins tool id: RADIO.XTAL, Clocks tool id: REFOSC.XTAL0) needs to be routed" problem_level="1" source="Clocks:BOARD_BootClockRUN">
+                     <feature name="routed" evaluation="">
+                        <data>true</data>
+                     </feature>
+                  </dependency>
+                  <dependency resourceType="PinSignal" resourceId="RADIO.XTAL" description="&apos;XTAL0&apos; (Pins tool id: RADIO.XTAL, Clocks tool id: REFOSC.XTAL0) needs to have &apos;OUTPUT&apos; direction" problem_level="1" source="Clocks:BOARD_BootClockRUN">
+                     <feature name="direction" evaluation="">
+                        <data>OUTPUT</data>
+                     </feature>
+                  </dependency>
                   <dependency resourceType="SWComponent" resourceId="platform.drivers.common" description="Clocks initialization requires the COMMON Driver in the project." problem_level="2" source="Clocks:BOARD_BootClockRUN">
                      <feature name="enabled" evaluation="equal" configuration="core0">
                         <data>true</data>
                      </feature>
                   </dependency>
                </dependencies>
-               <clock_sources/>
+               <clock_sources>
+                  <clock_source id="REFOSC.OSC.outFreq" value="32 MHz" locked="false" enabled="true"/>
+               </clock_sources>
                <clock_outputs>
                   <clock_output id="Bus_clock.outFreq" value="10.48576 MHz" locked="false" accuracy=""/>
                   <clock_output id="Core_clock.outFreq" value="20.97152 MHz" locked="false" accuracy=""/>
                   <clock_output id="Flash_clock.outFreq" value="10.48576 MHz" locked="false" accuracy=""/>
                   <clock_output id="LPO_clock.outFreq" value="1 kHz" locked="false" accuracy=""/>
+                  <clock_output id="LPUART0CLK.outFreq" value="4 MHz" locked="false" accuracy=""/>
                   <clock_output id="MCGFLLCLK.outFreq" value="20.97152 MHz" locked="false" accuracy=""/>
+                  <clock_output id="MCGIRCLK.outFreq" value="4 MHz" locked="false" accuracy=""/>
+                  <clock_output id="OSCERCLK.outFreq" value="32 MHz" locked="false" accuracy=""/>
                   <clock_output id="System_clock.outFreq" value="20.97152 MHz" locked="false" accuracy=""/>
                </clock_outputs>
-               <clock_settings/>
+               <clock_settings>
+                  <setting id="LPUART0ClkConfig" value="yes" locked="false"/>
+                  <setting id="MCG.FCRDIV.scale" value="1" locked="true"/>
+                  <setting id="MCG.FRDIV.scale" value="32" locked="false"/>
+                  <setting id="MCG.IRCS.sel" value="MCG.FCRDIV" locked="false"/>
+                  <setting id="MCG_C1_IRCLKEN_CFG" value="Enabled" locked="false"/>
+                  <setting id="MCG_C2_RANGE0_FRDIV_CFG" value="Very_high" locked="false"/>
+                  <setting id="MCG_C2_RANGE_CFG" value="Very_high" locked="false"/>
+                  <setting id="SIM.LPUART0SRCSEL.sel" value="MCG.MCGIRCLK" locked="false"/>
+                  <setting id="SIM.OUTDIV4.scale" value="2" locked="true"/>
+               </clock_settings>
                <called_from_default_init>true</called_from_default_init>
             </clock_configuration>
          </clock_configurations>

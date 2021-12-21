@@ -7,11 +7,11 @@
 /*
  * TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
 !!GlobalInfo
-product: Pins v9.0
+product: Pins v10.0
 processor: MKW41Z512xxx4
 package_id: MKW41Z512VHT4
 mcu_data: ksdk2_0
-processor_version: 9.0.1
+processor_version: 10.0.0
 pin_labels:
 - {pin_num: '6', pin_signal: TSI0_CH12/PTA18/LLWU_P6/SPI1_SCK/TPM2_CH0, label: BTN_INT, identifier: BTN_INT}
 - {pin_num: '16', pin_signal: PTB0/LLWU_P8/XTAL_OUT_EN/I2C0_SCL/CMP0_OUT/TPM0_CH1/CLKOUT, label: LED_YELLOW, identifier: LED_YELLOW}

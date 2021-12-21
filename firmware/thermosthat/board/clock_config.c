@@ -33,11 +33,11 @@
 /* clang-format off */
 /* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
 !!GlobalInfo
-product: Clocks v7.0
+product: Clocks v8.0
 processor: MKW41Z512xxx4
 package_id: MKW41Z512VHT4
 mcu_data: ksdk2_0
-processor_version: 9.0.1
+processor_version: 10.0.0
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
 /* clang-format on */
 
@@ -46,7 +46,7 @@ processor_version: 9.0.1
 /*******************************************************************************
  * Definitions
  ******************************************************************************/
-#define MCG_IRCLK_DISABLE                                 0U  /*!< MCGIRCLK disabled */
+#define SIM_LPUART_CLK_SEL_MCGIRCLK_CLK                   3U  /*!< LPUART clock select: MCGIRCLK clock */
 #define SIM_OSC32KSEL_OSC32KCLK_CLK                       0U  /*!< OSC32KSEL select: OSC32KCLK clock */
 
 /*******************************************************************************
@@ -119,6 +119,70 @@ static void CLOCK_CONFIG_FllStableDelay(void)
     CLOCK_CONFIG_SysTickWaitMs(1UL);
 }
 
+/*FUNCTION**********************************************************************
+ *
+ * Function Name : BOARD_RfOscInit
+ * Description   : This function is used to setup Ref oscillator.
+ *
+ *END**************************************************************************/
+void BOARD_RfOscInit(void)
+{
+    uint32_t tempTrim;
+    uint8_t revId;
+
+    /* Obtain REV ID from SIM */
+    revId = (uint8_t)((uint32_t)(SIM->SDID & SIM_SDID_REVID_MASK) >> SIM_SDID_REVID_SHIFT);
+
+    if(0 == revId)
+    {
+        tempTrim = RSIM->ANA_TRIM;
+        RSIM->ANA_TRIM |= RSIM_ANA_TRIM_BB_LDO_XO_TRIM_MASK;            /* Set max trim for BB LDO for XO */
+    }/* Workaround for Rev 1.0 XTAL startup and ADC analog diagnostics circuitry */
+
+    /* Turn on clocks for the XCVR */
+
+    /* Enable RF OSC in RSIM and wait for ready */
+    RSIM->CONTROL = ((RSIM->CONTROL & ~RSIM_CONTROL_RF_OSC_EN_MASK) | RSIM_CONTROL_RF_OSC_EN(1));
+
+    /* ERR010224 */
+    RSIM->RF_OSC_CTRL |= RSIM_RF_OSC_CTRL_RADIO_EXT_OSC_OVRD_EN_MASK;   /* Prevent XTAL_OUT_EN from generating XTAL_OUT request */
+
+    while((RSIM->CONTROL & RSIM_CONTROL_RF_OSC_READY_MASK) == 0)
+    {
+       ;                                                                /* Wait for RF_OSC_READY */
+    }
+
+    /* Enable clock gate to write to the XCVR registers */
+    SIM->SCGC5 |= SIM_SCGC5_PHYDIG_MASK;
+
+    if(0 == revId)
+    {
+        XCVR_TSM->OVRD0 |= XCVR_TSM_OVRD0_BB_LDO_ADCDAC_EN_OVRD_EN_MASK | XCVR_TSM_OVRD0_BB_LDO_ADCDAC_EN_OVRD_MASK; /* Force ADC DAC LDO on to prevent BGAP failure */
+
+        RSIM->ANA_TRIM = tempTrim;                                      /* Reset LDO trim settings */
+    }/* Workaround for Rev 1.0 XTAL startup and ADC analog diagnostics circuitry */
+
+}
+
+/*FUNCTION**********************************************************************
+ *
+ * Function Name : BOARD_InitOsc0
+ * Description   : This function is used to setup MCG OSC with Ref oscillator.
+ *
+ *END**************************************************************************/
+void BOARD_InitOsc0(void)
+{
+    const osc_config_t oscConfig = {
+      .freq = BOARD_XTAL0_CLK_HZ, .workMode = kOSC_ModeExt,
+    };
+
+    /* Initializes OSC0 according to previous configuration to meet Ref OSC needs. */
+    CLOCK_InitOsc0(&oscConfig);
+
+    /* Passing the XTAL0 frequency to clock driver. */
+    CLOCK_SetXtal0Freq(BOARD_XTAL0_CLK_HZ);
+}
+
 /*******************************************************************************
  ************************ BOARD_InitBootClocks function ************************
  ******************************************************************************/
@@ -140,8 +204,23 @@ outputs:
 - {id: Core_clock.outFreq, value: 20.97152 MHz}
 - {id: Flash_clock.outFreq, value: 10.48576 MHz}
 - {id: LPO_clock.outFreq, value: 1 kHz}
+- {id: LPUART0CLK.outFreq, value: 4 MHz}
 - {id: MCGFLLCLK.outFreq, value: 20.97152 MHz}
+- {id: MCGIRCLK.outFreq, value: 4 MHz}
+- {id: OSCERCLK.outFreq, value: 32 MHz}
 - {id: System_clock.outFreq, value: 20.97152 MHz}
+settings:
+- {id: LPUART0ClkConfig, value: 'yes'}
+- {id: MCG.FCRDIV.scale, value: '1', locked: true}
+- {id: MCG.FRDIV.scale, value: '32'}
+- {id: MCG.IRCS.sel, value: MCG.FCRDIV}
+- {id: MCG_C1_IRCLKEN_CFG, value: Enabled}
+- {id: MCG_C2_RANGE0_FRDIV_CFG, value: Very_high}
+- {id: MCG_C2_RANGE_CFG, value: Very_high}
+- {id: SIM.LPUART0SRCSEL.sel, value: MCG.MCGIRCLK}
+- {id: SIM.OUTDIV4.scale, value: '2', locked: true}
+sources:
+- {id: REFOSC.OSC.outFreq, value: 32 MHz, enabled: true}
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
 /* clang-format on */
 
@@ -151,10 +230,10 @@ outputs:
 const mcg_config_t mcgConfig_BOARD_BootClockRUN =
     {
         .mcgMode = kMCG_ModeFEI,                  /* FEI - FLL Engaged Internal */
-        .irclkEnableMode = MCG_IRCLK_DISABLE,     /* MCGIRCLK disabled */
-        .ircs = kMCG_IrcSlow,                     /* Slow internal reference clock selected */
-        .fcrdiv = 0x1U,                           /* Fast IRC divider: divided by 2 */
-        .frdiv = 0x0U,                            /* FLL reference clock divider: divided by 1 */
+        .irclkEnableMode = kMCG_IrclkEnable,      /* MCGIRCLK enabled, MCGIRCLK disabled in STOP mode */
+        .ircs = kMCG_IrcFast,                     /* Fast internal reference clock selected */
+        .fcrdiv = 0x0U,                           /* Fast IRC divider: divided by 1 */
+        .frdiv = 0x0U,                            /* FLL reference clock divider: divided by 32 */
         .drs = kMCG_DrsLow,                       /* Low frequency range */
         .dmx32 = kMCG_Dmx32Default,               /* DCO has a default range of 25% */
         .oscsel = kMCG_OscselOsc,                 /* Selects System Oscillator (OSCCLK) */
@@ -170,12 +249,14 @@ const sim_clock_config_t simConfig_BOARD_BootClockRUN =
  ******************************************************************************/
 void BOARD_BootClockRUN(void)
 {
-    /* ERR010224 */
-    RSIM->RF_OSC_CTRL |= RSIM_RF_OSC_CTRL_RADIO_EXT_OSC_OVRD_EN_MASK;   /* Prevent XTAL_OUT_EN from generating XTAL_OUT request */
+    /* Setup the reference oscillator. */
+    BOARD_RfOscInit();
     /* Set the system clock dividers in SIM to safe value. */
     CLOCK_SetSimSafeDivs();
+    /* Initializes OSC0 according to Ref OSC needs. */
+    BOARD_InitOsc0();
     /* Set MCG to FEI mode. */
-#if FSL_CLOCK_DRIVER_VERSION >= MAKE_VERSION(2, 2, 0)
+#if FSL_CLOCK_DRIVER_VERSION >= MAKE_VERSION(2, 0, 0)
     CLOCK_BootToFeiMode(mcgConfig_BOARD_BootClockRUN.dmx32,
                         mcgConfig_BOARD_BootClockRUN.drs,
                         CLOCK_CONFIG_FllStableDelay);
@@ -187,11 +268,15 @@ void BOARD_BootClockRUN(void)
     CLOCK_SetInternalRefClkConfig(mcgConfig_BOARD_BootClockRUN.irclkEnableMode,
                                   mcgConfig_BOARD_BootClockRUN.ircs, 
                                   mcgConfig_BOARD_BootClockRUN.fcrdiv);
+    /* Select the MCG external reference clock. */
+    CLOCK_SetExternalRefClkConfig(mcgConfig_BOARD_BootClockRUN.oscsel);
     /* Set the clock configuration in SIM module. */
     CLOCK_SetSimConfig(&simConfig_BOARD_BootClockRUN);
     /* Configure RTC clock. */
     CLOCK_CONFIG_SetRtcClock();
     /* Set SystemCoreClock variable. */
     SystemCoreClock = BOARD_BOOTCLOCKRUN_CORE_CLOCK;
+    /* Set LPUART clock source. */
+    CLOCK_SetLpuartClock(SIM_LPUART_CLK_SEL_MCGIRCLK_CLK);
 }
 

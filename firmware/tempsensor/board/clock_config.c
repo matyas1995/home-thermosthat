@@ -33,11 +33,11 @@
 /* clang-format off */
 /* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
 !!GlobalInfo
-product: Clocks v7.0
+product: Clocks v8.0
 processor: MKW41Z512xxx4
 package_id: MKW41Z512VHT4
 mcu_data: ksdk2_0
-processor_version: 9.0.1
+processor_version: 10.0.0
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
 /* clang-format on */
 
@@ -215,6 +215,7 @@ settings:
 - {id: MCG_C2_RANGE0_FRDIV_CFG, value: Very_high}
 - {id: MCG_C2_RANGE_CFG, value: Very_high}
 - {id: OscerclkConfig, value: 'yes'}
+- {id: SIM.CLKOUTSEL.sel, value: SIM.OUTDIV4}
 sources:
 - {id: REFOSC.OSC.outFreq, value: 32 MHz, enabled: true}
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
@@ -252,7 +253,7 @@ void BOARD_BootClockRUN(void)
     /* Initializes OSC0 according to Ref OSC needs. */
     BOARD_InitOsc0();
     /* Set MCG to FEI mode. */
-#if FSL_CLOCK_DRIVER_VERSION >= MAKE_VERSION(2, 2, 0)
+#if FSL_CLOCK_DRIVER_VERSION >= MAKE_VERSION(2, 0, 0)
     CLOCK_BootToFeiMode(mcgConfig_BOARD_BootClockRUN.dmx32,
                         mcgConfig_BOARD_BootClockRUN.drs,
                         CLOCK_CONFIG_FllStableDelay);

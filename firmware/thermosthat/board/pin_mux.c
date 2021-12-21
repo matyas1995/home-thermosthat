@@ -7,11 +7,11 @@
 /*
  * TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
 !!GlobalInfo
-product: Pins v9.0
+product: Pins v10.0
 processor: MKW41Z512xxx4
 package_id: MKW41Z512VHT4
 mcu_data: ksdk2_0
-processor_version: 9.0.1
+processor_version: 10.0.0
 pin_labels:
 - {pin_num: '16', pin_signal: PTB0/LLWU_P8/XTAL_OUT_EN/I2C0_SCL/CMP0_OUT/TPM0_CH1/CLKOUT, label: LED_YELLOW, identifier: LED_YELLOW}
 - {pin_num: '17', pin_signal: ADC0_SE1/CMP0_IN5/PTB1/DTM_RX/I2C0_SDA/LPTMR0_ALT1/TPM0_CH2/CMT_IRO, label: LED_RED, identifier: LED_RED}
@@ -62,6 +62,8 @@ BOARD_InitPins:
   - {pin_num: '46', peripheral: GPIOC, signal: 'GPIO, 17', pin_signal: TSI0_CH5/PTC17/LLWU_P1/SPI0_SOUT/I2C1_SCL/UART0_RX/BSM_FRAME/DTM_RX, direction: INPUT}
   - {pin_num: '47', peripheral: GPIOC, signal: 'GPIO, 18', pin_signal: TSI0_CH6/PTC18/LLWU_P2/SPI0_SIN/I2C1_SDA/UART0_TX/BSM_DATA/DTM_TX, direction: OUTPUT}
   - {pin_num: '48', peripheral: GPIOC, signal: 'GPIO, 19', pin_signal: TSI0_CH7/PTC19/LLWU_P3/SPI0_PCS0/I2C0_SCL/UART0_CTS_b/BSM_CLK/BLE_RF_ACTIVE, direction: INPUT}
+  - {pin_num: '43', peripheral: LPUART0, signal: TX, pin_signal: TSI0_CH3/PTC7/LLWU_P15/SPI0_PCS2/I2C1_SDA/UART0_TX/TPM2_CH1/BSM_DATA}
+  - {pin_num: '42', peripheral: LPUART0, signal: RX, pin_signal: TSI0_CH2/PTC6/LLWU_P14/XTAL_OUT_EN/I2C1_SCL/UART0_RX/TPM2_CH0/BSM_FRAME}
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS ***********
  */
 /* clang-format on */
@@ -181,6 +183,22 @@ void BOARD_InitPins(void)
 
     /* PORTC5 (pin 41) is configured as PTC5 */
     PORT_SetPinMux(BOARD_INITPINS_BTN_INT_PORT, BOARD_INITPINS_BTN_INT_PIN, kPORT_MuxAsGpio);
+
+    /* PORTC6 (pin 42) is configured as UART0_RX */
+    PORT_SetPinMux(PORTC, 6U, kPORT_MuxAlt4);
+
+    /* PORTC7 (pin 43) is configured as UART0_TX */
+    PORT_SetPinMux(PORTC, 7U, kPORT_MuxAlt4);
+
+    SIM->SOPT5 = ((SIM->SOPT5 &
+                   /* Mask bits to zero which are setting */
+                   (~(SIM_SOPT5_LPUART0TXSRC_MASK | SIM_SOPT5_LPUART0RXSRC_MASK)))
+
+                  /* LPUART0 Transmit Data Source Select: LPUART0_TX pin. */
+                  | SIM_SOPT5_LPUART0TXSRC(SOPT5_LPUART0TXSRC_LPUART_TX)
+
+                  /* LPUART0 Receive Data Source Select: LPUART_RX pin. */
+                  | SIM_SOPT5_LPUART0RXSRC(SOPT5_LPUART0RXSRC_LPUART_RX));
 }
 /***********************************************************************************************************************
  * EOF
