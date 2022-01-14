@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding= "UTF-8" ?>
-<configuration name="" xsi:schemaLocation="http://mcuxpresso.nxp.com/XSD/mex_configuration_10 http://mcuxpresso.nxp.com/XSD/mex_configuration_10.xsd" uuid="351fdb72-e22b-4f25-977a-d3c83c28048c" version="10" xmlns="http://mcuxpresso.nxp.com/XSD/mex_configuration_10" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<configuration name="" xsi:schemaLocation="http://mcuxpresso.nxp.com/XSD/mex_configuration_11 http://mcuxpresso.nxp.com/XSD/mex_configuration_11.xsd" uuid="351fdb72-e22b-4f25-977a-d3c83c28048c" version="11" xmlns="http://mcuxpresso.nxp.com/XSD/mex_configuration_11" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    <common>
       <processor>MKW41Z512xxx4</processor>
       <package>MKW41Z512VHT4</package>
@@ -14,15 +14,16 @@
       <generate_extended_information>false</generate_extended_information>
       <generate_code_modified_registers_only>false</generate_code_modified_registers_only>
       <update_include_paths>true</update_include_paths>
+      <generate_registers_defines>false</generate_registers_defines>
    </preferences>
    <tools>
-      <pins name="Pins" version="10.0" enabled="true" update_project_code="true">
+      <pins name="Pins" version="11.0" enabled="true" update_project_code="true">
          <generated_project_files>
             <file path="board/pin_mux.c" update_enabled="true"/>
             <file path="board/pin_mux.h" update_enabled="true"/>
          </generated_project_files>
          <pins_profile>
-            <processor_version>10.0.0</processor_version>
+            <processor_version>11.0.0</processor_version>
             <pin_labels>
                <pin_label pin_num="16" pin_signal="PTB0/LLWU_P8/XTAL_OUT_EN/I2C0_SCL/CMP0_OUT/TPM0_CH1/CLKOUT" label="LED_YELLOW" identifier="LED_YELLOW"/>
                <pin_label pin_num="17" pin_signal="ADC0_SE1/CMP0_IN5/PTB1/DTM_RX/I2C0_SDA/LPTMR0_ALT1/TPM0_CH2/CMT_IRO" label="LED_RED" identifier="LED_RED"/>
@@ -134,16 +135,16 @@
             </function>
          </functions_list>
       </pins>
-      <clocks name="Clocks" version="8.0" enabled="true" update_project_code="true">
+      <clocks name="Clocks" version="9.0" enabled="true" update_project_code="true">
          <generated_project_files>
             <file path="board/clock_config.c" update_enabled="true"/>
             <file path="board/clock_config.h" update_enabled="true"/>
          </generated_project_files>
          <clocks_profile>
-            <processor_version>10.0.0</processor_version>
+            <processor_version>11.0.0</processor_version>
          </clocks_profile>
          <clock_configurations>
-            <clock_configuration name="BOARD_BootClockRUN">
+            <clock_configuration name="BOARD_BootClockRUN" id_prefix="" prefix_user_defined="false">
                <description></description>
                <options/>
                <dependencies>

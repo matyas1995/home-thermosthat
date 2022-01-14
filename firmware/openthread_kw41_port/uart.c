@@ -91,6 +91,7 @@ otError otPlatUartEnable(void)
 otError otPlatUartDisable(void)
 {
     NVIC_DisableIRQ(LPUART0_IRQn);
+    LPUART_Deinit(LPUART0);
     return OT_ERROR_NONE;
 }
 
