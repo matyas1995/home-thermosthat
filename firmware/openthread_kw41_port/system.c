@@ -36,6 +36,8 @@
 
 #include "utils/uart.h"
 
+#include "peripherals.h"
+#include "pin_mux.h"
 #include "clock_config.h"
 #include "fsl_clock.h"
 #include "fsl_device_registers.h"
@@ -48,6 +50,11 @@ void otSysInit(int argc, char *argv[])
 {
     OT_UNUSED_VARIABLE(argc);
     OT_UNUSED_VARIABLE(argv);
+
+    /* Init board hardware. */
+    BOARD_InitBootPins();
+    BOARD_InitBootClocks();
+    BOARD_InitBootPeripherals();
 
     SIM->SCGC6 |= (SIM_SCGC6_DMAMUX_MASK); /* Enable clock to DMA_MUX (SIM module) */
     SIM->SCGC7 |= (SIM_SCGC7_DMA_MASK);
