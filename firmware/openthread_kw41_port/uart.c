@@ -31,6 +31,7 @@
  *   This file implements the OpenThread platform abstraction for UART communication.
  *
  */
+#include <stdio.h>
 
 #include "fsl_device_registers.h"
 #include <stddef.h>
@@ -161,6 +162,7 @@ void LPUART0_IRQHandler(void)
 {
     uint32_t interrupts = LPUART_GetEnabledInterrupts(LPUART0);
     uint8_t  rx_data;
+    printf("UART data read");
 
     /* Check if data was received */
     while (LPUART_GetStatusFlags(LPUART0) & (kLPUART_RxDataRegFullFlag))
