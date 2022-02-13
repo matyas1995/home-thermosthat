@@ -69,22 +69,25 @@ static otInstance *      sInstance     = NULL;
 
 static void otrMainloop(void *aContext)
 {
+	printf("OpenThread main loop init\n");
     otInstance *instance = (otInstance *)aContext;
-
     otSysProcessDrivers(instance);
-    xSemaphoreTake(sExternalLock, portMAX_DELAY);
+    //xSemaphoreTake(sExternalLock, portMAX_DELAY);
     while (!otSysPseudoResetWasRequested())
     {
+    	printf("OpenThread main loop\n");
+    	vTaskDelay(pdMS_TO_TICKS(500UL));
         otTaskletsProcess(instance);
-        xSemaphoreGive(sExternalLock);
-        if (!otTaskletsArePending(instance))
+        //xSemaphoreGive(sExternalLock);
+        /*if (!otTaskletsArePending(instance))
         {
             ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
-        }
-        xSemaphoreTake(sExternalLock, portMAX_DELAY);
+        }*/
+        //xSemaphoreTake(sExternalLock, portMAX_DELAY);
         otSysProcessDrivers(instance);
     }
 
+    printf("OpenThread - this point should never have been reached\n");
     otInstanceFinalize(instance);
     vTaskDelete(NULL);
 }
@@ -114,8 +117,12 @@ void otTaskletsSignalPending(otInstance *aInstance)
 
 void otrInit(int argc, char *argv[])
 {
-	xTaskCreate(otrMainloop, "ot", 4096, sInstance, 2, &sMainTask);
-	__asm volatile("nop");
+	BaseType_t xReturned;
+	xReturned = xTaskCreate(otrMainloop, "OpenThread", 4096, sInstance, 1, &sMainTask);
+	if(xReturned != pdPASS)
+	{
+		printf("Could not create OpenThread Task successfully!\n");
+	}
 
     mbedtls_platform_set_calloc_free(*mbedtls_calloc_translate, vPortFree);
 

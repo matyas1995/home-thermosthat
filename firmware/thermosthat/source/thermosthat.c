@@ -46,11 +46,29 @@
 
 /* TODO: insert other definitions and declarations here. */
 
+void vApplicationMallocFailedHook() {
+	printf("Malloc failed!\n");
+	while(1) {
+		__asm volatile ("nop");
+	}
+}
+
+void vDummyTask(void *pvParameters) {
+	char buffer[100];
+	while(1) {
+		printf("DummyTask main loop\n");
+		vTaskList(buffer);
+		buffer[99] = '\0';
+		printf(buffer);
+		vTaskDelay(pdMS_TO_TICKS(1000UL));
+	}
+}
+
 /*
  * @brief   Application entry point.
  */
 int main(int argc, char *argv[]) {
-
+	char buffer[100];
     /* Init board hardware. */
     BOARD_InitBootPins();
     BOARD_InitBootClocks();
@@ -59,5 +77,9 @@ int main(int argc, char *argv[]) {
     printf("Hello World\n");
 
     otrInit(argc, argv);
+    xTaskCreate(vDummyTask, "Dummy", 500, NULL, 1, NULL);
+    vTaskList(buffer);
+    buffer[99] = '\0';
+    printf(buffer);
     vTaskStartScheduler();
 }

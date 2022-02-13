@@ -44,12 +44,14 @@ otError otrUartLockInit(void)
 
 otError otCliUartLock(void)
 {
+	__asm volatile ("nop"); // Absolutely no idea why this is needed here, but if it isnt here the UART routine just hardfaults
     xSemaphoreTake(sUartMtx, portMAX_DELAY);
     return OT_ERROR_NONE;
 }
 
 otError otCliUartUnlock(void)
 {
+	__asm volatile ("nop"); // Absolutely no idea why this is needed here, but if it isnt here the UART routine just hardfaults
     xSemaphoreGive(sUartMtx);
     return OT_ERROR_NONE;
 }

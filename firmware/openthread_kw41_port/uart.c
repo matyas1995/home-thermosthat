@@ -46,7 +46,7 @@
 
 enum
 {
-    kBaudRate          = 115200,
+    kBaudRate          = 9600,
     kReceiveBufferSize = 256,
 };
 
@@ -162,7 +162,6 @@ void LPUART0_IRQHandler(void)
 {
     uint32_t interrupts = LPUART_GetEnabledInterrupts(LPUART0);
     uint8_t  rx_data;
-    printf("UART data read");
 
     /* Check if data was received */
     while (LPUART_GetStatusFlags(LPUART0) & (kLPUART_RxDataRegFullFlag))
