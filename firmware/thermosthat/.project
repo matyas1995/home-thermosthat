@@ -27,14 +27,39 @@
 	</natures>
 	<linkedResources>
 		<link>
+			<name>CMSIS</name>
+			<type>2</type>
+			<locationURI>WORKSPACE_LOC/CMSIS</locationURI>
+		</link>
+		<link>
 			<name>XCVR</name>
 			<type>2</type>
 			<locationURI>WORKSPACE_LOC/XCVR</locationURI>
 		</link>
 		<link>
+			<name>freertos</name>
+			<type>2</type>
+			<locationURI>WORKSPACE_LOC/freertos</locationURI>
+		</link>
+		<link>
+			<name>kw41_fsl_drivers</name>
+			<type>2</type>
+			<locationURI>WORKSPACE_LOC/kw41_fsl_drivers</locationURI>
+		</link>
+		<link>
+			<name>kw41_startup</name>
+			<type>2</type>
+			<locationURI>WORKSPACE_LOC/kw41_startup</locationURI>
+		</link>
+		<link>
 			<name>openthread</name>
 			<type>2</type>
 			<locationURI>WORKSPACE_LOC/openthread</locationURI>
+		</link>
+		<link>
+			<name>openthread_freertos</name>
+			<type>2</type>
+			<locationURI>WORKSPACE_LOC/openthread_freertos</locationURI>
 		</link>
 		<link>
 			<name>openthread_kw41_port</name>
