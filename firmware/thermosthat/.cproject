@@ -43,6 +43,7 @@
 									<listOptionValue builtIn="false" value="OPENTHREAD_CONFIG_IP6_SLAAC_ENABLE=1"/>
 									<listOptionValue builtIn="false" value="OPENTHREAD_FTD=1"/>
 									<listOptionValue builtIn="false" value="MBEDTLS_CONFIG_FILE=&quot;&lt;mbedtls-config.h&gt;&quot;"/>
+									<listOptionValue builtIn="false" value="OPENTHREAD_PROJECT_CORE_CONFIG_FILE='&quot;openthread-core-kw41z-config.h&quot;'"/>
 									<listOptionValue builtIn="false" value="PACKAGE_NAME='&quot;OPENTHREAD&quot;'"/>
 									<listOptionValue builtIn="false" value="PACKAGE_VERSION=&quot;&quot;"/>
 									<listOptionValue builtIn="false" value="OPENTHREAD_CONFIG_PLATFORM_FLASH_API_ENABLE=1"/>
@@ -163,6 +164,7 @@
 									<listOptionValue builtIn="false" value="OPENTHREAD_CONFIG_IP6_SLAAC_ENABLE=1"/>
 									<listOptionValue builtIn="false" value="OPENTHREAD_FTD=1"/>
 									<listOptionValue builtIn="false" value="MBEDTLS_CONFIG_FILE=&quot;&lt;mbedtls-config.h&gt;&quot;"/>
+									<listOptionValue builtIn="false" value="OPENTHREAD_PROJECT_CORE_CONFIG_FILE='&quot;openthread-core-kw41z-config.h&quot;'"/>
 									<listOptionValue builtIn="false" value="PACKAGE_NAME='&quot;OPENTHREAD&quot;'"/>
 									<listOptionValue builtIn="false" value="PACKAGE_VERSION=&quot;&quot;"/>
 									<listOptionValue builtIn="false" value="OPENTHREAD_CONFIG_PLATFORM_FLASH_API_ENABLE=1"/>
