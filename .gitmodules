@@ -1,0 +1,3 @@
+[submodule "firmware/openthread"]
+	path = firmware/openthread
+	url = https://github.com/openthread/openthread.git
