@@ -104,6 +104,6 @@
 #define OPENTHREAD_CONFIG_NCP_HDLC_ENABLE 1
 #endif
 
-#include "uart_lock.h"
+#define OT_CLI_UART_LOCK_HDR_FILE "uart_lock.h"
 
 #endif // OPENTHREAD_CORE_KW41Z_CONFIG_H_
