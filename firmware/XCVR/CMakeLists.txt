@@ -65,4 +65,9 @@ target_include_directories(nxp-kw41z-xcvr-driver
         ${PROJECT_SOURCE_DIR}/XCVR
 )
 
-target_link_libraries(nxp-kw41z-xcvr-driver PRIVATE ot-config)
+target_link_libraries(nxp-kw41z-xcvr-driver 
+    PRIVATE 
+        ot-config
+        cmsis
+        nxp-kw41z-fsl-driver
+)

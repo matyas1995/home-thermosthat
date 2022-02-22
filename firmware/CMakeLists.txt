@@ -2,8 +2,6 @@ cmake_minimum_required( VERSION 3.10)
 
 project(smarthome VERSION 0.1)
 
-set(${CMAKE_TOOLCHAIN_FILE} "arm-none-eabi.cmake")
-
 set(OT_PLATFORM_LIB "openthread-kw41z" CACHE STRING "Set Platform lib to openthread-kw41z" FORCE)
 set(OT_PLATFORM "external" CACHE STRING "Set platform to external" FORCE)
 set(OT_BUILD_EXECUTABLES OFF CACHE BOOL "Do not build main.c of openthread." FORCE)
@@ -15,7 +13,7 @@ set(OT_PACKAGE_NAME "OpenThread" CACHE STRING "" FORCE)
 set(PACKAGE_VERSION "" CACHE STRING "" FORCE)
 set(OPENTHREAD_CONFIG_PLATFORM_FLASH_API_ENABLE ON CACHE BOOL "" FORCE)
 
-add_compile_definitions(-DCPU_MKW41Z512VHT4)
+add_compile_definitions(CPU_MKW41Z512VHT4)
 
 add_subdirectory(openthread)
 
