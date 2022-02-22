@@ -1,5 +1,5 @@
 #
-#  Copyright (c) 2021, The OpenThread Authors.
+#  Copyright (c) 2020, The OpenThread Authors.
 #  All rights reserved.
 #
 #  Redistribution and use in source and binary forms, with or without
@@ -26,31 +26,31 @@
 #  POSSIBILITY OF SUCH DAMAGE.
 #
 
-add_library(openthread-kw41z-port
-    alarm.c
-    diag.c
-    entropy.c
-    flash.c
-    logging.c
-    misc.c
-    radio.c
-    system.c
-    uart.c
+add_library(nxp-kw41z-xcvr-driver
+    cfgs_kw4x_3x_2x/fsl_xcvr_ant_config.c
+    cfgs_kw4x_3x_2x/fsl_xcvr_ble_config.c
+    cfgs_kw4x_3x_2x/fsl_xcvr_common_config.c
+    cfgs_kw4x_3x_2x/fsl_xcvr_gfsk_bt_0p3_h_0p5_config.c
+    cfgs_kw4x_3x_2x/fsl_xcvr_gfsk_bt_0p5_h_0p32_config.c
+    cfgs_kw4x_3x_2x/fsl_xcvr_gfsk_bt_0p5_h_0p5_config.c
+    cfgs_kw4x_3x_2x/fsl_xcvr_gfsk_bt_0p5_h_0p7_config.c
+    cfgs_kw4x_3x_2x/fsl_xcvr_gfsk_bt_0p5_h_1p0_config.c
+    cfgs_kw4x_3x_2x/fsl_xcvr_gfsk_bt_0p7_h_0p5_config.c
+    cfgs_kw4x_3x_2x/fsl_xcvr_mode_datarate_config.c
+    cfgs_kw4x_3x_2x/fsl_xcvr_msk_config.c
+    cfgs_kw4x_3x_2x/fsl_xcvr_zgbe_config.c
+    dbg_ram_capture.c
+    fsl_xcvr.c
+    fsl_xcvr_trim.c
+    ifr_radio.c
 )
 
-target_link_libraries(openthread-kw41z-port
-    PRIVATE
-        nxp-kw41z-xcvr-driver
-        nxp-kw41z-fsl-driver
-        ot-config
-)
-
-target_compile_definitions(openthread-kw41z-port
+target_compile_definitions(nxp-kw41z-xcvr-driver
     PUBLIC
         ${OT_PLATFORM_DEFINES}
 )
 
-target_compile_options(openthread-kw41z-port
+target_compile_options(nxp-kw41z-xcvr-driver
     PRIVATE
         ${OT_CFLAGS}
         -Wno-unknown-pragmas
@@ -60,8 +60,9 @@ target_compile_options(openthread-kw41z-port
         -Wno-empty-body
 )
 
-target_include_directories(openthread-kw41z-port
-    PRIVATE
-        ${OT_PUBLIC_INCLUDES}
-        ${PROJECT_SOURCE_DIR}/openthread/examples/platforms
+target_include_directories(nxp-kw41z-xcvr-driver
+    PUBLIC
+        ${PROJECT_SOURCE_DIR}/XCVR
 )
+
+target_link_libraries(nxp-kw41z-xcvr-driver PRIVATE ot-config)

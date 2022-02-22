@@ -1,5 +1,5 @@
 #
-#  Copyright (c) 2021, The OpenThread Authors.
+#  Copyright (c) 2020, The OpenThread Authors.
 #  All rights reserved.
 #
 #  Redistribution and use in source and binary forms, with or without
@@ -26,42 +26,18 @@
 #  POSSIBILITY OF SUCH DAMAGE.
 #
 
-add_library(openthread-kw41z-port
-    alarm.c
-    diag.c
-    entropy.c
-    flash.c
-    logging.c
-    misc.c
-    radio.c
-    system.c
-    uart.c
+add_library(freertos
+    croutine.c
+    event_groups.c
+    heap_4.c
+    list.c
+    port.c
+    queue.c
+    tasks.c
+    timers.c
 )
 
-target_link_libraries(openthread-kw41z-port
-    PRIVATE
-        nxp-kw41z-xcvr-driver
-        nxp-kw41z-fsl-driver
-        ot-config
-)
-
-target_compile_definitions(openthread-kw41z-port
+target_include_directories(freertos
     PUBLIC
-        ${OT_PLATFORM_DEFINES}
-)
-
-target_compile_options(openthread-kw41z-port
-    PRIVATE
-        ${OT_CFLAGS}
-        -Wno-unknown-pragmas
-        -Wno-sign-compare
-        -Wno-unused-function
-        -Wno-unused-parameter
-        -Wno-empty-body
-)
-
-target_include_directories(openthread-kw41z-port
-    PRIVATE
-        ${OT_PUBLIC_INCLUDES}
-        ${PROJECT_SOURCE_DIR}/openthread/examples/platforms
+        ${PROJECT_SOURCE_DIR}/freertos
 )
