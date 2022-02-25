@@ -39,6 +39,7 @@
 									<listOptionValue builtIn="false" value="__MCUXPRESSO"/>
 									<listOptionValue builtIn="false" value="__USE_CMSIS"/>
 									<listOptionValue builtIn="false" value="DEBUG"/>
+									<listOptionValue builtIn="false" value="OPENTHREAD_CONFIG_HEAP_EXTERNAL_ENABLE=1"/>
 									<listOptionValue builtIn="false" value="OPENTHREAD_CONFIG_PING_SENDER_ENABLE=1"/>
 									<listOptionValue builtIn="false" value="OPENTHREAD_CONFIG_IP6_SLAAC_ENABLE=1"/>
 									<listOptionValue builtIn="false" value="OPENTHREAD_FTD=1"/>
@@ -157,6 +158,7 @@
 									<listOptionValue builtIn="false" value="__MCUXPRESSO"/>
 									<listOptionValue builtIn="false" value="__USE_CMSIS"/>
 									<listOptionValue builtIn="false" value="DEBUG"/>
+									<listOptionValue builtIn="false" value="OPENTHREAD_CONFIG_HEAP_EXTERNAL_ENABLE=1"/>
 									<listOptionValue builtIn="false" value="OPENTHREAD_CONFIG_PING_SENDER_ENABLE=1"/>
 									<listOptionValue builtIn="false" value="OPENTHREAD_CONFIG_IP6_SLAAC_ENABLE=1"/>
 									<listOptionValue builtIn="false" value="OPENTHREAD_FTD=1"/>
@@ -417,7 +419,7 @@
 						<entry excluding="heap_5.c|heap_3.c|heap_2.c|heap_1.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="freertos"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="kw41_fsl_drivers"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="kw41_startup"/>
-						<entry excluding="main.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="openthread/examples/apps/cli"/>
+						<entry excluding="cli_uart.cpp|main.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="openthread/examples/apps/cli"/>
 						<entry excluding="soft_source_match_table.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="openthread/examples/platforms/utils"/>
 						<entry excluding="openthread-config-android.h" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="openthread/include"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="openthread/src/cli"/>

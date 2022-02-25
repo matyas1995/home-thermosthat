@@ -43,17 +43,7 @@
 #include "cli/cli_config.h"
 #include <openthread/tasklet.h>
 
-#include <mbedtls/platform.h>
-
 #include "uart_lock.h"
-
-/**
- * This function is just a translator to allow the mbedTLS to call the calloc function of FreeRTOS
- */
-void *mbedtls_calloc_translate(size_t aCount, size_t aSize)
-{
-	return pvPortMalloc(aCount * aSize);
-}
 
 /**
  * This function initializes the CLI app.
@@ -123,8 +113,6 @@ void otrInit(int argc, char *argv[])
 	{
 		printf("Could not create OpenThread Task successfully!\n");
 	}
-
-    mbedtls_platform_set_calloc_free(*mbedtls_calloc_translate, vPortFree);
 
     otrUartLockInit();
     otSysInit(argc, argv);

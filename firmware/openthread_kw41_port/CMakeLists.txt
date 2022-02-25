@@ -43,6 +43,8 @@ target_link_libraries(openthread-kw41z-port
         nxp-kw41z-xcvr-driver
         nxp-kw41z-fsl-driver
         ot-config
+        cmsis
+        boardconfig-thermosthat
 )
 
 target_compile_definitions(openthread-kw41z-port
@@ -62,6 +64,5 @@ target_compile_options(openthread-kw41z-port
 
 target_include_directories(openthread-kw41z-port
     PRIVATE
-        ${OT_PUBLIC_INCLUDES}
         ${PROJECT_SOURCE_DIR}/openthread/examples/platforms
 )

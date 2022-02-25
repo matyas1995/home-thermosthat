@@ -31,9 +31,16 @@ add_library(openthread-freertos
     uart_lock.c
 )
 
-target_include_directories(freertos
+target_link_libraries(openthread-freertos
     PRIVATE
-        ${PROJECT_SOURCE_DIR}/freertos
+        freertos
+        ot-config
+)
+
+target_include_directories(openthread-freertos
     PUBLIC
         ${PROJECT_SOURCE_DIR}/openthread_freertos
+        ${PROJECT_SOURCE_DIR}/openthread/include
+    PRIVATE
+        ${PROJECT_SOURCE_DIR}/openthread/examples/platforms
 )

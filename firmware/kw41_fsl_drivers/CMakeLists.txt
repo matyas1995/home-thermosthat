@@ -88,5 +88,7 @@ target_include_directories(nxp-kw41z-fsl-driver
 target_link_libraries(nxp-kw41z-fsl-driver
     PRIVATE 
         ot-config
+        freertos
+    PUBLIC
         cmsis
 )
