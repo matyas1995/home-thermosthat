@@ -35,6 +35,7 @@ add_library(freertos
     queue.c
     tasks.c
     timers.c
+    ${PROJECT_SOURCE_DIR}/kw41_startup/heap_init.c
 )
 
 target_include_directories(freertos

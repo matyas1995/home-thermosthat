@@ -45,6 +45,8 @@ target_link_libraries(openthread-kw41z-port
         ot-config
         cmsis
         boardconfig-thermosthat
+    PUBLIC
+        -T${PROJECT_SOURCE_DIR}/kw41_startup/MKW41Z512xxx4.ld
 )
 
 target_compile_definitions(openthread-kw41z-port

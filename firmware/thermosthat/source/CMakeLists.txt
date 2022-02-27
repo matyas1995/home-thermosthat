@@ -1,6 +1,7 @@
 add_executable(thermosthat-fw 
     ${PROJECT_SOURCE_DIR}/kw41_startup/semihost_hardfault.c
     ${PROJECT_SOURCE_DIR}/kw41_startup/startup_mkw41z4.c
+    #${PROJECT_SOURCE_DIR}/kw41_startup/mtb.c
     thermosthat.c
 )
 
