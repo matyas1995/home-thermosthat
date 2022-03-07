@@ -88,7 +88,7 @@ extern void SystemInit(void);
 // When the application defines a handler (with the same name), this will
 // automatically take precedence over these weak definitions
 //*****************************************************************************
-     void ResetISR(void);
+     void Reset_Handler(void);
 WEAK void NMI_Handler(void);
 WEAK void HardFault_Handler(void);
 WEAK void SVC_Handler(void);
@@ -175,18 +175,13 @@ void PORTB_PORTC_DriverIRQHandler(void) ALIAS(IntDefaultHandler);
 
 //*****************************************************************************
 // The entry point for the application.
-// __main() is the entry point for Redlib based applications
-// main() is the entry point for Newlib based applications
 //*****************************************************************************
-#if defined (__REDLIB__)
-extern void __main(void);
-#endif
 extern int main(void);
 
 //*****************************************************************************
 // External declaration for the pointer to the stack top from the Linker Script
 //*****************************************************************************
-extern void _vStackTop(void);
+extern void __StackTop(void);
 
 //*****************************************************************************
 #if defined (__cplusplus)
@@ -203,8 +198,8 @@ extern void * __Vectors __attribute__ ((alias ("g_pfnVectors")));
 __attribute__ ((used, section(".isr_vector")))
 void (* const g_pfnVectors[])(void) = {
     // Core Level - CM0P
-    &_vStackTop,                       // The initial stack pointer
-    ResetISR,                          // The reset handler
+    &__StackTop,                       // The initial stack pointer
+    Reset_Handler,                          // The reset handler
     NMI_Handler,                       // The NMI handler
     HardFault_Handler,                 // The hard fault handler
     0,                                 // Reserved
@@ -296,7 +291,7 @@ extern unsigned int __bss_section_table_end;
 // library.
 //*****************************************************************************
 __attribute__ ((section(".after_vectors.reset")))
-void ResetISR(void) {
+void Reset_Handler(void) {
 
     // Disable interrupts
     __asm volatile ("cpsid i");
@@ -359,12 +354,7 @@ void ResetISR(void) {
     // Reenable interrupts
     __asm volatile ("cpsie i");
 
-#if defined (__REDLIB__)
-	// Call the Redlib library, which in turn calls main()
-	__main();
-#else
 	main();
-#endif
 
 	//
 	// main() shouldn't return, but if it does, we'll just enter an infinite loop

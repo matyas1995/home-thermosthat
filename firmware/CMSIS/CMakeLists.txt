@@ -32,3 +32,8 @@ target_include_directories(cmsis
     PUBLIC
         ${PROJECT_SOURCE_DIR}/CMSIS
 )
+
+target_compile_definitions(cmsis
+    PUBLIC
+        ${OT_PLATFORM_DEFINES}
+)

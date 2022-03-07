@@ -11,6 +11,6 @@
 #include "FreeRTOS.h"
 #include <stdlib.h>
 
-extern uint32_t __HeapBase;
+extern uint8_t __HeapBase;
 
 uint8_t *ucHeap = &__HeapBase;

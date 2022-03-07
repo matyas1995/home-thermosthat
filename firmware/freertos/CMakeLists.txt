@@ -35,10 +35,15 @@ add_library(freertos
     queue.c
     tasks.c
     timers.c
-    ${PROJECT_SOURCE_DIR}/kw41_startup/heap_init.c
+    fsl_tickless_systick.c
 )
 
 target_include_directories(freertos
     PUBLIC
         ${PROJECT_SOURCE_DIR}/freertos
+)
+
+target_link_libraries(freertos
+    PRIVATE
+        openthread-kw41z-port
 )

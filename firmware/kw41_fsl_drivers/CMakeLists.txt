@@ -31,28 +31,19 @@ add_library(nxp-kw41z-fsl-driver
     fsl_clock.c
     fsl_cmp.c
     fsl_cmt.c
-    fsl_common.c
     fsl_cop.c
     fsl_dac.c
     fsl_dcdc.c
-    fsl_debug_console.c
     fsl_dmamux.c
     fsl_dspi.c
-    fsl_dspi_edma.c
-    fsl_dspi_freertos.c
     fsl_edma.c
     fsl_flash.c
     fsl_gpio.c
     fsl_i2c.c
-    fsl_i2c_edma.c
-    fsl_i2c_freertos.c
     fsl_llwu.c
     fsl_lptmr.c
     fsl_lpuart.c
-    fsl_lpuart_edma.c
-    fsl_lpuart_freertos.c
     fsl_ltc.c
-    fsl_ltc_edma.c
     fsl_pit.c
     fsl_pmc.c
     fsl_rcm.c

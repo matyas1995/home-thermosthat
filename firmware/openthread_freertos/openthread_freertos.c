@@ -45,6 +45,20 @@
 
 #include "uart_lock.h"
 
+/*
+ * Define the functions OpenThread will use to request and free heap memory. This is used when 
+ * HEAP_EXTERNAL_ENABLE is set in the config to prevent OpenThread to use its own heap class.
+ */
+void *otPlatCAlloc(size_t aNum, size_t aSize)
+{
+    return pvPortMalloc(aNum * aSize);
+}
+
+void otPlatFree(void *aPtr)
+{
+    vPortFree(aPtr);
+}
+
 /**
  * This function initializes the CLI app.
  *

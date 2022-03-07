@@ -187,15 +187,15 @@ SECTIONS
   {
     . = ALIGN(4);
     __DATA_RAM = .;
-    __data_start__ = .;      /* create a global symbol at data start */
+    __data_section_table = .;      /* create a global symbol at data start */
     *(.data)                 /* .data sections */
     *(.data*)                /* .data* sections */
     KEEP(*(.jcr*))
     . = ALIGN(4);
-    __data_end__ = .;        /* define a global symbol at data end */
+    __data_section_table_end = .;        /* define a global symbol at data end */
   } > m_data
 
-  __DATA_END = __DATA_ROM + (__data_end__ - __data_start__);
+  __DATA_END = __DATA_ROM + (__data_section_table_end - __data_section_table);
   text_end = ORIGIN(m_text) + LENGTH(m_text);
   ASSERT(__DATA_END <= text_end, "region m_text overflowed with text and data")
 
@@ -205,12 +205,12 @@ SECTIONS
     /* This is used by the startup in order to initialize the .bss section */
     . = ALIGN(4);
     __START_BSS = .;
-    __bss_start__ = .;
+    __bss_section_table = .;
     *(.bss)
     *(.bss*)
     *(COMMON)
     . = ALIGN(4);
-    __bss_end__ = .;
+    __bss_section_table_end = .;
     __END_BSS = .;
   } > m_data
 

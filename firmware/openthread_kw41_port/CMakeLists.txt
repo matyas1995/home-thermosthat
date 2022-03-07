@@ -36,6 +36,7 @@ add_library(openthread-kw41z-port
     radio.c
     system.c
     uart.c
+    cli_uart.cpp
 )
 
 target_link_libraries(openthread-kw41z-port
@@ -45,8 +46,10 @@ target_link_libraries(openthread-kw41z-port
         ot-config
         cmsis
         boardconfig-thermosthat
+        freertos
     PUBLIC
         -T${PROJECT_SOURCE_DIR}/kw41_startup/MKW41Z512xxx4.ld
+        -Wl,--gc-sections -Wl,-Map=$<TARGET_PROPERTY:NAME>.map
 )
 
 target_compile_definitions(openthread-kw41z-port

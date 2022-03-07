@@ -35,6 +35,9 @@ target_link_libraries(openthread-freertos
     PRIVATE
         freertos
         ot-config
+        cmsis
+        openthread-cli-ftd
+        openthread-ftd
 )
 
 target_include_directories(openthread-freertos

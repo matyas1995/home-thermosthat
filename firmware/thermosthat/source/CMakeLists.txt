@@ -1,6 +1,7 @@
 add_executable(thermosthat-fw 
     ${PROJECT_SOURCE_DIR}/kw41_startup/semihost_hardfault.c
     ${PROJECT_SOURCE_DIR}/kw41_startup/startup_mkw41z4.c
+    ${PROJECT_SOURCE_DIR}/kw41_startup/heap_init.c
     #${PROJECT_SOURCE_DIR}/kw41_startup/mtb.c
     thermosthat.c
 )
@@ -10,6 +11,10 @@ target_link_libraries(thermosthat-fw
         cmsis
         freertos
         openthread-freertos
-        nxp-kw41z-fsl-driver
         boardconfig-thermosthat
+        openthread-kw41z-port
+        nxp-kw41z-fsl-driver
+        ot-config
+        openthread-ftd
+        openthread-cli-ftd
 )
