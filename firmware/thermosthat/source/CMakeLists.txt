@@ -1,4 +1,4 @@
-add_executable(thermosthat-fw 
+add_executable(thermosthat-fw.elf 
     ${PROJECT_SOURCE_DIR}/kw41_startup/semihost_hardfault.c
     ${PROJECT_SOURCE_DIR}/kw41_startup/startup_mkw41z4.c
     ${PROJECT_SOURCE_DIR}/kw41_startup/heap_init.c
@@ -6,7 +6,7 @@ add_executable(thermosthat-fw
     thermosthat.c
 )
 
-target_link_libraries(thermosthat-fw 
+target_link_libraries(thermosthat-fw.elf 
     PRIVATE
         cmsis
         freertos
@@ -17,4 +17,5 @@ target_link_libraries(thermosthat-fw
         ot-config
         openthread-ftd
         openthread-cli-ftd
+        -Wl,--print-memory-usage
 )
