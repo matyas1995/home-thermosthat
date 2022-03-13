@@ -10,3 +10,7 @@ load
 
 monitor reset
 monitor halt
+
+break main
+
+continue
