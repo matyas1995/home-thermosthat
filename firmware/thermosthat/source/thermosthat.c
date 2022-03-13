@@ -32,13 +32,14 @@
  * @file    thermosthat.c
  * @brief   Application entry point.
  */
-#include <stdio.h>
+//#include <stdio.h>
 #include "board.h"
 #include "peripherals.h"
 #include "pin_mux.h"
 #include "clock_config.h"
 #include "MKW41Z4.h"
 /* TODO: insert other include files here. */
+#include "fsl_gpio.h"
 #include "FreeRTOS.h"
 #include "task.h"
 
@@ -47,7 +48,7 @@
 /* TODO: insert other definitions and declarations here. */
 
 void vApplicationMallocFailedHook() {
-	printf("Malloc failed!\n");
+	//printf("Malloc failed!\n");
 	while(1) {
 		__asm volatile ("nop");
 	}
@@ -56,10 +57,10 @@ void vApplicationMallocFailedHook() {
 void vDummyTask(void *pvParameters) {
 	char buffer[100];
 	while(1) {
-		printf("DummyTask main loop\n");
+		//printf("DummyTask main loop\n");
 		vTaskList(buffer);
 		buffer[99] = '\0';
-		printf(buffer);
+		//printf(buffer);
 		vTaskDelay(pdMS_TO_TICKS(1000UL));
 	}
 }
@@ -74,12 +75,13 @@ int main(int argc, char *argv[]) {
     BOARD_InitBootClocks();
     BOARD_InitBootPeripherals();
 
-    printf("Hello World\n");
+	GPIO_WritePinOutput(BOARD_INITPINS_LED_GREEN_GPIO, BOARD_INITPINS_LED_GREEN_GPIO_PIN_MASK, 1U);
+    //printf("Hello World\n");
 
     otrInit(argc, argv);
     xTaskCreate(vDummyTask, "Dummy", 500, NULL, 1, NULL);
     vTaskList(buffer);
     buffer[99] = '\0';
-    printf(buffer);
+    //printf(buffer);
     vTaskStartScheduler();
 }

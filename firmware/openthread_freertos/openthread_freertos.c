@@ -82,6 +82,7 @@ static void otrMainloop(void *aContext)
     	printf("OpenThread main loop\n");
     	vTaskDelay(pdMS_TO_TICKS(500UL));
         otTaskletsProcess(instance);
+        // TODO: change code to allow interrupt based activation of OpenThread Process. This will need to modifi UART receive interrupt to wake OpenThread process.
         //xSemaphoreGive(sExternalLock);
         /*if (!otTaskletsArePending(instance))
         {
