@@ -12,3 +12,5 @@ Sie gliedert sich in folgende unterordner:
 - tempsensor: Code für den Sensoren. Besteht hauptsächlich aus den MCUXpresso generierten Files für Clock und Peripherie Config und der main.c
 - thermosthat: Code für den Thermosthat. Besteht hauptsächlich aus den MCUXpresso generierten Files für Clock und Peripherie Config sowie der main.c
 
+Hinweise zu Cmake:
+- Debug Symbole werden nur dann zur Image hinzugefügt, wenn -DCMAKE_BUILD_TYPE=Debug beim Cmake invocation gesetzt ist, oder man den Debug build in KDevelop aktiv hat.

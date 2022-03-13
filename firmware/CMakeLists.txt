@@ -2,6 +2,11 @@ cmake_minimum_required( VERSION 3.22)
 
 project(smarthome VERSION 0.1)
 
+# To
+if(NOT CMAKE_BUILD_TYPE)
+  set(CMAKE_BUILD_TYPE Release)
+endif()
+
 set(LINKER_SCRIPT "kw41_startup/MKW41Z512xxx4.ld")
 
 set(OT_PLATFORM_LIB "openthread-kw41z-port" CACHE STRING "Set Platform lib to openthread-kw41z-port" FORCE)
