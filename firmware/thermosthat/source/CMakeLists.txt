@@ -22,14 +22,3 @@ target_link_libraries(thermosthat-fw.elf
         openthread-cli-ftd
         -Wl,--print-memory-usage
 )
-
-# target_compile_options(thermosthat-fw.elf
-#     PRIVATE
-#         -O0
-# )
-
-# Remove entry
-#get_target_property(target_options thermosthat-fw.elf COMPILE_OPTIONS)
-#list(REMOVE_ITEM target_options "-Os")
-#list(REMOVE_ITEM target_options "-x c")
-#set_property(TARGET thermosthat-fw.elf PROPERTY COMPILE_OPTIONS ${target_options})
