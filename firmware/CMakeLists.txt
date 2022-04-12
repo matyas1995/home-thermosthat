@@ -1,6 +1,7 @@
-cmake_minimum_required( VERSION 3.10.2)
+cmake_minimum_required( VERSION 3.22)
 
 project(smarthome VERSION 0.1)
+enable_language(ASM)
 
 # To
 if(NOT CMAKE_BUILD_TYPE)

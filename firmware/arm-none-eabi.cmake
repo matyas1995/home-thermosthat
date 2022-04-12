@@ -31,7 +31,7 @@ set(CMAKE_SYSTEM_PROCESSOR         ARM)
 
 set(CMAKE_C_COMPILER               arm-none-eabi-gcc)
 set(CMAKE_CXX_COMPILER             arm-none-eabi-g++)
-set(CMAKE_ASM_COMPILER             arm-none-eabi-as)
+set(CMAKE_ASM_COMPILER             arm-none-eabi-gcc)
 set(CMAKE_RANLIB                   arm-none-eabi-ranlib)
 
 set(COMMON_C_FLAGS                 "-Os -mthumb -fdata-sections -ffunction-sections -mcpu=cortex-m0plus -mfloat-abi=soft")

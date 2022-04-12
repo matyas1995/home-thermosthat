@@ -1,5 +1,3 @@
-set_property(SOURCE ${PROJECT_SOURCE_DIR}/kw41_startup/startup_MKW41Z4.S PROPERTY LANGUAGE C)
-
 add_executable(thermosthat-fw.elf 
     ${PROJECT_SOURCE_DIR}/kw41_startup/semihost_hardfault.c
     #${PROJECT_SOURCE_DIR}/kw41_startup/startup_mkw41z4.c
