@@ -14,3 +14,9 @@ Sie gliedert sich in folgende unterordner:
 
 Hinweise zu Cmake:
 - Debug Symbole werden nur dann zur Image hinzugefügt, wenn -DCMAKE_BUILD_TYPE=Debug beim Cmake invocation gesetzt ist, oder man den Debug build in KDevelop aktiv hat.
+- In der arm-none-eabi.cmake wird der toolchain konfiguriert:
+    set(CMAKE_EXE_LINKER_FLAGS_INIT    "${COMMON_C_FLAGS} -specs=nano.specs -specs=nosys.specs") Bestimmt, dass Newlib-Nano als Standard library verwendet wird und keine Syscalls zugelassen sind
+
+
+Hinweise zu Code:
+- Functions prepended with static void __attribute__((constructor) will get called before main() by __libc_init_array -> this function is called differently in C and assembler init code!
