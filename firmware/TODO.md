@@ -1,2 +1,4 @@
 - OpenThread Task soll auf interruptgesteuert statt polling umgestellt werden. Hauptsächsich scheitert das an der UART receive Funktion, da der Teil, der den Interrupt bisher auslöst, selber auf diesen wartet. Der Task Loop hat der nötige Code schon drin, nur auskommentiert.
+    - Das soll so erreicht werden, dass alles OpenThread spezifische inkl. der UART in dem OpenThread Prozess bleibt, auch die UART auslöse etc. Funktionen. In den IRQHandler der PIT, XVCR und UART muss der TaskNotifyGive rein, damit die den OpenThread Prozess wecken können.
 - Perform some calculation in linker script to determine free memory at the end of the stack and allocate it to the heap. This has to go into a variable to be properly used in FreeRTOS heap.c
+- processTransmit() kann auch direkt ins UART IRQ, da dort die selbe Kondition eh geprüft wird.
