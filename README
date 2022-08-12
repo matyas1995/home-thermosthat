@@ -8,4 +8,4 @@ MCUXpresso should only be needed to use the clock and peripheral configurators (
 
 The README of the mbedTLS library in the SDK mentions that it has been adapted to use the LTC crypto module of the chip. This should definitely be checked out to use hardware acceleration.
 
-testchange2 for testcommit
+testchange3 for testcommit
