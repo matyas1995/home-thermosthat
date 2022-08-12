@@ -1,3 +1,4 @@
-!#/bin/bash
+#!/bin/bash
 
-git send-email --8bit-encoding UTF-8 --suppress-cc author --to matyas@fsei.de $1
+branch=$(git branch --show-current)
+git send-email --8bit-encoding UTF-8 --suppress-cc author --to matyas@fsei.de origin/$branch
