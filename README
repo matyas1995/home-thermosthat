@@ -7,5 +7,3 @@ Next step is to get away from this Eclipse based crap and get the project workin
 MCUXpresso should only be needed to use the clock and peripheral configurators (They make quite a lot of things easier). These will then be just copied over.
 
 The README of the mbedTLS library in the SDK mentions that it has been adapted to use the LTC crypto module of the chip. This should definitely be checked out to use hardware acceleration.
-
-testchange3 for testcommit
