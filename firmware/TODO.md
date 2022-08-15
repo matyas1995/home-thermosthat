@@ -2,3 +2,4 @@
     - Das soll so erreicht werden, dass alles OpenThread spezifische inkl. der UART in dem OpenThread Prozess bleibt, auch die UART auslöse etc. Funktionen. In den IRQHandler der PIT, XVCR und UART muss der TaskNotifyGive rein, damit die den OpenThread Prozess wecken können.
 - Perform some calculation in linker script to determine free memory at the end of the stack and allocate it to the heap. This has to go into a variable to be properly used in FreeRTOS heap.c
 - processTransmit() kann auch direkt ins UART IRQ, da dort die selbe Kondition eh geprüft wird.
+- Create bash script to start JLinkExe (maybe it is useful)
