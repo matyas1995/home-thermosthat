@@ -220,6 +220,8 @@ SECTIONS
     __end__ = .;
     PROVIDE(end = .);
     __HeapBase = .;
+    /* This sets the start of the FreeRTOS heap */
+    ucHeap = .;
     . += HEAP_SIZE;
     __HeapLimit = .;
     __heap_limit = .; /* Add for _sbrk */
