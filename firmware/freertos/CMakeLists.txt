@@ -38,6 +38,10 @@ add_library(freertos
     fsl_tickless_systick.c
 )
 
+target_compile_definitions(freertos
+    PUBLIC "__heap_size__=${HEAP_SIZE}"
+)
+
 target_include_directories(freertos
     PUBLIC
         ${PROJECT_SOURCE_DIR}/freertos

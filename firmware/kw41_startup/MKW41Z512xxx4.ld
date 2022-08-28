@@ -39,7 +39,6 @@ GROUP (
 ENTRY(Reset_Handler)
 
 HEAP_SIZE  = DEFINED(__heap_size__)  ? __heap_size__  : 0x0400; /* Defaults to 1kB */
-STACK_SIZE = DEFINED(__stack_size__) ? __stack_size__ : 0x0400; /* Defaults to 1kB */
 M_VECTOR_RAM_SIZE = DEFINED(__ram_vector_table__) ? 0x0200 : 0x0;
 
 /* Specify the memory areas */
@@ -226,6 +225,18 @@ SECTIONS
     __HeapLimit = .;
     __heap_limit = .; /* Add for _sbrk */
   } > m_data
+
+  /* Subtract the current memory pointer from the end address of m_data (the end of the SRAM memory)
+   * to set STACK_SIZE. This will automatically fill all remaining RAM with the stack.
+   *
+   * ToDo: insert a stack canary word between stack and heap to detect stack or heap overflows. The checking
+   * can be done with FreeRTOS or the MPU (which would be the optimal solution)
+   *
+   * ToDo: Segment the SRAM m_data according to the sections defined in the reference manual. Some SRAM
+   * regions are not retained during VLLS power states, so if implementing these power modes, data allocation
+   * in RAM is crucial for waking up
+   */
+  STACK_SIZE = 0x20018000 - .;
 
   .stack :
   {

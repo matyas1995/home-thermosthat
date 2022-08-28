@@ -21,6 +21,7 @@ set(OT_PACKAGE_NAME "OpenThread" CACHE STRING "" FORCE)
 set(PACKAGE_VERSION "" CACHE STRING "" FORCE)
 set(OPENTHREAD_CONFIG_PLATFORM_FLASH_API_ENABLE OFF CACHE BOOL "" FORCE)
 list(APPEND OT_PLATFORM_DEFINES "CPU_MKW41Z512VHT4")
+set(HEAP_SIZE "0x10000" CACHE STRING "") # Set to 65kB # Stack size is set automatically in linker script and fills up all remaining SRAM
 
 add_subdirectory(openthread)
 
