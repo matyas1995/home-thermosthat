@@ -5,3 +5,5 @@
 - rewrite the linker script with the tutorial of memfault to clean up shit. Also fix the startup code to use C code instead of the unreadable assembly file.
 - to support VLLS mode and be able to wake up without having to restart the mcu, look into the memory map and the SRAM map. The SRAM has sections that are not powered off during VLLS
 - insert a stack canary word between stack and heap to detect stack or heap overflows. The checking can be done with FreeRTOS. Sadly the MCU has no MPU for this...
+- for the ePaper driver, use the Raspberry Pi code. It is C and not C++ like in the Arduino exapmle.
+    https://github.com/waveshare/e-Paper/tree/master/RaspberryPi_JetsonNano/c/lib

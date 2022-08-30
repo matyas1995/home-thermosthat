@@ -43,6 +43,8 @@
 #include <openthread/platform/diag.h>
 #include <openthread/platform/radio.h>
 
+#include "openthread-freertos.h"
+
 // clang-format off
 #define DOUBLE_BUFFERING             (1)
 #define DEFAULT_CHANNEL              (11)
@@ -928,6 +930,8 @@ void Radio_1_IRQHandler(void)
         ZLL->PHY_CTRL |= XCVR_RX_c;
         ZLL->PHY_CTRL &= ~ZLL_PHY_CTRL_SEQMSK_MASK;
     }
+
+    otrTaskNotifyGiveFromISR();
 }
 
 void kw41zRadioInit(void)

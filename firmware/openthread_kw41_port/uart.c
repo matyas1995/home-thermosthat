@@ -44,6 +44,8 @@
 #include "fsl_lpuart.h"
 #include "fsl_port.h"
 
+#include "openthread-freertos.h"
+
 enum
 {
     kBaudRate          = 9600,
@@ -196,4 +198,6 @@ void LPUART0_IRQHandler(void)
     {
         LPUART_ClearStatusFlags(LPUART0, kLPUART_RxOverrunFlag);
     }
+
+    otrTaskNotifyGiveFromISR();
 }

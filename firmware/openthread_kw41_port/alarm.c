@@ -40,6 +40,8 @@
 #include <openthread/platform/alarm-milli.h>
 #include <openthread/platform/diag.h>
 
+#include "openthread-freertos.h"
+
 static volatile uint32_t sTime      = 0;
 static uint32_t          sAlarmTime = 0;
 
@@ -100,4 +102,5 @@ void PIT_IRQHandler(void)
 {
     PIT_ClearStatusFlags(PIT, kPIT_Chnl_0, kPIT_TimerFlag);
     sTime++;
+    otrTaskNotifyGiveFromISR();
 }

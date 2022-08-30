@@ -75,21 +75,16 @@ static void otrMainloop(void *aContext)
 {
 	printf("OpenThread main loop init\n");
     otInstance *instance = (otInstance *)aContext;
-    otSysProcessDrivers(instance);
-    //xSemaphoreTake(sExternalLock, portMAX_DELAY);
     while (!otSysPseudoResetWasRequested())
     {
-    	printf("OpenThread main loop\n");
-    	vTaskDelay(pdMS_TO_TICKS(500UL));
+        xSemaphoreTake(sExternalLock, portMAX_DELAY);
+        otSysProcessDrivers(instance);
         otTaskletsProcess(instance);
-        // TODO: change code to allow interrupt based activation of OpenThread Process. This will need to modifi UART receive interrupt to wake OpenThread process.
-        //xSemaphoreGive(sExternalLock);
-        /*if (!otTaskletsArePending(instance))
+        xSemaphoreGive(sExternalLock);
+        if (!otTaskletsArePending(instance))
         {
             ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
-        }*/
-        //xSemaphoreTake(sExternalLock, portMAX_DELAY);
-        otSysProcessDrivers(instance);
+        }
     }
 
     printf("OpenThread - this point should never have been reached\n");
@@ -104,9 +99,10 @@ void otrTaskNotifyGive()
 
 void otrTaskNotifyGiveFromISR()
 {
-    BaseType_t taskWoken;
+    BaseType_t xHigherPriorityTaskWoken;
 
-    vTaskNotifyGiveFromISR(&sMainTask, &taskWoken);
+    vTaskNotifyGiveFromISR(&sMainTask, &xHigherPriorityTaskWoken);
+    portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
 }
 
 /*
