@@ -1,5 +1,5 @@
 #
-#  Copyright (c) 2021, The OpenThread Authors.
+#  Copyright (c) 2020, The OpenThread Authors.
 #  All rights reserved.
 #
 #  Redistribution and use in source and binary forms, with or without
@@ -26,48 +26,14 @@
 #  POSSIBILITY OF SUCH DAMAGE.
 #
 
-add_library(openthread-kw41z-port
-    alarm.c
-    diag.c
-    entropy.c
-    flash.c
-    logging.c
-    misc.c
-    radio.c
-    system.c
-    uart.c
-    cli_uart.cpp
-)
+add_library(cmsis system_MKW41Z4.c)
 
-target_link_libraries(openthread-kw41z-port
-    PRIVATE
-        nxp-kw41z-xcvr-driver
-        nxp-kw41z-fsl-driver
-        ot-config
-        cmsis
-        boardconfig-thermosthat
-        freertos
+target_include_directories(cmsis
     PUBLIC
-        -T${PROJECT_SOURCE_DIR}/kw41_startup/MKW41Z512xxx4.ld
-        -Wl,--gc-sections -Wl,-Map=$<TARGET_PROPERTY:NAME>.map
+        ${PROJECT_SOURCE_DIR}/CMSIS
 )
 
-target_compile_definitions(openthread-kw41z-port
+target_compile_definitions(cmsis
     PUBLIC
         ${OT_PLATFORM_DEFINES}
-)
-
-target_compile_options(openthread-kw41z-port
-    PRIVATE
-        ${OT_CFLAGS}
-        -Wno-unknown-pragmas
-        -Wno-sign-compare
-        -Wno-unused-function
-        -Wno-unused-parameter
-        -Wno-empty-body
-)
-
-target_include_directories(openthread-kw41z-port
-    PRIVATE
-        ${PROJECT_SOURCE_DIR}/openthread/examples/platforms
 )

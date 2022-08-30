@@ -32,13 +32,14 @@
  * @file    thermosthat.c
  * @brief   Application entry point.
  */
-#include <stdio.h>
+//#include <stdio.h>
 #include "board.h"
 #include "peripherals.h"
 #include "pin_mux.h"
 #include "clock_config.h"
 #include "MKW41Z4.h"
 /* TODO: insert other include files here. */
+#include "fsl_gpio.h"
 #include "FreeRTOS.h"
 #include "task.h"
 
@@ -47,19 +48,27 @@
 /* TODO: insert other definitions and declarations here. */
 
 void vApplicationMallocFailedHook() {
-	printf("Malloc failed!\n");
+	GPIO_WritePinOutput(BOARD_INITPINS_LED_RED_GPIO, BOARD_INITPINS_LED_RED_PIN, 1U);
 	while(1) {
 		__asm volatile ("nop");
 	}
 }
 
+extern uint32_t __StackTop(void);
+
 void vDummyTask(void *pvParameters) {
 	char buffer[100];
+	volatile uint32_t freeHeap = 0;
+	volatile uint32_t minFreeHeap = 0;
+	GPIO_WritePinOutput(BOARD_INITPINS_LED_YELLOW_GPIO, BOARD_INITPINS_LED_YELLOW_PIN, 1U);
 	while(1) {
-		printf("DummyTask main loop\n");
+		//printf("DummyTask main loop\n");
 		vTaskList(buffer);
 		buffer[99] = '\0';
-		printf(buffer);
+		freeHeap = xPortGetFreeHeapSize();
+		minFreeHeap = xPortGetMinimumEverFreeHeapSize();
+		GPIO_TogglePinsOutput(BOARD_INITPINS_LED_YELLOW_GPIO, BOARD_INITPINS_LED_YELLOW_GPIO_PIN_MASK);
+		//printf(buffer);
 		vTaskDelay(pdMS_TO_TICKS(1000UL));
 	}
 }
@@ -68,18 +77,20 @@ void vDummyTask(void *pvParameters) {
  * @brief   Application entry point.
  */
 int main(int argc, char *argv[]) {
-	char buffer[100];
     /* Init board hardware. */
     BOARD_InitBootPins();
     BOARD_InitBootClocks();
     BOARD_InitBootPeripherals();
 
-    printf("Hello World\n");
+    GPIO_WritePinOutput(BOARD_INITPINS_LED_GREEN_GPIO, BOARD_INITPINS_LED_GREEN_PIN, 1U);
 
-    otrInit(argc, argv);
-    xTaskCreate(vDummyTask, "Dummy", 500, NULL, 1, NULL);
-    vTaskList(buffer);
-    buffer[99] = '\0';
-    printf(buffer);
+    //otrInit(argc, argv);
+    xTaskCreate(vDummyTask, "Dummy", 90, NULL, 1, NULL); // Allocated stack is in stack Words, not bytes!!! One stack word is 4 Bytes (since we are on a 32 bit architecture)
     vTaskStartScheduler();
+    while(1) {
+		GPIO_WritePinOutput(BOARD_INITPINS_LED_YELLOW_GPIO, BOARD_INITPINS_LED_YELLOW_PIN, 1U);
+		GPIO_WritePinOutput(BOARD_INITPINS_LED_RED_GPIO, BOARD_INITPINS_LED_RED_PIN, 1U);
+		GPIO_WritePinOutput(BOARD_INITPINS_LED_GREEN_GPIO, BOARD_INITPINS_LED_GREEN_PIN, 0U);
+		__asm volatile ("nop");
+	}
 }

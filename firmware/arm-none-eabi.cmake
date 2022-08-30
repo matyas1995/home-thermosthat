@@ -1,5 +1,5 @@
 #
-#  Copyright (c) 2021, The OpenThread Authors.
+#  Copyright (c) 2020, The OpenThread Authors.
 #  All rights reserved.
 #
 #  Redistribution and use in source and binary forms, with or without
@@ -26,48 +26,24 @@
 #  POSSIBILITY OF SUCH DAMAGE.
 #
 
-add_library(openthread-kw41z-port
-    alarm.c
-    diag.c
-    entropy.c
-    flash.c
-    logging.c
-    misc.c
-    radio.c
-    system.c
-    uart.c
-    cli_uart.cpp
-)
+set(CMAKE_SYSTEM_NAME              Generic)
+set(CMAKE_SYSTEM_PROCESSOR         ARM)
 
-target_link_libraries(openthread-kw41z-port
-    PRIVATE
-        nxp-kw41z-xcvr-driver
-        nxp-kw41z-fsl-driver
-        ot-config
-        cmsis
-        boardconfig-thermosthat
-        freertos
-    PUBLIC
-        -T${PROJECT_SOURCE_DIR}/kw41_startup/MKW41Z512xxx4.ld
-        -Wl,--gc-sections -Wl,-Map=$<TARGET_PROPERTY:NAME>.map
-)
+set(CMAKE_C_COMPILER               arm-none-eabi-gcc)
+set(CMAKE_CXX_COMPILER             arm-none-eabi-g++)
+set(CMAKE_ASM_COMPILER             arm-none-eabi-gcc)
+set(CMAKE_RANLIB                   arm-none-eabi-ranlib)
 
-target_compile_definitions(openthread-kw41z-port
-    PUBLIC
-        ${OT_PLATFORM_DEFINES}
-)
+set(COMMON_C_FLAGS                 "-mthumb -fdata-sections -ffunction-sections -mcpu=cortex-m0plus -mfloat-abi=soft")
 
-target_compile_options(openthread-kw41z-port
-    PRIVATE
-        ${OT_CFLAGS}
-        -Wno-unknown-pragmas
-        -Wno-sign-compare
-        -Wno-unused-function
-        -Wno-unused-parameter
-        -Wno-empty-body
-)
+set(CMAKE_C_FLAGS_INIT             "${COMMON_C_FLAGS} -std=gnu99")
+set(CMAKE_CXX_FLAGS_INIT           "${COMMON_C_FLAGS} -fno-exceptions -fno-rtti")
+set(CMAKE_ASM_FLAGS_INIT           "${COMMON_C_FLAGS}")
+set(CMAKE_EXE_LINKER_FLAGS_INIT    "${COMMON_C_FLAGS} -specs=nano.specs -specs=nosys.specs")
 
-target_include_directories(openthread-kw41z-port
-    PRIVATE
-        ${PROJECT_SOURCE_DIR}/openthread/examples/platforms
-)
+set(DEBUG_FLAGS                    "-Og -g")
+set(RELEASE_FLAGS                  "-Os")
+set(CMAKE_C_FLAGS_DEBUG            ${DEBUG_FLAGS})
+set(CMAKE_C_FLAGS_RELEASE          ${RELEASE_FLAGS})
+set(CMAKE_CXX_FLAGS_DEBUG          ${DEBUG_FLAGS})
+set(CMAKE_CXX_FLAGS_RELEASE        ${RELEASE_FLAGS})
